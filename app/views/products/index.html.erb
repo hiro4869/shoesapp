@@ -1,0 +1,14 @@
+<h1>index</h1>
+
+<% @products.each do |product| %>
+  <p>商品名:<%= link_to product.p_name , product_path(product.id) %></p>
+  <p>価格:<%= product.price %></p>
+  <p>商品詳細:<%= product.description %></p>
+  <p><%= link_to "編集画面", edit_product_path(product.id) %></p>
+  <a>---------------------------------</a>
+
+
+<% end %>
+
+<hr>
+<%= link_to "新規作成", new_product_path %>
