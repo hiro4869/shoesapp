@@ -46,4 +46,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  # リサイズしたり画像形式を変更します。
+    include CarrierWave::RMagick
+
+
+  # 画像の上限を100pxにします。
+    process :resize_to_limit => [250, 250]
+
 end
