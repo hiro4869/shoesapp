@@ -1,0 +1,15 @@
+<h1>マイページ</h1>
+
+<p>user:<%= @user.id %></p>
+
+<% @user_products.each do |product| %>
+<p>商品名：<%= product.p_name %></p>
+<p>価格：<%= product.price %></p>
+<p>商品詳細：<%= product.description %></p>
+<div>
+  <%= image_tag product.image %>
+</div>
+<a>-------------------------------</a>
+<% end %>
+
+<p><%= link_to "Home", root_path %></p>
