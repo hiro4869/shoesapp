@@ -1,5 +1,8 @@
 <h1>マイページ</h1>
 
+<p><%= link_to "新しく出品する", new_product_path %></p>
+<hr>
+
 <p>user:<%= @user.id %></p>
 
 <% @user_products.each do |product| %>
@@ -9,6 +12,7 @@
 <div>
   <%= image_tag product.image %>
 </div>
+<p><%= link_to '編集ページ', edit_product_path(product) %></p>
 <a>-------------------------------</a>
 <% end %>
 
