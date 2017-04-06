@@ -1,4 +1,6 @@
 <h1>show</h1>
+<%= render_breadcrumbs separator: ' > ' %>
+<hr>
 <p>ID：<%= @product.id %></p>
 <p>価格：<%= @product.price %></p>
 <p>商品名：<%= @product.p_name %></p>
@@ -11,7 +13,3 @@
     <%= link_to '削除', @product, method: :delete, data: {confirm: '削除してもいいですか？'} %>
   <% end %>
 </p>
-
-
-<p><%= link_to "Home", root_path %></p>
-
