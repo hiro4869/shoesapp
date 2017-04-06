@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update]
 
+  add_breadcrumb "home", :root_path
+
   def index
     @products = Product.page(params[:page]).per(50)
   end
@@ -22,9 +24,13 @@ class ProductsController < ApplicationController
   end
 
   def show
+    #パンくずリスト
+    add_breadcrumb @product.p_name
   end
 
   def edit
+    #パンくずリスト
+    add_breadcrumb "#{@product.p_name}の編集ページ"
   end
 
   def update
