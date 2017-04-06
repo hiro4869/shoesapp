@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).per(50)
   end
 
   def new
