@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @products = Product.all
@@ -11,6 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.user_id = current_user.id
     if @product.save
       redirect_to root_path
     else
@@ -36,11 +39,18 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:price, :p_name, :description)
+    params.require(:product).permit(:price, :p_name, :description, :user_id)
   end
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def correct_user
+    product = Product.find(params[:id])
+    if current_user.id != product.user.id
+      redirect_to root_path
+    end
   end
 
 end
