@@ -24,10 +24,13 @@ class ProductsController < ApplicationController
   end
 
   def show
+    #パンくずリスト
     add_breadcrumb @product.p_name
   end
 
   def edit
+    #パンくずリスト
+    add_breadcrumb "#{@product.p_name}の編集ページ"
   end
 
   def update
