@@ -1,8 +1,16 @@
-Product.seed do |s|
-  s.id = 8
-  s.price = 9000
-  s.p_name = "seed8"
-  s.description = "記述を変更"
-  s.user_id = 2
-  s.image = nil
+i = 1
+
+while i < 100 do
+
+  Product.seed do |s|
+    s.id = i
+    s.price = i * 1000
+    s.p_name = "#{i}太郎"
+    s.description = "#{i}太郎です"
+    s.user_id = i
+    s.image = nil
+  end
+
+  i += 1
 end
+
