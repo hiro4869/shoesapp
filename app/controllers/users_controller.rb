@@ -17,12 +17,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    # if @user.save
-    #   redirect_to root_path
-    # else
-    #   redirect_to new_user_path
-    # end
+    if @user.save
+      redirect_to root_path
+    else
+      render '/users/new'
+    end
   end
 
   private

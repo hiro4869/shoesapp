@@ -1,5 +1,5 @@
 <h1>index</h1>
-<%= link_to "ユーザー登録", new_user_path %>
+<%= link_to "ユーザー登録", users_new_path %>
 <% @products.each do |product| %>
   <p>商品名:<%= link_to product.p_name , product_path(product.id) %></p>
   <p>価格:<%= product.price %></p>

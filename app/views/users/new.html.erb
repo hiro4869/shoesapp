@@ -1,7 +1,7 @@
 <h1>ユーザー登録</h1>
 
 <h2>Sign up</h2>
-<%= form_tag '/users' do |f| %>
+<%= form_tag users_admin_path do |f| %>
   <p>email：<input type="text" name="user[email]"></p>
   <p>pass：<input type="password" name="user[password]"></p>
   <p>pass(再)：<input type="password" name="user[password_confirmation]"></p>
