@@ -1,0 +1,8 @@
+<h1>パーシャルから</h1>
+<%= form_for @product do |f| %>
+<p>商品名：<%= f.text_field :p_name %></p>
+<p>価格：<%= f.text_field :price %></p>
+<p>商品詳細：<%= f.text_field :description %></p>
+<p>画像：<%= f.file_field :image %></p>
+<%= f.submit "更新" %>
+<% end %>
