@@ -4,9 +4,9 @@ Rails.application.routes.draw do
  :registrations => 'users/registrations',
  :sessions => 'users/sessions'
 }
-  
+
   root 'products#index'
   resources :products
-  resources :users ,only: [:show]
+  resources :users ,only: [:show, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
