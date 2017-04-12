@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update]
 
   add_breadcrumb "home", :root_path
