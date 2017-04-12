@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    if current_user.role != "1"
+    if current_user.role != 1
       redirect_to root_path
     end
   end
