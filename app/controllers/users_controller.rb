@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  #自分の出品した商品のみ一覧を確認可能
   before_action :correct_user, only: [:show]
+  before_action :admin_user, only: [:adminpage]
 
+  #ぱんくずリストを表示
   add_breadcrumb "home", :root_path
 
   def show
@@ -24,6 +27,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def adminpage
+    @products = Product.all
+    #パンくずリスト
+    add_breadcrumb "管理者ページ"
+  end
+
   private
 
   def correct_user
@@ -35,6 +44,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def admin_user
+    if current_user.role != 1
+      redirect_to root_path
+    end
   end
 
 end
