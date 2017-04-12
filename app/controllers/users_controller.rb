@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:show]
 
+  #ぱんくずリストを表示
   add_breadcrumb "home", :root_path
 
   def show

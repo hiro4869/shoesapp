@@ -1,12 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-    before_action :prohibit_sign_up, only: [:new]
+
+    # サインアップページへ飛べないように設定
+    # before_action :prohibit_sign_up, only: [:new]
 
   # GET /resource/sign_up
-  def new
-  #   super
-  end
+  # def new
+  # #   super
+  # end
 
   # POST /resource
   # def create
@@ -37,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,8 +61,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def prohibit_sign_up
-      redirect_to root_path
-  end
+  # サインアップページへ飛べないようにする
+  # def prohibit_sign_up
+  #     redirect_to root_path
+  # end
 
 end
