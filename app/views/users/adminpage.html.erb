@@ -1,10 +1,7 @@
-<h1>マイページ</h1>
+<h1>管理者ページ</h1>
 <%= render_breadcrumbs separator: ' > ' %>
+<p><%= link_to "新しく出品する", new_product_path %></p>
 <hr>
-
-<%
-=begin
-%>
 
 <% @products.each do |product| %>
   <p>商品名：<%= product.p_name %></p>
@@ -16,9 +13,5 @@
   <p><%= link_to '編集ページ', edit_product_path(product) %></p>
   <a>-------------------------------</a>
 <% end %>
-
-<%
-=end
-%>
 
 <p><%= link_to "Home", root_path %></p>

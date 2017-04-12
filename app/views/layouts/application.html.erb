@@ -11,7 +11,8 @@
   <body>
     <% if user_signed_in? %>
       Logged in as <%= current_user.email %> |
-      <%= link_to "管理者ページ", "/user/#{current_user.id}" %> |
+      <%= link_to "マイページ", "/user/#{current_user.id}" %> |
+      <%= link_to "管理者ページ", "/users/adminpage" %> |
       <%= link_to "ログアウト",destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %> |
