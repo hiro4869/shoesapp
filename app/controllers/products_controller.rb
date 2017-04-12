@@ -1,7 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+  # ログインユーザーのみ閲覧可能
   # before_action :authenticate_user!
-  before_action :correct_user, only: [:edit, :update]
+
+  #自分で出品した商品のみ編集可能
+  # before_action :correct_user, only: [:edit, :update]
+
+
 
   add_breadcrumb "home", :root_path
 
@@ -52,11 +58,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def correct_user
-    product = Product.find(params[:id])
-    if current_user.id != product.user.id
-      redirect_to root_path
-    end
-  end
+  # def correct_user
+  #   product = Product.find(params[:id])
+  #   if current_user.id != product.user.id
+  #     redirect_to root_path
+  #   end
+  # end
 
 end
