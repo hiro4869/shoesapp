@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   validate :role_0_or_1?
 
-
   def role_0_or_1?
     role = self.role
     if  role == 1 || role == 0
