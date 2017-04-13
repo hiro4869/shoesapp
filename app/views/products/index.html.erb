@@ -1,15 +1,11 @@
-<h1>index</h1>
-<%= link_to "ユーザー登録", users_new_path %>
+<h1>●●販売サイト</h1>
 <% @products.each do |product| %>
   <p>商品名:<%= link_to product.p_name , product_path(product.id) %></p>
   <p>価格:<%= product.price %></p>
   <p>商品詳細:<%= product.description %></p>
-  <p>user_id:<%= product.user_id %></p>
   <div>
     <% if product.image? %>
       <%= image_tag product.image.url %>
-    <% else %>
-      画像がありません
     <% end %>
   </div>
   <a>---------------------------------</a>

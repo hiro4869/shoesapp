@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #自分の出品した商品のみ一覧を確認可能
   before_action :correct_user, only: [:show]
-  before_action :admin_user, only: [:adminpage]
+  before_action :admin_user, only: [:adminpage, :new]
 
   #ぱんくずリストを表示
   add_breadcrumb "home", :root_path
