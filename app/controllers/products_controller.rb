@@ -7,8 +7,7 @@ class ProductsController < ApplicationController
   #自分で出品した商品のみ編集可能
   # before_action :correct_user, only: [:edit, :update]
 
-
-
+  #パンくずリスト
   add_breadcrumb "home", :root_path
 
   def index
