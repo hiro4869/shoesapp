@@ -5,6 +5,11 @@ class CategoriesController < ApplicationController
   def show
     @products = Product.where("category_id = #{params[:id]}")
 
+    #ページング
+    # @categories = @products.page(params[:page])
+    @products = @products.page(params[:page]).per(10)
+
+    #パンくずリスト
     add_breadcrumb "カテゴリーページ"
   end
 
