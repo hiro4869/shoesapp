@@ -1,0 +1,11 @@
+<h1>購入画面</h1>
+
+
+<%= form_for @purchase do |f| %>
+<p>氏名：<%= f.text_field :u_name %></p>
+<p>住所：<%= f.text_field :u_address %></p>
+<p>電話番号：<%= f.text_field :u_phone_num %></p>
+<p>メールアドレス：<%= f.text_field :u_email %></p>
+<p>購入数：<%= f.text_field :purchase_num %></p>
+<%= f.submit "更新" %>
+<% end %>
