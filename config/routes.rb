@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
   resources :products
+  resources :categories, only: [:show]
 
   get "users/new" => "users#new"
   get "user/:id" => "users#show"
