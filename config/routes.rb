@@ -7,13 +7,12 @@ Rails.application.routes.draw do
 
   root 'products#index'
   resources :products
+  resources :categories, only: [:show]
 
   get "users/new" => "users#new"
   get "user/:id" => "users#show"
   post "/users/admin/" => "users#create"
   get "users/adminpage" => "users#adminpage"
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

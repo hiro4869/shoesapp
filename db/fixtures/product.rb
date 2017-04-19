@@ -9,6 +9,7 @@ while i < 100 do
     s.description = "#{i}太郎です"
     s.user_id = i
     s.image = nil
+    s.category_id = rand(1..4)
   end
 
   i += 1

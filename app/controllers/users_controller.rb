@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   #ぱんくずリストを表示
   add_breadcrumb "home", :root_path
 
+
   def show
     @user = User.find(params[:id])
     @user_products = @user.products
