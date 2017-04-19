@@ -2,7 +2,7 @@
 <p>商品名：<%= f.text_field :p_name %></p>
 <p>価格：<%= f.text_field :price %></p>
 <p>商品詳細：<%= f.text_field :description %></p>
-<p>カテゴリー：<%= f.text_field :category_id %></p>
+<p>カテゴリー：<%= f.collection_select :category_id, Category.all, :id, :category_name %></p>
 <p>画像：<%= f.file_field :image %></p>
 <%= f.submit "更新" %>
 <% end %>
