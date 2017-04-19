@@ -6,8 +6,15 @@ Rails.application.routes.draw do
 }
 
   root 'products#index'
-  resources :products
+
+  resources :products do
+    resource :purchases, only: [:new, :create]
+  end
+  get "purchases/index" => "purchases#index"
+
+  
   resources :categories, only: [:show]
+
 
   get "users/new" => "users#new"
   get "user/:id" => "users#show"

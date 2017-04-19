@@ -1,0 +1,14 @@
+<h1>購入情報一覧</h1>
+
+<% @purchases.each do |purchase| %>
+  <p>購入番号：<%= purchase.id %></p>
+  <p>購入日：<%= purchase.created_at %></p>
+  <p>購入商品ID：<%= purchase.product_id %></p>
+  <p>購入数：<%= purchase.purchase_num %></p>
+  <p>購入者ID：<%= purchase.user_id %></p>
+  <p>氏名：<%= purchase.u_name %></p>
+  <p>住所：<%= purchase.u_address %></p>
+  <p>電話番号：<%= purchase.u_phone_num %></p>
+  <p>メールアドレス：<%= purchase.u_email %></p>
+  <a>--------------------------------</a>
+<% end %>
