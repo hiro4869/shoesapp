@@ -2,11 +2,14 @@ class PurchasesController < ApplicationController
 
   def new
     @purchase = Purchase.new
+    @product = Product.find(params[:product_id])
   end
 
   def create
     @purchase = Purchase.new(purchase_params)
     @purchase.user_id = current_user.id
+    @purchase.product_id = params[:product_id]
+
     if @purchase.save
       redirect_to root_path
     else

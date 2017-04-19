@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 }
 
   root 'products#index'
-  resources :products
+
+  resources :products do
+    resource :purchases, only: [:new, :create]
+  end
+  
   resources :categories, only: [:show]
-  resources :purchases, only: [:new, :create]
 
 
   get "users/new" => "users#new"
