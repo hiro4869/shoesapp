@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :admin_user, only: [:index]
+  before_action :sign_in?, only: [:new]
 
   def index
     @purchases  = Purchase.all.order("created_at DESC")
@@ -30,6 +31,14 @@ class PurchasesController < ApplicationController
   def admin_user
     if current_user.role != 1
       redirect_to root_path
+    end
+  end
+
+  def sign_in?
+    if user_signed_in?
+      return true
+    else
+      redirect_to new_user_registration_path
     end
   end
 
