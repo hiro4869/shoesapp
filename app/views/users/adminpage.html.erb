@@ -2,6 +2,7 @@
 <%= render_breadcrumbs separator: ' > ' %>
 <p><%= link_to "新しく出品する", new_product_path %></p>
 <p><%= link_to "新規ユーザー登録", users_new_path %></p>
+<p><%= link_to "購入履歴一覧", purchases_index_path %></p>
 <hr>
 
 <% @products.each do |product| %>

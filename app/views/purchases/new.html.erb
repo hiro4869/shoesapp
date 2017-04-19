@@ -1,11 +1,19 @@
 <h1>購入画面</h1>
 
+<h2>購入商品</h2>
+<p>ID：<%= @product.id %></p>
+<p>商品名：<%= @product.p_name %></p>
+<p>価格：<%= @product.price %></p>
+<p>商品詳細：<%= @product.description %></p>
+<hr>
+
+<h2>購入者情報の入力</h2>
 <%= form_tag "/products/#{@product.id}/purchases" do %>
 <p>氏名：<input type="text" name="purchase[u_name]"></p>
 <p>住所：<input type="text" name="purchase[u_address]"></p>
 <p>電話番号：<input type="text" name="purchase[u_phone_num]"></p>
 <p>メールアドレス：<input type="text" name="purchase[u_email]"></p>
-<p>購入数<input type="text" name="purchase[purchase_num]"></p>
+<p>購入数：<input type="text" name="purchase[purchase_num]"></p>
 <p><input type="submit" value="購入"></p>
 <% end %>
 
