@@ -3,6 +3,7 @@
   <p>商品名:<%= link_to product.p_name , product_path(product.id) %></p>
   <p>価格:<%= product.price %></p>
   <p>商品詳細:<%= product.description %></p>
+  <p>カテゴリー:<%= product.category.category_name %></p>
   <div>
     <% if product.image? %>
       <%= image_tag product.image.url %>
