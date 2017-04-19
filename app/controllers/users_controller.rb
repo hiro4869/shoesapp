@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_products = @user.products
 
+    #購入履歴を抽出
+    @purchases = Purchase.where("user_id = #{params[:id]}").order("created_at DESC")
+
     #パンくずリスト
     add_breadcrumb "#{@user.email}さんのマイページ"
   end

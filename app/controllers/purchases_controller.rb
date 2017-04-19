@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   before_action :admin_user, only: [:index]
 
   def index
-    @purchases  = Purchase.all
+    @purchases  = Purchase.all.order("created_at DESC")
   end
 
   def new
