@@ -11,9 +11,9 @@
 <%= form_tag "/products/#{@product.id}/purchases" do %>
 <p>氏名：<input type="text" name="purchase[u_name]"></p>
 <p>住所：<input type="text" name="purchase[u_address]"></p>
-<p>電話番号：<input type="text" name="purchase[u_phone_num]"></p>
+<p>電話番号：<input type="text" name="purchase[u_phone_num]">(ハイフン無し半角数字)</p>
 <p>メールアドレス：<input type="text" name="purchase[u_email]"></p>
-<p>購入数：<input type="text" name="purchase[purchase_num]"></p>
+<p>購入数：<input type="text" name="purchase[purchase_num]">(100個まで)</p>
 <p><input type="submit" value="購入"></p>
 <% end %>
 
