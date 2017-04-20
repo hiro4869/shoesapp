@@ -16,6 +16,15 @@ class PurchasesController < ApplicationController
     @purchase.user_id = current_user.id
     @purchase.product_id = params[:product_id]
     if @purchase.save
+
+      #管理ユーザーにメールを送信
+      adminuser = ENV['email']
+      PurchaseMailer.purchase_email(adminuser, @purchase).deliver
+
+      #購入者にメールを送る
+      user_email = @purchase.u_email
+      PurchaseMailer.purchase_email(user_email, @purchase).deliver
+
       redirect_to root_path
     else
       render 'new'

@@ -1,7 +1,6 @@
 <h1>●●販売サイト</h1>
 
 
-
 <% @products.each do |product| %>
   <p>商品名:<%= link_to product.p_name , product_path(product.id) %></p>
   <p>価格:<%= product.price %></p>
