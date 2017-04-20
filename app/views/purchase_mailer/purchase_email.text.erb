@@ -1,5 +1,15 @@
 ===========================================
-  「<%= @u_name %> 」さん
+  <%= @u_name %>さん
 ===========================================
 
   ご購入ありがとうございます。
+
+  【ご購入明細】
+  ご購入日：<%= @purchase.created_at %>
+  商品名：<%= @purchase.product.p_name %>
+  価格：<%= @purchase.product.price %>
+  購入数：<%= @purchase.purchase_num %>
+  氏名：<%= @purchase.u_name %>
+  住所：<%= @purchase.u_address %>
+  電話番号：<%= @purchase.u_phone_num %>
+  Eメール：<%= @purchase.u_email %>

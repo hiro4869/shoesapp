@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <h1>「<%= @u_name %> 」さん</h1>
+    <h1><%= @purchase.u_name %>様</h1>
     <p>
-      お買い上げありがとうございます。<br />
-      <%= @u_email %> 
+      お買い上げありがとうございます。
     </p>
+    <h2>ご購入明細</h2>
+    <p>ご購入日：<%= @purchase.created_at %></p>
+    <p>商品名：<%= @purchase.product.p_name %></p>
+    <p>価格：<%= @purchase.product.price %></p>
+    <p>購入数：<%= @purchase.purchase_num %></p>
+
+    <p>氏名：<%= @purchase.u_name %></p>
+    <p>住所：<%= @purchase.u_address %></p>
+    <p>電話番号：<%= @purchase.u_phone_num %></p>
+    <p>Eメール：<%= @purchase.u_email %></p>
   </body>
 </html>
