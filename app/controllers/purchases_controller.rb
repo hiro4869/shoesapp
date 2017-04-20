@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
 
       redirect_to root_path
     else
-      render 'new'
+      redirect_to "/products/#{@purchase.product_id}/purchases/new"
     end
   end
 
