@@ -1,6 +1,67 @@
 require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
+  #before:each実験------------------------
+  before(:each) do
+    def make(x)
+      Purchase.new(x)
+    end
+
+    def factory(x,y)
+      build(x,y)
+    end
+
+    @fukunaga = {
+      u_name: "fukunaga",
+      purchase_num: 5,
+      u_address: "渋谷",
+      u_phone_num: "09012345678",
+      u_email: "test@gmail.com"
+    }
+  end
+
+  context "create" do
+    it "test" do
+      expect(make(@fukunaga)).to be_valid
+    end
+  end
+  #before:each実験ここまで--------------------
+
+
+  #FactoryGirl実験
+
+  context "destroy" do
+    it "本を削除したら減る" do
+      purchase = create(:purchase)
+      # book = create(:expensive_book)
+      # book = create(:book, :very_expensive)
+      # comment = create(:comment, book_id: book.id)
+
+      # book = Book.create! valid_attributes
+      # comment = Comment.create! comment_valid_attributes
+      expect { purchase.destroy }.to change { Purchase.count }.by(-1)
+    end
+
+    it "FactoryGirlで作成する" do
+      purchase = build(:purchase)
+      expect(purchase).to be_valid
+    end
+
+    it "複数の条件で作成する" do
+      purchase = build(:purchase, :too_much)
+      expect(purchase).to be_invalid
+    end
+
+    it "beforeで関数を定義してみる" do
+      expect(factory(:purchase,:too_much)).to be_invalid
+    end
+
+  end
+
+  #FactoryGirl実験ここまで-----------------------------------
+
+
+
   context "create" do
     it "適切な入力値では作成できる" do
       purchase = Purchase.new(
