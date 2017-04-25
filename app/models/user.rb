@@ -6,8 +6,15 @@ class User < ApplicationRecord
   has_many :products
   has_many :purchases
 
+  # validates :email, presence: true
+  # validates :password, presence: true
+
+  #プライバシーポリシーに同意していないとバリデーション
+  validates :agreement, acceptance: true
+
   validate :role_0_or_1?
 
+  #0か1のrole以外ではバリデーションをかける。
   def role_0_or_1?
     role = self.role
     if  role == 1 || role == 0

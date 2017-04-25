@@ -37,6 +37,9 @@ class UsersController < ApplicationController
     add_breadcrumb "管理者ページ"
   end
 
+  def privacy_policy
+  end
+
   private
 
   def correct_user
@@ -47,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :agreement)
   end
 
   def admin_user

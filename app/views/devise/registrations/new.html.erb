@@ -21,6 +21,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.check_box :agreement %>
+    <%= link_to "プライバシーポリシー", users_privacy_policy_path , :target=>["_blank"] %>に同意する
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

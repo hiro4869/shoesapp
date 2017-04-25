@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get "users/new" => "users#new"
   get "user/:id" => "users#show"
+  get "users/privacy_policy" => "users#privacy_policy"
   post "/users/admin/" => "users#create"
   get "users/adminpage" => "users#adminpage"
 
