@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
   def show
     #パンくずリスト
     add_breadcrumb @product.p_name
+
+    @cart = Cart.new
   end
 
   def edit

@@ -1,0 +1,7 @@
+<h1>ショップカート</h1>
+
+<% @cart.each do |item| %>
+  <p>商品ID:<%= item.product_id %></p>
+  <p>購入数:<%= item.quantity %></p>
+  <a>---------------</a>
+<% end %>

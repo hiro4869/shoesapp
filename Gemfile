@@ -29,6 +29,7 @@ gem 'rmagick'
 gem 'kaminari'
 
 gem 'seed-fu', '~> 2.3'
+gem 'hirb'
 
 gem "breadcrumbs_on_rails"
 
