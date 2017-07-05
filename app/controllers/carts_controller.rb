@@ -16,10 +16,7 @@ class CartsController < ApplicationController
   end
 
   def raise_flag
-    # @cart = Cart.find_by(user_id: current_user.id)
-    @cart = Cart.find_by(id: "#{params[:cart][:id]}")
-    # @cart = Cart.find_by(user_id: 11)
-
+    @cart = Cart.find("#{params[:cart][:id]}")
     if @cart.update(buy_after_flag:true)
       redirect_to user_carts_path(current_user.id)
     else
@@ -28,6 +25,18 @@ class CartsController < ApplicationController
   end
 
   def down_flag
+    @cart = Cart.find("#{params[:cart][:id]}")
+    if @cart.update(buy_after_flag:false)
+      redirect_to user_carts_path(current_user.id)
+    else
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    redirect_to user_carts_path(current_user.id)
   end
 
 

@@ -10,13 +10,11 @@
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
       <%= f.hidden_field :id,:value => "#{item.id}" %>
       <%= f.submit "　後で買う　", class: "btn btn-success" %>
+      <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
     <% end %>
-
-
     <a>---------------</a>
   <% end %>
 <% end %>
-
 
 <hr>
 <h1>「あとで買う」に入っている商品</h1>
@@ -28,6 +26,13 @@
     <p>cartID:<%= item.id %></p>
     <p>商品ID:<%= item.product_id %></p>
     <p>購入数:<%= item.quantity %></p>
+
+    <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>
+      <%= f.hidden_field :id,:value => "#{item.id}" %>
+      <%= f.submit "　カートに戻す　", class: "btn btn-success" %>
+      <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+    <% end %>
+
     <a>---------------</a>
   <% end %>
 <% end %>
