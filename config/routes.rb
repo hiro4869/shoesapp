@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :carts , only: [:index, :create, :destroy] do
       collection do
         get :cart_added_confirm
+        get :confirmation
         patch :raise_flag
         patch :down_flag
       end

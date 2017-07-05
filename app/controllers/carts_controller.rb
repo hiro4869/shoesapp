@@ -1,9 +1,11 @@
 class CartsController < ApplicationController
+  # カートの中身を表示するページ
   def index
     @cart = Cart.where(user_id: current_user.id).where(buy_after_flag: false)
     @cart_after = Cart.where(user_id: current_user.id).where(buy_after_flag: true)
   end
 
+  # 商品を新しくカートに追加する
   def create
     @cart = Cart.new(cart_params)
     @cart.user_id = current_user.id
@@ -15,6 +17,11 @@ class CartsController < ApplicationController
     end
   end
 
+  # 「商品をカートに追加しました」と表示されるページ
+  def cart_added_confirm
+  end
+
+  # 商品を「あとで買う」に入れる
   def raise_flag
     @cart = Cart.find("#{params[:cart][:id]}")
     if @cart.update(buy_after_flag:true)
@@ -24,6 +31,7 @@ class CartsController < ApplicationController
     end
   end
 
+  # 商品をカートに戻す
   def down_flag
     @cart = Cart.find("#{params[:cart][:id]}")
     if @cart.update(buy_after_flag:false)
@@ -33,6 +41,11 @@ class CartsController < ApplicationController
     end
   end
 
+  def confirmation
+    @cart = Cart.where(user_id: current_user.id).where(buy_after_flag: false)
+  end
+
+  # カートから商品を削除
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
@@ -40,8 +53,6 @@ class CartsController < ApplicationController
   end
 
 
-  def cart_added_confirm
-  end
 
 private
   def cart_params

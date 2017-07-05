@@ -4,7 +4,6 @@
   <p>現在、カートに入っている商品はありません。</p>
 <% else %>
   <% @cart.each do |item| %>
-    <p>cartID:<%= item.id %></p>
     <p>商品ID:<%= item.product_id %></p>
     <p>購入数:<%= item.quantity %></p>
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
@@ -12,9 +11,11 @@
       <%= f.submit "　後で買う　", class: "btn btn-success" %>
       <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
     <% end %>
-    <a>---------------</a>
+    <p>------------------------------</p>
   <% end %>
 <% end %>
+
+<p class="btn-center"><%= link_to "　レジに進む　", confirmation_user_carts_path(current_user.id), class: "btn btn-primary btn-lg" %></p>
 
 <hr>
 <h1>「あとで買う」に入っている商品</h1>
@@ -23,7 +24,6 @@
   <p>現在、「あとで買う」に入っている商品はありません。</p>
 <% else %>
   <% @cart_after.each do |item| %>
-    <p>cartID:<%= item.id %></p>
     <p>商品ID:<%= item.product_id %></p>
     <p>購入数:<%= item.quantity %></p>
 
@@ -33,7 +33,7 @@
       <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
     <% end %>
 
-    <a>---------------</a>
+    <p>------------------------------</p>
   <% end %>
 <% end %>
 
