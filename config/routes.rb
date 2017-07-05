@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  :sessions => 'users/sessions'
 }
 
-  root 'products#index'
+  root 'root#index'
 
   resources :products do
     resource :purchases, only: [:new, :create]
