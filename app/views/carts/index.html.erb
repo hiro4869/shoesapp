@@ -1,7 +1,34 @@
 <h1>ショップカート</h1>
 
-<% @cart.each do |item| %>
-  <p>商品ID:<%= item.product_id %></p>
-  <p>購入数:<%= item.quantity %></p>
-  <a>---------------</a>
+<% if @cart.empty? %>
+  <p>現在、カートに入っている商品はありません。</p>
+<% else %>
+  <% @cart.each do |item| %>
+    <p>cartID:<%= item.id %></p>
+    <p>商品ID:<%= item.product_id %></p>
+    <p>購入数:<%= item.quantity %></p>
+    <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
+      <%= f.hidden_field :id,:value => "#{item.id}" %>
+      <%= f.submit "　後で買う　", class: "btn btn-success" %>
+    <% end %>
+
+
+    <a>---------------</a>
+  <% end %>
 <% end %>
+
+
+<hr>
+<h1>「あとで買う」に入っている商品</h1>
+
+<% if @cart_after.empty? %>
+  <p>現在、「あとで買う」に入っている商品はありません。</p>
+<% else %>
+  <% @cart_after.each do |item| %>
+    <p>cartID:<%= item.id %></p>
+    <p>商品ID:<%= item.product_id %></p>
+    <p>購入数:<%= item.quantity %></p>
+    <a>---------------</a>
+  <% end %>
+<% end %>
+
