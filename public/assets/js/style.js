@@ -1,4 +1,4 @@
-$('body').vegas({
+$('.top_js_images').vegas({
     slides: [
         { src: '/assets/images/toppage/footwear-1838767_1920.jpg' },
         { src: '/assets/images/toppage/StockSnap_HKZLXBRRFP.jpg' },
@@ -7,3 +7,4 @@ $('body').vegas({
     animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ]
 
 });
+
