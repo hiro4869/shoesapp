@@ -1,4 +1,17 @@
 
+
+
+.shopname h1 {
+
+font-family: 'Playball', cursive;
+font-size: 80px;
+color: white;
+text-align: center;
+margin: 40px 40px 40px 20px;
+padding: 40px 40px 40px 20px;
+
+}
+ 
 /*pc-------------------------------------------*/
   
 @media all and (min-width: 768px) {

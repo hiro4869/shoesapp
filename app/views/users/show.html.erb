@@ -4,15 +4,7 @@
 
 <h2>購入履歴</h2>
 
-<% @purchases.each do |purchase| %>
-  <p>購入日：<%= purchase.created_at %></p>
-  <p>購入商品：<%= purchase.product.p_name %></p>
-  <p>商品価格：<%= purchase.product.price %></p>
-  <p>購入数：<%= purchase.purchase_num %></p>
-  <a>--------------------------------</a>
-
-
-<% end %>
+<p><%= link_to "購入履歴一覧へ", orders_path %></p>
 
 
 <p><%= link_to "Home", root_path %></p>

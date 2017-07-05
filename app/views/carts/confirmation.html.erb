@@ -1,0 +1,26 @@
+<h1>確認画面</h1>
+<p>お届け先</p>
+<p>お支払い方法</p>
+
+<hr>
+<% if @cart.empty? %>
+  <p>現在、カートに入っている商品はありません。</p>
+  <p><%= link_to "カートに戻る", user_carts_path(current_user.id) %></p>
+<% else %>
+  <% total = 0 %>
+  <% @cart.each do |item| %>
+    <p>商品ID:<%= item.product_id %></p>
+    <p>商品名:<%= item.product.p_name %></p>
+    <p>価格:<%= item.product.price %>円</p>
+    <p>購入数:<%= item.quantity %></p>
+    <p>小計：<%= item.product.price * item.quantity %>円</p>
+    <% total += item.product.price * item.quantity %>
+    <p>------------------------------</p>
+  <% end %>
+  <h2>合計：<%= total %> 円</h2>
+
+<% end %>
+
+
+
+<p class="btn-center"><%= link_to "　注文を確定する　", orders_path, class: "btn btn-primary btn-lg",method: :post %></p>

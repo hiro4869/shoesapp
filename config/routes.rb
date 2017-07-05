@@ -16,10 +16,19 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   resources :users , only: [:new, :create] do
-    resources :carts , only: [:index, :create] do
+    resources :carts , only: [:index, :create, :destroy] do
       collection do
         get :cart_added_confirm
+        get :confirmation
+        patch :raise_flag
+        patch :down_flag
       end
+    end
+  end
+
+  resources :orders, only: [:create, :index] do
+    collection do
+      get :confirmation
     end
   end
 
