@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:create] do
+  resources :orders, only: [:create, :index] do
     collection do
       get :confirmation
     end

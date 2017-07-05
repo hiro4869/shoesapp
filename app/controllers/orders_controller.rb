@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders = Order.where(user_id: current_user.id)
+  end
+
   def create
     # ショップカートの中身を抽出
     @cart = Cart.where(user_id: current_user.id).where(buy_after_flag: false)
