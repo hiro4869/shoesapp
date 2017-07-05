@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705032259) do
+ActiveRecord::Schema.define(version: 20170705041530) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
     t.integer  "quantity"
-    t.boolean  "buy_after_flag"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "buy_after_flag", default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "categories", force: :cascade do |t|
