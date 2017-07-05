@@ -15,6 +15,16 @@
 </div>
 <%= link_to "購入", new_product_purchases_path(@product) %>
 
+
+<%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
+  <p>購入数</p>
+  <p><%= f.text_field :quantity %></p>
+  <%= f.hidden_field :product_id, :value => @product.id  %>
+  <br/>
+  <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+<% end %>
+
+
 <p>
 
 <%
