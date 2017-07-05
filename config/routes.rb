@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create] do
+    collection do
+      get :confirmation
+    end
+  end
+
   get "users/new" => "users#new"
   get "user/:id" => "users#show"
   get "users/privacy_policy" => "users#privacy_policy"

@@ -1,5 +1,6 @@
 <h1>確認画面</h1>
-
+<p>お届け先</p>
+<p>お支払い方法</p>
 
 <hr>
 <% if @cart.empty? %>
@@ -22,5 +23,4 @@
 
 
 
-<p class="btn-center"><%= link_to "　購入を確定する　", root_path, class: "btn btn-primary btn-lg" %></p>
-<p class="btn-center">↑まだ動きません</p>
+<p class="btn-center"><%= link_to "　注文を確定する　", orders_path, class: "btn btn-primary btn-lg",method: :post %></p>

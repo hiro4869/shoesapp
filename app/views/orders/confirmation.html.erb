@@ -1,0 +1,14 @@
+<h1>注文が確定されました</h1>
+<p>注文番号:<%= @order.id %></p>
+
+<% total = 0 %>
+<% @order.purchases.each do |item| %>
+  <p>商品名：<%= item.p_name %></p>
+  <p>価格：<%= item.price %>円</p>
+  <p>数量：<%= item.quantity %></p>
+  <p>小計：<%= item.price * item.quantity %>円</p>
+  <% total += item.price * item.quantity %>
+<% end %>
+
+<h3>合計：<%= total %>円</h3>
+
