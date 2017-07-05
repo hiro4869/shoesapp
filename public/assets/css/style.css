@@ -1,12 +1,42 @@
 
-.shopname h1 {
+/*pc-------------------------------------------*/
+  
+@media all and (min-width: 768px) {
 
-font-family: 'Playball', cursive;
-font-size: 80px;
-color: white;
-text-align: center;
-margin: 40px 40px 40px 20px;
-padding: 40px 40px 40px 20px;
+  .shopname {
+    font-family: 'Playball', cursive;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    padding-top: 300px;
+
+  }
+
+  .top_js_images {
+    height: 900px;
+  }
+
+
+
+
+}
+
+
+/*タブレット-------------------------------*/
+
+@media all and (max-width: 767px) {
+
+}
+
+
+/*スマホ-----------------------------------*/
+
+@media all and (max-width: 425px) {
+
+  .top_js_images {
+    height: 500px;
+  }
+
 
 }
 
