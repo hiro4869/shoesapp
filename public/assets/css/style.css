@@ -1,34 +1,68 @@
-
-
-
-.shopname h1 {
-
-font-family: 'Playball', cursive;
-font-size: 80px;
-color: white;
-text-align: center;
-margin: 40px 40px 40px 20px;
-padding: 40px 40px 40px 20px;
-
-}
  
-/*pc-------------------------------------------*/
-  
+ .shopname h1 {
+   font-family: 'Playball', cursive;
+   font-size: 80px;
+   color: white;
+   text-align: center;
+   margin: 40px 40px 40px 20px;
+   padding: 40px 40px 40px 20px;
+ }
+
+ /*product一覧--------*/
+ .clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+ } 
+
+ .collection_name {
+   font-family: 'Cinzel', serif
+ }
+ .p-line {
+   /*border: 1px solid #696969;*/
+ }
+ .product_pageinate_top {
+  text-align: center;
+ }
+ 
+ /*pc-----------------------------------------------------------*/
 @media all and (min-width: 768px) {
+ .shopname {
+   font-family: 'Playball', cursive;
+   font-size: 80px;
+   color: white;
+   text-align: center;
+   padding-top: 300px;
+ }
 
-  .shopname {
-    font-family: 'Playball', cursive;
-    font-size: 80px;
-    color: white;
-    text-align: center;
-    padding-top: 300px;
+ .top_js_images {
+   height: 900px;
+ }
 
-  }
+ /*product一覧--------*/
+ .collection_name{
+   padding: 5px 5px 5px 5px;
+   margin-bottom: 20px;
+ }
+ 
+ 
+ 
+ .p-box {
+   width: 300px;
+   height: 300px;
+   border: #f1f1f1 solid 3px;
+   float: left;
+   padding: 5px;
+   margin: 5px;
+ }
+ .product {
 
-  .top_js_images {
-    height: 900px;
-  }
-
+   width: 1000px;
+   margin:  auto;
+ }
+ .product_name {
+  margin-top: 150px;
+ }
 
 
 
@@ -37,7 +71,16 @@ padding: 40px 40px 40px 20px;
 
 /*タブレット-------------------------------*/
 
-@media all and (max-width: 767px) {
+@media all and (max-width:  767px) {
+  /*product一覧-------------------------*/
+  .p-box {
+   width: 200px;
+   height: 200px;
+   border: #f1f1f1 solid 3px;
+   float: left;
+   padding: 5px;
+   margin: 5px;
+ }
 
 }
 
@@ -50,6 +93,16 @@ padding: 40px 40px 40px 20px;
     height: 500px;
   }
 
+
+/*product一覧-----------------------------------------*/
+.p-box {
+   width: 150px;
+   height: 150px;
+   border: #f1f1f1 solid 3px;
+   float: left;
+   padding: 5px;
+   margin: 5px;
+ }
 
 }
 
