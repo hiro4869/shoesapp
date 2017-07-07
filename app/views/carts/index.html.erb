@@ -3,9 +3,14 @@
 <% if @cart.empty? %>
   <p>現在、カートに入っている商品はありません。</p>
 <% else %>
+  <% total = 0 %>
   <% @cart.each do |item| %>
     <p>商品ID:<%= item.product_id %></p>
+    <p>商品名:<%= item.product.p_name %></p>
+    <p>価格:<%= item.product.price %>円</p>
     <p>購入数:<%= item.quantity %></p>
+    <p>小計：<%= item.product.price * item.quantity %>円</p>
+    <% total += item.product.price * item.quantity %>
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
       <%= f.hidden_field :id,:value => "#{item.id}" %>
       <%= f.submit "　後で買う　", class: "btn btn-success" %>
@@ -13,6 +18,7 @@
     <% end %>
     <p>------------------------------</p>
   <% end %>
+  <h3>商品の合計：<%= total %> 円</h3>
 <% end %>
 
 <p class="btn-center"><%= link_to "　レジに進む　", confirmation_user_carts_path(current_user.id), class: "btn btn-primary btn-lg" %></p>
@@ -25,6 +31,8 @@
 <% else %>
   <% @cart_after.each do |item| %>
     <p>商品ID:<%= item.product_id %></p>
+    <p>商品名:<%= item.product.p_name %></p>
+    <p>価格:<%= item.product.price %>円</p>
     <p>購入数:<%= item.quantity %></p>
 
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>

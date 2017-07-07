@@ -16,6 +16,8 @@ class OrdersController < ApplicationController
     #ユーザーの最新のオーダーを取得
     @OrderNow = Order.where(user_id: current_user.id).last
 
+    total = 0
+
     #注文された商品を１レコードずつ保存
     @cart.each do |item|
       @purchase = Purchase.new
@@ -25,8 +27,19 @@ class OrdersController < ApplicationController
       @purchase.price = item.product.price
       @purchase.p_name = item.product.p_name
       @purchase.save
+      total += item.product.price * item.quantity
+    end
+
+    # 送料の判定
+    if total >= 50000
+      postage = 0
+    else
+      postage = 1000
     end
     
+    @OrderNow.postage = postage
+    @OrderNow.save
+
     # ショップカートの中身を全て削除
     @cart.destroy_all
 
