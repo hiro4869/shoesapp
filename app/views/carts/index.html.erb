@@ -5,12 +5,12 @@
 <% else %>
   <% total = 0 %>
   <% @cart.each do |item| %>
-    <p>商品ID:<%= item.product_id %></p>
-    <p>商品名:<%= item.product.p_name %></p>
-    <p>価格:<%= item.product.price %>円</p>
+    <p>商品ID:<%= item.product_variety_id %></p>
+    <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) %></p>
+    <p>価格:<%= item.product_variety.price %>円</p>
     <p>購入数:<%= item.quantity %></p>
-    <p>小計：<%= item.product.price * item.quantity %>円</p>
-    <% total += item.product.price * item.quantity %>
+    <p>小計：<%= item.product_variety.price * item.quantity %>円</p>
+    <% total += item.product_variety.price * item.quantity %>
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
       <%= f.hidden_field :id,:value => "#{item.id}" %>
       <%= f.submit "　後で買う　", class: "btn btn-success" %>
@@ -30,9 +30,9 @@
   <p>現在、「あとで買う」に入っている商品はありません。</p>
 <% else %>
   <% @cart_after.each do |item| %>
-    <p>商品ID:<%= item.product_id %></p>
-    <p>商品名:<%= item.product.p_name %></p>
-    <p>価格:<%= item.product.price %>円</p>
+    <p>商品ID:<%= item.product_variety_id %></p>
+    <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) %></p>
+    <p>価格:<%= item.product_variety.price %>円</p>
     <p>購入数:<%= item.quantity %></p>
 
     <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>

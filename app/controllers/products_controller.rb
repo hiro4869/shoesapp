@@ -38,6 +38,8 @@ class ProductsController < ApplicationController
   def edit
     #パンくずリスト
     add_breadcrumb "#{@product.p_name}の編集ページ"
+
+    @product_varieties = ProductVariety.where(product_id: "#{params[:id]}")
   end
 
   def update

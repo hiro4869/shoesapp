@@ -56,7 +56,7 @@ class CartsController < ApplicationController
 
 private
   def cart_params
-    params.require(:cart).permit(:product_id, :quantity, :buy_after_flag, :id)
+    params.require(:cart).permit(:product_variety_id, :quantity, :buy_after_flag, :id)
   end
 
 end

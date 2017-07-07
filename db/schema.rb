@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707063317) do
+ActiveRecord::Schema.define(version: 20170707104535) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "product_id"
+    t.integer  "product_variety_id"
     t.integer  "quantity"
-    t.boolean  "buy_after_flag", default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "buy_after_flag",     default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20170707063317) do
     t.integer  "postage"
   end
 
+  create_table "product_varieties", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "color"
+    t.string   "size"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer  "price"
     t.string   "p_name"
@@ -51,10 +60,10 @@ ActiveRecord::Schema.define(version: 20170707063317) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer  "product_id"
+    t.integer  "product_variety_id"
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "order_id"
     t.integer  "price"
     t.string   "p_name"
