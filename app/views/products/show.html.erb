@@ -20,34 +20,12 @@
   <% end %>
 </div>
 
-
-<% if user_signed_in? %>
-  <%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
-    <p>購入数</p>
-    <p><%= f.text_field :quantity %></p>
-    <%= f.hidden_field :product_id, :value => @product.id  %>
-    <br/>
-    <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
-  <% end %>
-<% else %>
-  <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
+<hr>
+<h2>色・サイズ等（テスト中）</h2>
+<% @product.product_varieties.each do |item| %>
+  <p>色:<%= item.color %></p>
+  <p>サイズ:<%= item.size %></p>
+  <p>価格:<%= item.price %></p>
+  <p><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></p>
+  <p>---------------------------</p>
 <% end %>
-
-
-
-
-<p>
-
-<%
-=begin
-%>
-  <% if current_user.id == @product.user_id %>
-  <%= link_to '編集', edit_product_path(@product) %> |
-    <%= link_to '削除', @product, method: :delete, data: {confirm: '削除してもいいですか？'} %>
-  <% end %>
-<%
-=end
-%>
-
-</p>
-</div>

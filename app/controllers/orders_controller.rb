@@ -22,12 +22,12 @@ class OrdersController < ApplicationController
     @cart.each do |item|
       @purchase = Purchase.new
       @purchase.order_id = @OrderNow.id
-      @purchase.product_id = item.product_id
+      @purchase.product_variety_id = item.product_variety_id
       @purchase.quantity = item.quantity
-      @purchase.price = item.product.price
-      @purchase.p_name = item.product.p_name
+      @purchase.price = item.product_variety.price
+      @purchase.p_name = item.product_variety.product.p_name
       @purchase.save
-      total += item.product.price * item.quantity
+      total += item.product_variety.price * item.quantity
     end
 
     # 送料の判定

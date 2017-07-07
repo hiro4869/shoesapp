@@ -1,0 +1,22 @@
+<h1>色・サイズの詳細</h1>
+
+<h3>商品名：<%= @Product.p_name %></h3>
+<br/>
+
+
+  <p>色:<%= @ProductVariety.color %></p>
+  <p>サイズ:<%= @ProductVariety.size %></p>
+  <p>価格:<%= @ProductVariety.price %></p>
+
+
+<% if user_signed_in? %>
+  <%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
+    <p>購入数</p>
+    <p><%= f.text_field :quantity %></p>
+    <%= f.hidden_field :product_variety_id, :value => @ProductVariety.id  %>
+    <br/>
+    <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+  <% end %>
+<% else %>
+  <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
+<% end %>

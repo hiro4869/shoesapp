@@ -1,0 +1,15 @@
+<h1>色・サイズ等の新規追加</h1>
+<h3>商品名：<%= @Product.p_name %></h3>
+<br/>
+
+<%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties", method: :post  do |f| %>
+<p>色：<%= f.text_field :color %></p>
+<p>サイズ：<%= f.text_field :size %></p>
+<p>価格：<%= f.text_field :price %></p>
+<%= f.submit "作成" %>
+<% end %>
+
+
+
+
+
