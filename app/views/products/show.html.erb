@@ -27,20 +27,10 @@
   <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
 <% end %>
 
-
-
-
-<p>
-
-<%
-=begin
-%>
-  <% if current_user.id == @product.user_id %>
-  <%= link_to '編集', edit_product_path(@product) %> |
-    <%= link_to '削除', @product, method: :delete, data: {confirm: '削除してもいいですか？'} %>
-  <% end %>
-<%
-=end
-%>
-
-</p>
+<hr>
+<h2>色・サイズ等（テスト中）</h2>
+<% @product.product_varieties.each do |item| %>
+  <p>色:<%= item.color %></p>
+  <p>サイズ:<%= item.size %></p>
+  <p>価格:<%= item.price %></p>
+<% end %>
