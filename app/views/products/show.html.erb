@@ -33,5 +33,6 @@
   <p>色:<%= item.color %></p>
   <p>サイズ:<%= item.size %></p>
   <p>価格:<%= item.price %></p>
+  <p><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></p>
   <p>---------------------------</p>
 <% end %>

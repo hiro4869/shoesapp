@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'root#index'
 
   resources :products do
-    resources :product_varieties, only: [:new, :create, :edit, :update, :destroy] 
+    resources :product_varieties, except: [:index] 
     resource :purchases, only: [:new, :create]
   end
   get "purchases/index" => "purchases#index"

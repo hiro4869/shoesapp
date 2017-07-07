@@ -1,4 +1,10 @@
 class ProductVarietiesController < ApplicationController
+
+  def show
+    @Product = Product.find(params[:product_id])
+    @ProductVariety = ProductVariety.find(params[:id])
+  end
+
   def new
     @Product = Product.find(params[:product_id])
     @ProductVariety = ProductVariety.new
