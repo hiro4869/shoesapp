@@ -11,4 +11,6 @@
 <% end %>
 
 <h3>合計：<%= total %>円</h3>
+<h3>送料:<%= @order.postage %>円</h3>
+<h2>ご請求金額:<%= total + @order.postage %>円</h2>
 

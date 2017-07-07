@@ -17,7 +17,17 @@
     <% total += item.product.price * item.quantity %>
     <p>------------------------------</p>
   <% end %>
-  <h2>合計：<%= total %> 円</h2>
+  <h3>合計:<%= total %> 円</h3>
+  <!-- 配送料無料の判定 -->
+  <% if total >= 50000 %>
+    <% postage = 0 %>
+  <% else %>
+    <% postage = 1000 %>
+  <% end %>
+  <h3>配送料:<%= postage %>円</h3>
+  <h3>ご請求金額:<%= total + postage %>円</h3>
+
+
 
 <% end %>
 
