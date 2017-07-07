@@ -5,7 +5,7 @@ User.seed do |s|
   s.role = 1
 end
 
-i = 0
+i = 1
 while i < 10 do
 
   User.seed do |s|
