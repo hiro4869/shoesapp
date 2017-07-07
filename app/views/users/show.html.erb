@@ -1,10 +1,17 @@
-<h1>マイページ</h1>
-<%= render_breadcrumbs separator: ' > ' %>
-<hr>
+<div class="user_mypage">
+  <h1 class="user_mypage_heading">
+    My Page
+  </h1>
 
-<h2>購入履歴</h2>
+  <%= render_breadcrumbs separator: ' > ' %>
+  <hr>
+  <div class="user_icons">
+    <i class="material-icons user_profile">account_circle</i>
+    <i class="material-icons user_cart">add_shopping_cart</i>
+    <i class="material-icons user_bought">card_travel</i>
+  </div>
 
-<p><%= link_to "購入履歴一覧へ", orders_path %></p>
 
-
-<p><%= link_to "Home", root_path %></p>
+  <p><%= link_to "購入履歴一覧へ", orders_path %></p>
+  <p><%= link_to "Home", root_path %></p>
+</div>

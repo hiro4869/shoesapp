@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   # before_action :correct_user, only: [:edit, :update]
 
   #パンくずリスト
-  add_breadcrumb "home", :root_path
+  add_breadcrumb "top", :root_path
 
   def index
     @products = Product.page(params[:page]).per(50)

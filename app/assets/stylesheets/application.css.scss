@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import 'material';
 
 /*---(共通)------------------------*/
 .btn-center {

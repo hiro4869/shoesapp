@@ -1,6 +1,12 @@
-<h1>show</h1>
-<%= render_breadcrumbs separator: ' > ' %>
-<hr>
+<div class="p_show" >
+ <div class="product_titleimage" >
+  <%= image_tag '/assets/images/title/head.jpg' %>
+   <h1>show</h1>
+    <div class="p_render">
+     <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+ </div>
+
 <p>ID：<%= @product.id %></p>
 <p>価格：<%= @product.price %></p>
 <p>商品名：<%= @product.p_name %></p>
@@ -44,3 +50,4 @@
 %>
 
 </p>
+</div>
