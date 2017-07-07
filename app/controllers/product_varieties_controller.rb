@@ -3,6 +3,8 @@ class ProductVarietiesController < ApplicationController
   def show
     @Product = Product.find(params[:product_id])
     @ProductVariety = ProductVariety.find(params[:id])
+
+    @cart = Cart.new
   end
 
   def new
