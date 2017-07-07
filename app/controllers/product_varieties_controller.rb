@@ -45,7 +45,7 @@ class ProductVarietiesController < ApplicationController
   private
 
   def product_variety_params
-    params.require(:product_variety).permit(:color, :size, :price)
+    params.require(:product_variety).permit(:color, :size, :price, :stock)
   end
 
 end
