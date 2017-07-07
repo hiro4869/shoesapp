@@ -1,0 +1,34 @@
+/*signup*/
+ .sign_up {
+
+   text-align: center;
+   background-image: url(../images/userdevise/myf2.jpg);
+   width: 100%;
+   height: 900px;
+   padding-top: 50px;
+ }
+/*user_show*/
+ .user_mypage_heading {
+   font-family: 'Cinzel', serif
+ }
+ .user_icons {
+   color: lightblue;
+   text-align: center;
+   
+ }
+ .user_profile {
+   font-size: 200px;
+   padding: 5px 40px 5px 5px;
+ }
+
+ .user_cart{
+  font-size: 200px;
+   padding: 5px 5px 5px 5px;
+
+ }
+
+ .user_bought{
+  font-size: 200px;
+   padding: 5px 5px 5px 40px;
+
+ }
