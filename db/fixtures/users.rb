@@ -1,4 +1,3 @@
-# 管理ユーザーを作成
 User.seed do |s|
   s.id = 1
   s.email = "admin1@test"
@@ -6,9 +5,6 @@ User.seed do |s|
   s.role = 1
 end
 
-
-
-通常のユーザーを作成
 i = 0
 while i < 10 do
 
