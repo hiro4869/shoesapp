@@ -9,8 +9,10 @@
         <span class="icon-bar"></span>
       </button>
       <!-- ブレンド名 -->
-      <a class="navbar-brand" href="#">Shoes Craft</a>
+      <div class="navbar-brand"> <%= link_to "Shoes Craft", root_path %>
+      </div>
     </div>
+   
 
     <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -46,6 +48,7 @@
         <!-- <li class="active"><a href="#">BRANDS<span class="sr-only">(current)</span></a></li> 
         -->
 
+        <li><%= link_to "collection", products_path %></li>
         <li><a href="#">ITEMS</a></li>
         <li><a href="#">ACCESSORIES</a></li>
         <li><a href="#">COMPNYPROFILE</a></li>

@@ -1,8 +1,9 @@
+/*shopname*/
 .navbar-header a {
   font-family: 'Playball', cursive;
   font-size: 30px;
 }
-
+/*menu*/
 .navbar-collapse a {
   font-family: 'Cinzel', serif;
 }
