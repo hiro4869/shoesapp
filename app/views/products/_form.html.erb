@@ -1,8 +1,37 @@
 <%= form_for @product do |f| %>
-<p>商品名：<%= f.text_field :p_name %></p>
-<p>価格：<%= f.text_field :price %></p>
-<p>商品詳細：<%= f.text_field :description %></p>
-<p>カテゴリー：<%= f.collection_select :category_id, Category.all, :id, :category_name %></p>
-<p>画像：<%= f.file_field :image %></p>
+<div class="products_item">
+	<span class="col-sm-2 products_new_item">
+		商品名：
+	</span>
+	<div class="col-sm-8 ">
+		<%= f.text_field :p_name, class: "product_textbox" %>
+	</div>
+</div>
+<div class="products_item">
+	<span class="col-sm-2 products_new_item">
+		価格：
+	</span>
+	<div class="col-sm-8">
+		<%= f.text_field :price, class: "product_textbox" %>
+	</div>
+</div>
+<div class="products_item2">
+	<span class="col-sm-2 products_new_item">
+		商品詳細：
+	</span>
+	<div class="col-sm-6">
+		<%= f.text_area :description, :size => "50x5", class: "product_textbox2" %>
+	</div>
+</div>
+<div>
+	<span class="col-sm-2 products_new_item">
+		カテゴリー：
+	</span><%= f.collection_select :category_id, Category.all, :id, :category_name, class: "product_cate" %>
+</div>
+<div>
+	<span>
+		画像：
+	</span><%= f.file_field :image %>
+</div>
 <%= f.submit "更新" %>
 <% end %>
