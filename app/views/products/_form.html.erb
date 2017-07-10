@@ -31,7 +31,7 @@
 <div>
 	<span>
 		画像：
-	</span><%= f.file_field :image %>
+	</span><%= f.file_field :image, multiple: true %>
 </div>
 <%= f.submit "更新" %>
 <% end %>

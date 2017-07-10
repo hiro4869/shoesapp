@@ -13,6 +13,18 @@
   <p>在庫:なし</p>
 <% end %>
 
+<p>画像</p>
+<% if @ProductVariety.product_variety_images.present? %>
+  <div>
+    <% @ProductVariety.product_variety_images.each do |picture| %>
+      <%= image_tag picture.image %>
+      <br>
+    <% end %>
+  </div>
+<% else %>
+  <div><%= image_tag 'noimage.gif' %></div>
+<% end %>
+
 <br/>
 
 
