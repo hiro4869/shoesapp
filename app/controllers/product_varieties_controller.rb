@@ -5,7 +5,6 @@ class ProductVarietiesController < ApplicationController
     @ProductVariety = ProductVariety.find(params[:id])
 
     @cart = Cart.new
-    
   end
 
   def new
