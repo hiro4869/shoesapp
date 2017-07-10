@@ -21,6 +21,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
+
+    @product_images = ProductImage.new
+    @product_images.product_id = 1
+    @product_images.image = params[:product][:image]
+    @product_images.save
+
     if @product.save
       redirect_to root_path
     else
