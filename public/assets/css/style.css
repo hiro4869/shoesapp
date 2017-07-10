@@ -48,6 +48,16 @@
  .product_show_contents {
    
  }
+ /*product_show色とサイズの場所*/
+
+ .product_varieties_list_images{
+  margin: 5px;
+  padding: 5px;
+
+ }
+ .product_varieties_scname {
+  text-align: center;
+ }
 
  
  /*pc-----------------------------------------------------------*/
