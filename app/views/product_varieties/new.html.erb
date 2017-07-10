@@ -8,6 +8,7 @@
 <p>価格：<%= f.text_field :price %></p>
 <p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
 <p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
+<p>画像：<%= f.file_field :image, multiple: true %></p>
 <%= f.submit "作成" %>
 <% end %>
 

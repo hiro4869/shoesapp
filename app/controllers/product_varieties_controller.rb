@@ -16,6 +16,15 @@ class ProductVarietiesController < ApplicationController
     @ProductVariety = ProductVariety.new(product_variety_params)
     @ProductVariety.product_id = params[:product_id]
     if @ProductVariety.save
+
+      # 複数画像の保存
+      params[:product_variety][:image].each do |image|
+        @product_variety_image = ProductVarietyImage.new
+        @product_variety_image.product_variety_id = @ProductVariety.id
+        @product_variety_image.image = image
+        @product_variety_image.save
+      end
+
       redirect_to edit_product_path(params[:product_id])
     else
       render 'product_varieties/new'
@@ -29,8 +38,17 @@ class ProductVarietiesController < ApplicationController
 
   def update
     @ProductVariety = ProductVariety.find(params[:id])
+
+    # 画像を保存
+    params[:product_variety][:image].each do |image|
+      @product_variety_image = ProductVarietyImage.new
+      @product_variety_image.product_variety_id = params[:id]
+      @product_variety_image.image = image
+      @product_variety_image.save
+    end
+
     if @ProductVariety.update(product_variety_params)
-      redirect_to edit_product_path(params[:product_id])
+      redirect_to edit_product_product_variety_path(params[:product_id], params[:id])
     else
       render 'product_varieties/edit'
     end
@@ -45,7 +63,7 @@ class ProductVarietiesController < ApplicationController
   private
 
   def product_variety_params
-    params.require(:product_variety).permit(:color, :size, :price, :stock)
+    params.require(:product_variety).permit(:color, :size, :price, :stock, :image)
   end
 
 end

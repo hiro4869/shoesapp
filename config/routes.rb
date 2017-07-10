@@ -13,9 +13,12 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :product_images, only: [:destroy]
-    resources :product_varieties, except: [:index] 
+    resources :product_varieties, except: [:index] do
+      resources :product_variety_images, only: [:destroy]
+    end
     resource :purchases, only: [:new, :create]
   end
+
   get "purchases/index" => "purchases#index"
 
   resources :categories, only: [:show]

@@ -71,10 +71,6 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-  def product_image_destroy
-    
-  end
-
   private
 
   def product_params
