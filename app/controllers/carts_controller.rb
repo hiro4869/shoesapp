@@ -43,6 +43,7 @@ class CartsController < ApplicationController
 
   def confirmation
     @cart = Cart.where(user_id: current_user.id).where(buy_after_flag: false)
+    @order = Order.new
   end
 
   # カートから商品を削除
