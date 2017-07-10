@@ -1,5 +1,11 @@
 <h1>確認画面</h1>
-<p>お届け先</p>
+<h3>お届け先</h3>
+  <p>氏名：<%= @user.name %></p>
+  <p>住所：<%= @user.address %></p>
+  <p>Eメール：<%= @user.email %></p>
+  <p>電話番号：<%= @user.phone_number %></p>
+  <p><%= link_to "お届け先情報を編集する", "/user/#{current_user.id}/edit" %></p>
+
 <br>
 <p>お支払い方法</p>
 <%= form_for @order , url: "/orders" ,method: :post do |f| %>
@@ -22,7 +28,7 @@
       <p>------------------------------</p>
     <% end %>
     <h3>合計:<%= total %> 円</h3>
-    <!-- 配送料無料の判定 -->y
+    <!-- 配送料無料の判定 -->
     <% if total >= 50000 %>
       <% postage = 0 %>
     <% else %>
