@@ -19,6 +19,17 @@
 <p>商品名：<%= @product.p_name %></p>
 <p>商品詳細：<%= @product.description %></p>
 <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
+<p>ブランド：<%= @product.brand.brand_name %></p>
+<p>商品サブタイトル：<%= @product.sub_name %></p>
+<p>甲革：<%= @product.upper_leather %></p>
+<p>表底：<%= @product.outsole %></p>
+<p>踵：<%= @product.heel %></p>
+<p>製法：<%= @product.process %></p>
+<p>修理：<%= @product.repair %></p>
+<p>ウィズ(足囲)：<%= @product.width %></p>
+<p>原産国：<%= @product.made_in %></p>
+<p>メーカー説明：<%= @product.maker_description %></p>
+<p>商品コード：<%= @product.product_code %></p>
 </dev>
 
 
