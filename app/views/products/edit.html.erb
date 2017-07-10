@@ -2,8 +2,12 @@
 <%= render_breadcrumbs separator: ' > ' %>
 <%= render 'form' %>
 <div>
-  <% if @product.image? %>
-    <div><%= image_tag @product.image.url%></div>
+  <% if @product.product_images.present? %>
+    <div>
+      <% @product.product_images.each do |picture| %>
+        <%= image_tag picture.image %>
+      <% end %>
+    </div>
   <% else %>
     <div><%= image_tag 'noimage.gif' %></div>
   <% end %>

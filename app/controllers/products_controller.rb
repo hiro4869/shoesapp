@@ -22,20 +22,13 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user_id = current_user.id
 
-    params[:product][:image].each do |image|
-      @product_images = ProductImage.new
-      @product_images.product_id = 5
-      @product_images.image = image
-      @product_images.save
-    end
-
-    # @product_images = ProductImage.new
-    # @product_images.product_id = 5
-    # @product_images.image = params[:product][:image]
-    # @product_images.save
-
-
     if @product.save
+      params[:product][:image].each do |image|
+        @product_images = ProductImage.new
+        @product_images.product_id = @product.id
+        @product_images.image = image
+        @product_images.save
+      end
       redirect_to root_path
     else
       render 'new'
@@ -57,7 +50,20 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(product_params)
+    # 画像を保存
+    params[:product][:image].each do |image|
+      @product_images = ProductImage.new
+      @product_images.product_id = params[:id]
+      @product_images.image = image
+      @product_images.save
+    end
+
+    if @product.update(product_params)
+      redirect_to edit_product_path(params[:id])
+    else
+      redirect_to edit_product_path(params[:id])
+    end
+
   end
 
   def destroy
