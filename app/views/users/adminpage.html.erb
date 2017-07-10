@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
-  </head>
-
-  <body>
 
    <div class= admin >
    <h1>管理者ページ</h1>
@@ -14,8 +6,10 @@
    <p><%= link_to "新規ユーザー登録", users_new_path %></p>
    <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
    <hr>
-
    <% @products.each do |product| %>
+   
+
+   
    <p>商品名：<%= product.p_name %></p>
    <p>価格：<%= product.price %></p>
    <p>商品詳細：<%= product.description %></p>
