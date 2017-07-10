@@ -1,8 +1,11 @@
 <div class="collection" >
- <div class="collection_name" >
-  <h1 class="text-center">collection
-  </h1></div>
+  <div class="collection_name" >
+    <h1 class="text-center">
+      collection
+    </h1>
+  </div>
   <div class="product_pageinate_top">
+
       <%= paginate @products %>
      </div>
     <% @products.each do |product| %>
@@ -26,6 +29,7 @@
            </p>
         </div>
     <% end %>
+
      </div>
       <div class="product_pageinate_down">
        <%= paginate @products %>
