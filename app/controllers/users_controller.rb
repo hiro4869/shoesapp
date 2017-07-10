@@ -31,6 +31,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      redirect_to "/user/#{current_user.id}"
+    else
+      render '/users/edit'
+    end
+
+  end
+
   def adminpage
     @products = Product.all
     #パンくずリスト
@@ -50,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role, :agreement)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :agreement, :address, :phone_number, :name)
   end
 
   def admin_user
