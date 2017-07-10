@@ -16,6 +16,7 @@
   
 
   <p><%= link_to "プロフィール編集へ", "/user/#{current_user.id}/edit" %></p>
+  <p><%= link_to "カートを見る", user_carts_path(current_user.id) %></p>
   <p><%= link_to "購入履歴一覧へ", orders_path %></p>
   <p><%= link_to "Home", root_path %></p>
 </div>

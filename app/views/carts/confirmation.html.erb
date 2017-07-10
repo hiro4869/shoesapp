@@ -4,7 +4,14 @@
   <p>住所：<%= @user.address %></p>
   <p>Eメール：<%= @user.email %></p>
   <p>電話番号：<%= @user.phone_number %></p>
-  <p><%= link_to "お届け先情報を編集する", "/user/#{current_user.id}/edit" %></p>
+
+  <!-- お届け先に記入漏れがある場合のアラート -->
+  <% unless @user.name.present? %><p class="alert alert-danger">・氏名を登録してください</p><% end %>
+  <% unless @user.address.present? %><p class="alert alert-danger">・住所を登録してください</p><% end %>
+  <% unless @user.email.present? %><p class="alert alert-danger">・Eメールを登録してください</p><% end %>
+  <% unless @user.phone_number.present? %><p class="alert alert-danger">・電話番号を登録してください</p><% end %>
+  <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+
 
 <br>
 <p>お支払い方法</p>
@@ -38,5 +45,14 @@
     <h3>ご請求金額:<%= total + postage %>円</h3>
   <% end %>
 
-  <p class="btn-center"><%= f.submit "　注文を確定する　", class: "btn btn-primary btn-lg" %></p>
+  <!-- お届け先に記入漏れがないかのチェック -->
+  <% if @user.name.present? && @user.address.present? && @user.email.present? && @user.phone_number.present? %>
+    <p class="btn-center"><%= f.submit "　注文を確定する　", class: "btn btn-primary btn-lg" %></p>
+  <% else %>
+    <p class="alert alert-danger">ご注文を確定させるためにお届け先情報のご登録をお願いします。</p>
+    <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+  <% end %>
+
+
+
 <% end %>
