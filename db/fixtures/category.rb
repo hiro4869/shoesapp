@@ -5,15 +5,15 @@ end
 
 Category.seed do |s|
   s.id = 2
-  s.category_name = "カバン"
+  s.category_name = "その他"
 end
 
-Category.seed do |s|
-  s.id = 3
-  s.category_name = "ボトムス"
-end
+# Category.seed do |s|
+#   s.id = 3
+#   s.category_name = "ボトムス"
+# end
 
-Category.seed do |s|
-  s.id = 4
-  s.category_name = "トップス"
-end
+# Category.seed do |s|
+#   s.id = 4
+#   s.category_name = "トップス"
+# end

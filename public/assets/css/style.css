@@ -7,7 +7,11 @@
    padding: 40px 40px 40px 20px;
  }
 
- /*product一覧--------*/
+ /*root/index---------*/
+ /*productのindexのバックグラウンドの色変えて出そうと思ってる。のでproductのindexまち*/
+
+
+ /*product/index--------*/
  .clearfix::after {
    content: "";
    display: block;
@@ -17,14 +21,17 @@
  .collection_name {
    font-family: 'Cinzel', serif
  }
- .p-line {
-   /*border: 1px solid #696969;*/
- }
+ 
  .product_pageinate_top {
    text-align: center;
  }
+ /*リンクの色*/
+ .contents_link {
+  color: #8B4513 !important;
+}
 
  /*product_show----------*/
+
  .product_titleimage {
    /*position: relative;相対配置*/
  }
@@ -43,6 +50,34 @@
    /*position: absolute;/*絶対配置*/
    top: 80%;
    left: 2%;
+
+ 
+ }
+ .product_render {
+    position: absolute;/*絶対配置*/
+    top: 80%;
+    left: 2%;
+ }
+/*リンクの色*/
+ .contents_link {
+    color: #8B4513 !important;
+}
+ .product_show_name {
+     font-size: 20px;
+ }
+ .product_show_contents {
+   
+ }
+ /*product_show色とサイズの場所*/
+
+ .product_varieties_list_images{
+  margin: 5px;
+  padding: 5px;
+
+ }
+ .product_varieties_scname {
+  text-align: center;
+
  }
 
  
@@ -60,12 +95,12 @@
    height: 900px;
  }
 
- /*product一覧--------*/
+ /*product一覧indx--------*/
  .collection_name{
    padding: 5px 5px 5px 5px;
    margin-bottom: 20px;
  }
- 
+
  .product {
    width: 1000px;
    margin:  auto;
@@ -80,9 +115,25 @@
    padding: 5px;
    margin: 5px;
  }
- .product_name {
-   margin-top: 150px;
+
+ .product-box {
+    width: 300px;
+    height: 350px;
+    border: #f1f1f1 solid 3px;
+    float: left;
+    padding: 15px 5px 15px 5px;
+    margin: 15px 5px 15px 5px;
+    text-align: center;
  }
+
+ .product_name {
+    line-height:2em;
+ }
+ .product_image_contents {
+   margin: 5px 5px 5px 5px;
+ }
+
+
 
 
 
@@ -94,7 +145,7 @@
 
 @media all and (max-width:  767px) {
   /*product一覧-------------------------*/
- .p-box {
+ .product-box {
    width: 200px;
    height: 200px;
    border: #f1f1f1 solid 3px;
@@ -115,7 +166,7 @@
 
 
 /*product一覧-----------------------------------------*/
- .p-box {
+ .product-box {
    width: 150px;
    height: 150px;
    border: #f1f1f1 solid 3px;

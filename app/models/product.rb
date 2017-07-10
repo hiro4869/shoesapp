@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  belongs_to :brand
   has_many :product_varieties
   has_many :carts
   has_many :purchases

@@ -8,8 +8,12 @@
   <div class="user_icons">
     <i class="material-icons user_profile">account_circle</i>
     <i class="material-icons user_cart">add_shopping_cart</i>
+    <%= link_to orders_path do %>
     <i class="material-icons user_bought">card_travel</i>
+    <% end %>
   </div>
+
+  
 
 
   <p><%= link_to "購入履歴一覧へ", orders_path %></p>

@@ -5,6 +5,9 @@
     </h1>
   </div>
   <div class="product_pageinate_top">
+
+<!--     ここから吉田さん -->
+
     <%= paginate @products %>
   </div>
    <div class="p-line"></div>
@@ -29,7 +32,32 @@
     
      <div class="product_pageinate_down">
        <%= paginate @products %>
+       
+<!-- ここまで吉田さん -->
+<!-- ここからマスター -->
+      <%= paginate @products %>
      </div>
+    <% @products.each do |product| %>
+     <div class="product clearfix">
+      <div class="product-box">
+       <div class="product_image_contents">
+         <% if product.image? %>
+         <%= image_tag product.image.url %>
+          <% end %>
+      </div>
+       
+        <p class="product_name"><%= link_to product.p_name, product_path(product.id),class: "contents_link" %>
+         <p>¥<%= product.price %></p>
+          <p>ブランド名:</p>
+           <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
+           </p>
+        </div>
+    <% end %>
+<!-- ここまでマスター -->
+     </div>
+      <div class="product_pageinate_down">
+       <%= paginate @products %>
+      </div>
 </div>
 
 

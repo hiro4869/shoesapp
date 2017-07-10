@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @cart = Cart.where(user_id: current_user.id).where(buy_after_flag: false)
 
     # オーダーを新規作成
-    @Order = Order.new
+    @Order = Order.new(order_params)
     @Order.user_id = current_user.id
     @Order.save
 
@@ -52,5 +52,9 @@ class OrdersController < ApplicationController
   end
 
 
+  private
+  def order_params
+    params.require(:order).permit(:method_of_payment_id)
+  end
 
 end

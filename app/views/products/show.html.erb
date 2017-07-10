@@ -1,17 +1,13 @@
-<div class="p_show" >
- <div class="product_titleimage" >
-  <%= image_tag '/assets/images/title/head.jpg' %>
-   <h1>show</h1>
-    <div class="p_render">
-     <%= render_breadcrumbs separator: ' > ' %>
-    </div>
+<div class="product_show" >
+ <div class="product_render">
+  <%= render_breadcrumbs separator: ' > ' %>
  </div>
+  <div class="product_show_contents">
+  <div class="product_show_name">
+  <h1><%= @product.p_name %></h1>
+  </dev>
+  <p>ID：<%= @product.id %></p>
 
-<p>ID：<%= @product.id %></p>
-<p>価格：<%= @product.price %></p>
-<p>商品名：<%= @product.p_name %></p>
-<p>商品詳細：<%= @product.description %></p>
-<p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
 <div>
   <% if @product.image? %>
     <div><%= image_tag @product.image.url%></div>
@@ -19,13 +15,53 @@
     <div><%= image_tag 'noimage.gif' %></div>
   <% end %>
 </div>
+<p>価格：<%= @product.price %></p>
+<p>商品名：<%= @product.p_name %></p>
+<p>商品詳細：<%= @product.description %></p>
+<p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
+<p>ブランド：<%= @product.brand.brand_name %></p>
+<p>商品サブタイトル：<%= @product.sub_name %></p>
+<p>甲革：<%= @product.upper_leather %></p>
+<p>表底：<%= @product.outsole %></p>
+<p>踵：<%= @product.heel %></p>
+<p>製法：<%= @product.process %></p>
+<p>修理：<%= @product.repair %></p>
+<p>ウィズ(足囲)：<%= @product.width %></p>
+<p>原産国：<%= @product.made_in %></p>
+<p>メーカー説明：<%= @product.maker_description %></p>
+<p>商品コード：<%= @product.product_code %></p>
+</dev>
 
-<hr>
-<h2>色・サイズ等（テスト中）</h2>
-<% @product.product_varieties.each do |item| %>
-  <p>色:<%= item.color %></p>
-  <p>サイズ:<%= item.size %></p>
-  <p>価格:<%= item.price %></p>
-  <p><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></p>
-  <p>---------------------------</p>
-<% end %>
+<div class="container product_varieties_select">
+<h2　class="product_varieties_scname">size・colorを選択してください</h2>
+ <div class=”table-responsive”>
+     <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>画像</th>
+          <th>色</th>
+          <th>サイズ</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @product.product_varieties.each do |item| %>
+        <tr>
+          <th scope="row"><%= @product.id  %></th>
+            <td><div>
+              <% if @product.image? %>
+               <div class="product_varieties_list_images"><%= image_tag @product.image.url%></div>
+       <% else %>
+        <div><%= image_tag 'noimage.gif' %></div>
+       <% end %>
+            </div></td>
+              <td><%= item.color %></td>
+              <td><%= item.size %></td>
+              <td><button type="button" class="btn btn-default"><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></button></td>
+        </tr>
+       <% end %>
+      </tbody>
+     </table>
+  </div>
+</div>
