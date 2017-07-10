@@ -1,14 +1,16 @@
 <div class="collection" >
- <div class="collection_name" >
-  <h1 class="text-center">collection
-  </h1></div>
+  <div class="collection_name" >
+    <h1 class="text-center">
+      collection
+    </h1>
+  </div>
   <div class="product_pageinate_top">
-      <%= paginate @products %>
-     </div>
+    <%= paginate @products %>
+  </div>
    <div class="p-line"></div>
 
-   <% @products.each do |product| %>
     <div class="product clearfix">
+   <% @products.each do |product| %>
      <div class="p-box">
       <p class="text-center">画像<%= product.image %></p>
        <div>
@@ -26,7 +28,7 @@
     </div>
     
      <div class="product_pageinate_down">
-      <%= paginate @products %>
+       <%= paginate @products %>
      </div>
 </div>
 

@@ -1,0 +1,29 @@
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    border-radius: 4px;
+    border-top-style: solid;
+    margin-top: 40px;
+}
+
+.footer-box{
+	background-color: #f8f8f8;
+}
+
+
+
+.footer-ul {
+	list-style: none;
+}
+
+.footer-box-small {
+	margin-top: 30px; 
+}
+
+.footer-p {
+	font-family: 'Cinzel', serif;	
+	color: #777;
+}

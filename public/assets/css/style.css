@@ -26,10 +26,10 @@
 
  /*product_show----------*/
  .product_titleimage {
-   position: relative;/*相対配置*/
+   /*position: relative;相対配置*/
  }
  .product_titleimage h1 {
-   position: absolute;/*絶対配置*/
+   /*position: absolute;絶対配置*/
    top: 0;
    left: 5%;
    font-family: 'Cinzel', serif;
@@ -40,7 +40,7 @@
    height: 150px;
  }
  .p_render {
-   position: absolute;/*絶対配置*/
+   /*position: absolute;/*絶対配置*/
    top: 80%;
    left: 2%;
  }
@@ -66,20 +66,19 @@
    margin-bottom: 20px;
  }
  
+ .product {
+   width: 1000px;
+   margin:  auto;
+ }
  
  
  .p-box {
+   float: left;
    width: 300px;
    height: 300px;
    border: #f1f1f1 solid 3px;
-   float: left;
    padding: 5px;
    margin: 5px;
- }
- .product {
-
-   width: 1000px;
-   margin:  auto;
  }
  .product_name {
    margin-top: 150px;
@@ -99,7 +98,6 @@
    width: 200px;
    height: 200px;
    border: #f1f1f1 solid 3px;
-   float: left;
    padding: 5px;
    margin: 5px;
  }
@@ -121,7 +119,6 @@
    width: 150px;
    height: 150px;
    border: #f1f1f1 solid 3px;
-   float: left;
    padding: 5px;
    margin: 5px;
  }
