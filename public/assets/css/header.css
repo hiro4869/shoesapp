@@ -1,16 +1,24 @@
 /*shopname*/
-.navbar-header a {
-  font-family: 'Playball', cursive;
-  font-size: 30px;
-}
+ .navbar-header a {
+   font-family: 'Playball', cursive;
+   font-size: 30px;
+   /*リンクの色*/
+   color: #777;
+ }
 /*menu*/
-.navbar-collapse a {
-  font-family: 'Cinzel', serif;
-}
+ .navbar-collapse  {
+   font-family: 'Cinzel', serif;
+ }
 
-.btn-default  {
-  font-family: 'Cinzel', serif;  
+ .btn-default  {
+   font-family: 'Cinzel', serif;  
+ }
+ .Logged_in_as {
+   font-family: 'Cinzel', serif;
 }
+ 
+   
+
 
 
 
