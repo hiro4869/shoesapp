@@ -6,35 +6,6 @@
   </div>
   <div class="product_pageinate_top">
 
-<!--     ここから吉田さん -->
-
-    <%= paginate @products %>
-  </div>
-   <div class="p-line"></div>
-
-    <div class="product clearfix">
-   <% @products.each do |product| %>
-     <div class="p-box">
-      <p class="text-center">画像<%= product.image %></p>
-       <div>
-          <% if product.image? %>
-          <%= image_tag product.image.url %>
-         <% end %>
-       </div>
-        <p class="product_name">商品名:<%= link_to product.p_name , product_path(product.id) %></p>
-         <p>価格:<%= product.price %></p>
-
-          <p>商品詳細:<%= product.description %></p>
-           <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}" %></p>
-     </div>
-          <% end %>
-    </div>
-    
-     <div class="product_pageinate_down">
-       <%= paginate @products %>
-       
-<!-- ここまで吉田さん -->
-<!-- ここからマスター -->
       <%= paginate @products %>
      </div>
     <% @products.each do |product| %>
@@ -53,7 +24,7 @@
            </p>
         </div>
     <% end %>
-<!-- ここまでマスター -->
+
      </div>
       <div class="product_pageinate_down">
        <%= paginate @products %>
