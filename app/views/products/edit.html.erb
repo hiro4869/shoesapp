@@ -1,11 +1,14 @@
 <h1>編集</h1>
 <%= render_breadcrumbs separator: ' > ' %>
 <%= render 'form' %>
+<br>
 <div>
   <% if @product.product_images.present? %>
     <div>
       <% @product.product_images.each do |picture| %>
         <%= image_tag picture.image %>
+        <%= link_to "削除", product_product_image_path(@product.id ,picture.id), method: :delete %>
+        <br>
       <% end %>
     </div>
   <% else %>
