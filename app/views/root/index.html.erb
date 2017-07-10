@@ -19,9 +19,15 @@
      <div class="root_p-box">
       <p class="text-center">画像<%= product.image %></p>
        <div>
-          <% if product.image? %>
-          <%= image_tag product.image.url %>
-         <% end %>
+        <% if @product.image? %>
+          <div>
+            <% @product.product_images.each do |picture| %>
+              <%= image_tag picture.image %>
+            <% end %>
+          </div>
+        <% else %>
+          <div><%= image_tag 'noimage.gif' %></div>
+        <% end %>
        </div>
         <p class="product_name">商品名:<%= link_to product.p_name , product_path(product.id) %></p>
          <p>価格:<%= product.price %></p>
