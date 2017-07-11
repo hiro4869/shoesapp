@@ -8,17 +8,15 @@
  <hr>
  <% @products.each do |product| %>
  
+   <p>商品名：<%= product.p_name %></p>
+   <p>価格：<%= product.price %></p>
+   <p>商品詳細：<%= product.description %></p>
+   <div>
 
- 
- <p>商品名：<%= product.p_name %></p>
- <p>価格：<%= product.price %></p>
- <p>商品詳細：<%= product.description %></p>
- <div>
-  <%= image_tag product.image %>
-</div>
-<p><%= link_to '編集ページ', edit_product_path(product) %></p>
-<a>-------------------------------</a>
-<% end %>
+   </div>
+   <p><%= link_to '編集ページ', edit_product_path(product) %></p>
+   <a>-------------------------------</a>
+   <% end %>
 
 <p><%= link_to "Home", root_path %></p>
 

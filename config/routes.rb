@@ -12,12 +12,15 @@ Rails.application.routes.draw do
   root 'root#index'
 
   resources :products do
-    resources :product_varieties, except: [:index] 
+    resources :product_images, only: [:destroy]
+    resources :product_varieties, except: [:index] do
+      resources :product_variety_images, only: [:destroy]
+    end
     resource :purchases, only: [:new, :create]
   end
+
   get "purchases/index" => "purchases#index"
 
-  
   resources :categories, only: [:show]
 
   resources :users , only: [:new, :create] do
@@ -39,6 +42,8 @@ Rails.application.routes.draw do
 
   get "users/new" => "users#new"
   get "user/:id" => "users#show"
+  get "user/:id/edit" => "users#edit"
+  patch "user/:id" => "users#update"
   get "users/privacy_policy" => "users#privacy_policy"
   post "/users/admin/" => "users#create"
   get "users/adminpage" => "users#adminpage"

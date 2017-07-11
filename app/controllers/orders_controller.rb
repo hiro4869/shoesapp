@@ -13,15 +13,12 @@ class OrdersController < ApplicationController
     @Order.user_id = current_user.id
     @Order.save
 
-    #ユーザーの最新のオーダーを取得
-    @OrderNow = Order.where(user_id: current_user.id).last
-
     total = 0
 
     #注文された商品を１レコードずつ保存
     @cart.each do |item|
       @purchase = Purchase.new
-      @purchase.order_id = @OrderNow.id
+      @purchase.order_id = @Order.id
       @purchase.product_variety_id = item.product_variety_id
       @purchase.quantity = item.quantity
       @purchase.price = item.product_variety.price
@@ -30,15 +27,21 @@ class OrdersController < ApplicationController
       total += item.product_variety.price * item.quantity
     end
 
-    # 送料の判定
+    # 送料を判定してOrderに書き込み
     if total >= 50000
       postage = 0
     else
       postage = 1000
     end
+    @Order.postage = postage
     
-    @OrderNow.postage = postage
-    @OrderNow.save
+    # userの情報をOrderに保存
+    @user = User.find(current_user.id)
+    @Order.name = @user.name
+    @Order.address = @user.address
+    @Order.email = @user.email
+    @Order.phone_number = @user.phone_number
+    @Order.save
 
     # ショップカートの中身を全て削除
     @cart.destroy_all

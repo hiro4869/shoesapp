@@ -1,28 +1,39 @@
 <div class="collection" >
- <div class="collection_name" >
-  <h1 class="text-center">collection</h1>
- </div>
-<div class="product_pageinate_top">
-  <%= paginate @products %>
-</div>
-<% @products.each do |product| %>
-<div class="product clearfix">
- <div class="product-box">
-  <div class="product_image_contents">
-   <% if product.image? %>
-   <%= image_tag product.image.url %>
-   <% end %>
- </div>
- <p class="product_name"><%= link_to product.p_name, product_path(product.id),class: "contents_link" %></p>
- <p>¥<%= product.price %></p>
- <p>ブランド名:</p>
- <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
-</div>
-<% end %>
-</div>
-<div class="product_pageinate_down">
- <%= paginate @products %>
-</div>
+  <div class="collection_name" >
+    <h1 class="text-center">
+      collection
+    </h1>
+  </div>
+  <div class="product_pageinate_top">
+
+      <%= paginate @products %>
+     </div>
+    <% @products.each do |product| %>
+     <div class="product clearfix">
+      <div class="product-box">
+       <div class="product_image_contents">
+        <% if product.product_images.present? %>
+          <div>
+            <!-- 登録されている画像の一番最初の画像を表示 -->
+            <%= image_tag product.product_images.first.image %>
+          </div>
+        <% else %>
+          <div><%= image_tag 'noimage.gif' %></div>
+        <% end %>
+      </div>
+       
+        <p class="product_name"><%= link_to product.p_name, product_path(product.id),class: "contents_link" %>
+         <p>¥<%= product.price %></p>
+          <p>ブランド名:</p>
+           <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
+           </p>
+        </div>
+    <% end %>
+
+     </div>
+      <div class="product_pageinate_down">
+       <%= paginate @products %>
+      </div>
 </div>
 
 

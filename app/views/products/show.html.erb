@@ -8,6 +8,7 @@
   </div>
   <p>ID：<%= @product.id %></p>
 
+<!-- <<<<<<< anri_buy -->
   <div>
     <% if @product.image? %>
     <div><%= image_tag @product.image.url%></div>
@@ -30,9 +31,24 @@
   <p>原産国：<%= @product.made_in %></p>
   <p>メーカー説明：<%= @product.maker_description %></p>
   <p>商品コード：<%= @product.product_code %></p>
+<!-- =======ここまでanri -->
+<!-- ここからマスター -->
+<div>
+  <div>
+    <% @product.product_images.each do |picture| %>
+      <%= image_tag picture.image %>
+    <% end %>
+  </div>
+</div>
+<p>価格：<%= @product.price %></p>
+<p>商品名：<%= @product.p_name %></p>
+<p>商品詳細：<%= @product.description %></p>
+<p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
+<!-- >>>>>>> ここまでmaster -->
 </dev>
 <!-- ここからsize・colorを選択のページになります -->
 <div class="container product_varieties_select">
+<!-- <<<<<<< anri_buy -->
   <h2　class="product_varieties_scname">size・colorを選択してください</h2>
   <div class=”table-responsive”>
    <table class="table table-striped table-bordered">
@@ -66,4 +82,43 @@
   </tbody>
 </table>
 </div>
+<!-- ======= -->
+<h2　class="product_varieties_scname">size・colorを選択してください</h2>
+ <div class=”table-responsive”>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>画像</th>
+          <th>色</th>
+          <th>サイズ</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @product.product_varieties.each do |item| %>
+          <tr>
+            <th scope="row"><%= @product.id  %></th>
+            <td>
+              <div>
+                <% if @product.image? %>
+                  <div class="product_varieties_list_images">
+                    <% @product.product_images.each do |picture| %>
+                      <%= image_tag picture.image %>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div><%= image_tag 'noimage.gif' %></div>
+                <% end %>
+              </div>
+            </td>
+            <td><%= item.color %></td>
+            <td><%= item.size %></td>
+            <td><button type="button" class="btn btn-default"><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<!-- >>>>>>> master -->
 </div>
