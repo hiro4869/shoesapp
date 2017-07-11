@@ -43,11 +43,21 @@ class OrdersController < ApplicationController
     @Order.phone_number = @user.phone_number
     @Order.save
 
+
+    #管理ユーザーにメールを送信
+    adminuser = "fukunagakaihatu48@gmail.com"
+    OrderMailer.order_email(adminuser, @Order, @cart).deliver_later
+
+    #購入者にメールを送る
+    user_email = @Order.email
+    OrderMailer.order_email(user_email, @Order, @cart).deliver_later
+
+
+
     # ショップカートの中身を全て削除
     @cart.destroy_all
 
     redirect_to confirmation_orders_path
-
   end
 
   def confirmation

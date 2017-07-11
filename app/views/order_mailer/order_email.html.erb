@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <p><%= @order.name %>さんご注文ありがとうございます。</p>
+    <% @items.each do |item| %>
+      <p>購入数<%= item.quantity %></p>
+      <p>価格<%= item.product_variety.price %></p>
+    <% end %>
+  </body>
+</html>
