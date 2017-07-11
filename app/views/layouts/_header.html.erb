@@ -12,17 +12,11 @@
       <div class="navbar-brand"> <%= link_to "Shoes Craft", root_path %>
       </div>
     </div>
-   
-
     <!-- Collect the nav links, forms, and other content for toggling -->
-
-
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <!-- brandeメニュー -->
-
+      <!-- brandeメニュー -->
       <ul class="nav navbar-nav">
-      <li class="dropdown">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BRANDS <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">REGAL </a></li>
@@ -44,41 +38,37 @@
             <li><a href="#">CARMINA</a></li>
           </ul>
         </li>
-
         <!-- <li class="active"><a href="#">BRANDS<span class="sr-only">(current)</span></a></li> 
-        -->
-
-        <li><%= link_to "collection", products_path %></li>
-       
-        <li><a href="#">ACCESSORIES</a></li>
-        <li><a href="#">CONTACT</a></li>
-       </ul>
-       
-       <!-- 検索機能 -->
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-
-      <ul class="nav navbar-nav navbar-right">
-       <% if user_signed_in? %>
-      
-      <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
-      <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
-      <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to "新規登録", new_user_registration_path %></li> 
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-    <% end %>
-     </ul>
-    </div><!-- /.navbar-collapse -->
-  
-   <div class="Logged_in_as">
-    <% if user_signed_in? %>
-     <%= current_user.email %> さん
-    <% end %>
-   </div>
-  </div><!-- /.container-fluid -->
+      -->
+      <!-- メインメニュー -->
+      <li><%= link_to "collection", products_path %></li>
+      <li><a href="#">ACCESSORIES</a></li>
+      <li><a href="#">CONTACT</a></li>
+    </ul><!-- /.navbar-nav -->
+    <!-- 検索機能 -->
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+       <input type="text" class="form-control" placeholder="Search">
+     </div>
+     <button type="submit" class="btn btn-default">検索</button>
+   </form>
+   <!-- devise等のログイン機能 -->
+   <ul class="nav navbar-nav navbar-right">
+     <% if user_signed_in? %>
+     <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
+     <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
+     <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+     <% else %>
+     <li><%= link_to "新規登録", new_user_registration_path %></li> 
+     <li><%= link_to "ログイン", new_user_session_path %></li>
+     <% end %>
+   </ul><!--/.navbar-right-->
+ </div><!-- /.navbar-collapse -->
+ <!-- ログイン証明 -->
+ <div class="Logged_in_as">
+  <% if user_signed_in? %>
+  <%= current_user.email %> さん
+  <% end %>
+</div>
+</div><!-- /.container-fluid -->
 </nav>

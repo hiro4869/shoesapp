@@ -2,12 +2,12 @@
 <%= render_breadcrumbs separator: ' > ' %>
 <hr>
 <% @products.each do |product| %>
-  <p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
-  <p>商品名：<%= product.p_name %></p>
-  <p>価格：<%= product.price %></p>
-  <p>商品詳細：<%= product.description %></p>
-  <p>カテゴリー：<%= product.category.category_name %></p>
-  <a>-----------------------</a>
+<p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
+<p>商品名：<%= product.p_name %></p>
+<p>価格：<%= product.price %></p>
+<p>商品詳細：<%= product.description %></p>
+<p>カテゴリー：<%= product.category.category_name %></p>
+<a>-----------------------</a>
 <% end %>
 
 <%= paginate @products %>

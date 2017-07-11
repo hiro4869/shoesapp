@@ -3,9 +3,9 @@
 <%= render 'form' %>
 <div>
   <% if @product.image? %>
-    <div><%= image_tag @product.image.url%></div>
+  <div><%= image_tag @product.image.url%></div>
   <% else %>
-    <div><%= image_tag 'noimage.gif' %></div>
+  <div><%= image_tag 'noimage.gif' %></div>
   <% end %>
 </div>
 <p><%= link_to "削除する", "/products/#{@product.id}",method: :delete %></p>
@@ -18,18 +18,18 @@
 
 
 <% @product_varieties.each do |item| %>
-  <p>色：<%= item.color %></p>
-  <p>サイズ：<%= item.size %></p>
-  <p>価格：<%= item.price %></p>
-  <% if item.stock %>
-    <p>在庫:あり</p>
-  <% else %>
-    <p>在庫:なし</p>
-  <% end %>
+<p>色：<%= item.color %></p>
+<p>サイズ：<%= item.size %></p>
+<p>価格：<%= item.price %></p>
+<% if item.stock %>
+<p>在庫:あり</p>
+<% else %>
+<p>在庫:なし</p>
+<% end %>
 
-  <p><%= link_to "編集", edit_product_product_variety_path(params[:id],item.id) %></p>
-  <p><%= link_to "削除", "/products/#{params[:id]}/product_varieties/#{item.id}", method: :delete, data: { confirm: '削除しますか？' }  %></p>
-  <p>----------------</p>
+<p><%= link_to "編集", edit_product_product_variety_path(params[:id],item.id) %></p>
+<p><%= link_to "削除", "/products/#{params[:id]}/product_varieties/#{item.id}", method: :delete, data: { confirm: '削除しますか？' }  %></p>
+<p>----------------</p>
 <% end %>
 
 <%= link_to "Home", root_path %>
