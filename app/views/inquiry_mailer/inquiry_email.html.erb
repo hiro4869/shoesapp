@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <p><%= @inquiry.name %>さんお問い合わせありがとうございます。</p>
+    <p>スタッフが確認後返信いたしますので今しばらくお待ちください。</p>
+    <br>
+    <h3>お問い合わせ内容</h3>
+    <p>タイトル：</p>
+    <p><%= @inquiry.title %></p>
+    <p>氏名：</p>
+    <p><%= @inquiry.name %></p>
+    <br>
+    <p>Eメール：</p>
+    <p><%= @inquiry.email %></p>
+    <br>
+    <p>お問い合わせ内容：</p>
+    <p><%= @inquiry.body %></p>
+  </body>
+</html>

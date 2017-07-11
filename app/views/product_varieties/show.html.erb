@@ -38,7 +38,7 @@
 <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
 <% end %>
 <% else %>
-<p><%= link_to "お取り寄せする", root_path, class: "btn btn-primary" %></p>
+<p><%= link_to "お取り寄せする", new_inquiry_path, class: "btn btn-primary" %></p>
 <% end %>
 <% else %>
 <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
