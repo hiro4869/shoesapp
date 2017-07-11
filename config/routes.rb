@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 }
 
   root 'root#index'
-  resources :inquiries, only: [:new, :create]
+  resources :inquiries, only: [:new, :create, :index]
 
   resources :products do
     resources :product_images, only: [:destroy]
