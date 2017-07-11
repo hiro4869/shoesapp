@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'product_varieties/new'
-
   get 'product_varieties/create'
 
   # devise_for :users
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 }
 
   root 'root#index'
+  resources :inquiries, only: [:new, :create]
 
   resources :products do
     resources :product_images, only: [:destroy]
