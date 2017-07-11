@@ -1,15 +1,13 @@
 
-   <div class= admin >
-   <h1>管理者ページ</h1>
-   <%= render_breadcrumbs separator: ' > ' %>
-   <p><%= link_to "新しく出品する", new_product_path %></p>
-   <p><%= link_to "新規ユーザー登録", users_new_path %></p>
-   <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
-   <hr>
-   <% @products.each do |product| %>
-   
-
-   
+<div class= admin >
+ <h1>管理者ページ</h1>
+ <%= render_breadcrumbs separator: ' > ' %>
+ <p><%= link_to "新しく出品する", new_product_path %></p>
+ <p><%= link_to "新規ユーザー登録", users_new_path %></p>
+ <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
+ <hr>
+ <% @products.each do |product| %>
+ 
    <p>商品名：<%= product.p_name %></p>
    <p>価格：<%= product.price %></p>
    <p>商品詳細：<%= product.description %></p>
@@ -20,10 +18,10 @@
    <a>-------------------------------</a>
    <% end %>
 
-   <p><%= link_to "Home", root_path %></p>
-   
-  </div>
+<p><%= link_to "Home", root_path %></p>
 
- </body>
+</div>
+
+</body>
 </html>
 

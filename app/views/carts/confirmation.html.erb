@@ -1,39 +1,57 @@
-<h1>確認画面</h1>
-<h3>お届け先</h3>
-  <p>氏名：<%= @user.name %></p>
-  <p>住所：<%= @user.address %></p>
-  <p>Eメール：<%= @user.email %></p>
-  <p>電話番号：<%= @user.phone_number %></p>
+<div class="confirmation_contents">
+ <h1 class="text-center">注文内容を確認する</h1>
+  <div class="confirmation_payment">
+   <p>お届け先</p>
+    <p>氏名：<%= @user.name %></p>
+    <p>住所：<%= @user.address %></p>
+    <p>Eメール：<%= @user.email %></p>
+    <p>電話番号：<%= @user.phone_number %></p>
 
-  <!-- お届け先に記入漏れがある場合のアラート -->
-  <% unless @user.name.present? %><p class="alert alert-danger">・氏名を登録してください</p><% end %>
-  <% unless @user.address.present? %><p class="alert alert-danger">・住所を登録してください</p><% end %>
-  <% unless @user.email.present? %><p class="alert alert-danger">・Eメールを登録してください</p><% end %>
-  <% unless @user.phone_number.present? %><p class="alert alert-danger">・電話番号を登録してください</p><% end %>
-  <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+    <!-- お届け先に記入漏れがある場合のアラート -->
+    <% unless @user.name.present? %><p class="alert alert-danger">・氏名を登録してください</p><% end %>
+    <% unless @user.address.present? %><p class="alert alert-danger">・住所を登録してください</p><% end %>
+    <% unless @user.email.present? %><p class="alert alert-danger">・Eメールを登録してください</p><% end %>
+    <% unless @user.phone_number.present? %><p class="alert alert-danger">・電話番号を登録してください</p><% end %>
+    <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+   <br>
+   <p>お支払い方法</p>
+   <%= form_for @order , url: "/orders" ,method: :post do |f| %>
+    <p><%= f.radio_button 'method_of_payment_id', '1' %> 銀行振込</p>
+    <p><%= f.radio_button 'method_of_payment_id', '2' %> 代金引換</p>
+   </div>
+   <hr>
+    <div class="confirmation_products">
+     <% if @cart.empty? %>
+      <p>現在、カートに入っている商品はありません。</p>
+      <p><%= link_to "カートに戻る", user_carts_path(current_user.id) %></p>
+     <% else %>
+     <% total = 0 %>
+     <% @cart.each do |item| %>
 
-
-<br>
-<p>お支払い方法</p>
-<%= form_for @order , url: "/orders" ,method: :post do |f| %>
-  <p><%= f.radio_button 'method_of_payment_id', '1' %> 銀行振込</p>
-  <p><%= f.radio_button 'method_of_payment_id', '2' %> 代金引換</p>
-
-  <hr>
-  <% if @cart.empty? %>
-    <p>現在、カートに入っている商品はありません。</p>
-    <p><%= link_to "カートに戻る", user_carts_path(current_user.id) %></p>
-  <% else %>
-    <% total = 0 %>
-    <% @cart.each do |item| %>
       <p>商品ID:<%= item.product_variety_id %></p>
-      <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) %></p>
+      <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id), class: "contents_link" %></p>
       <p>価格:<%= item.product_variety.price %>円</p>
       <p>購入数:<%= item.quantity %></p>
       <p>小計：<%= item.product_variety.price * item.quantity %>円</p>
       <% total += item.product_variety.price * item.quantity %>
-      <p>------------------------------</p>
+      <p class="make_border"></p>
+     <% end %>
+      <h3>合計:<%= total %> 円</h3>
+      <!-- 配送料無料の判定 -->
+      <% if total >= 50000 %>
+       <% postage = 0 %>
+      <% else %>
+       <% postage = 1000 %>
+      <% end %>
+       <h3>配送料:<%= postage %>円</h3>
+       <h3>ご請求金額:<%= total + postage %>円</h3>
+      <% end %>
+     </div>
+     <p class="btn-center"><%= f.submit "　注文を確定する　", class: "btn btn-primary btn-lg" %></p>
     <% end %>
+<!-- <<<<<<< anri_buy -->
+ </div>
+<!-- ======= -->
     <h3>合計:<%= total %> 円</h3>
     <!-- 配送料無料の判定 -->
     <% if total >= 50000 %>
@@ -56,3 +74,4 @@
 
 
 <% end %>
+<!-- >>>>>>> master -->

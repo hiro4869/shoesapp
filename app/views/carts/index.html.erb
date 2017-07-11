@@ -1,47 +1,53 @@
-<h1>ショップカート</h1>
 
-<% if @cart.empty? %>
-  <p>現在、カートに入っている商品はありません。</p>
-<% else %>
-  <% total = 0 %>
-  <% @cart.each do |item| %>
-    <p>商品ID:<%= item.product_variety_id %></p>
-    <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) %></p>
-    <p>価格:<%= item.product_variety.price %>円</p>
-    <p>購入数:<%= item.quantity %></p>
-    <p>小計：<%= item.product_variety.price * item.quantity %>円</p>
-    <% total += item.product_variety.price * item.quantity %>
-    <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
-      <%= f.hidden_field :id,:value => "#{item.id}" %>
-      <%= f.submit "　後で買う　", class: "btn btn-success" %>
-      <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+<div class="shopping_user" >
+ <div class="clearfix user_cart_name">
+  <ul><i class="material-icons shop_cart_icon">add_shopping_cart</i>
+  <h2>ショッピングカート</h2></ul>
+ </div>
+  <div class="user_cart_product">
+   <% if @cart.empty? %>
+    <p>現在、カートに入っている商品はありません。</p>
+    <% else %>
+     <% total = 0 %>
+      <% @cart.each do |item| %>
+       <p>画像</p>
+       <p>商品ID:<%= item.product_variety_id %></p>
+       <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) ,class: "cart_contents_link" %></p>
+       <p>価格:<%= item.product_variety.price %>円</p>
+       <p>購入数:<%= item.quantity %></p>
+       <p>小計：<%= item.product_variety.price * item.quantity %>円</p>
+       <% total += item.product_variety.price * item.quantity %>
+       <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
+       <%= f.hidden_field :id,:value => "#{item.id}" %>
+       <%= f.submit "　後で買う　", class: "btn btn-success" %>
+       <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    <p class="make_border"></p>
     <% end %>
-    <p>------------------------------</p>
-  <% end %>
-  <h3>商品の合計：<%= total %> 円</h3>
-<% end %>
+    <h3>商品の合計：<%= total %> 円</h3>
+   <% end %>
+</div>
+ <p class="btn-center cart_fixed"><%= link_to "　レジに進む　", confirmation_user_carts_path(current_user.id), class: "btn btn-primary btn-lg" %></p>
+ <hr>
 
-<p class="btn-center"><%= link_to "　レジに進む　", confirmation_user_carts_path(current_user.id), class: "btn btn-primary btn-lg" %></p>
+ <div class="user_cart_after">
+  <h1>「あとで買う」に入っている商品</h1>
+   <% if @cart_after.empty? %>
+    <p>現在、「あとで買う」に入っている商品はありません。</p>
+     <% else %>
+      <% @cart_after.each do |item| %>
+       <p>商品ID:<%= item.product_variety_id %></p>
+       <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id),class: "cart_contents_link" %></p>
+       <p>価格:<%= item.product_variety.price %>円</p>
+       <p>購入数:<%= item.quantity %></p>
 
-<hr>
-<h1>「あとで買う」に入っている商品</h1>
-
-<% if @cart_after.empty? %>
-  <p>現在、「あとで買う」に入っている商品はありません。</p>
-<% else %>
-  <% @cart_after.each do |item| %>
-    <p>商品ID:<%= item.product_variety_id %></p>
-    <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) %></p>
-    <p>価格:<%= item.product_variety.price %>円</p>
-    <p>購入数:<%= item.quantity %></p>
-
-    <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>
-      <%= f.hidden_field :id,:value => "#{item.id}" %>
-      <%= f.submit "　カートに戻す　", class: "btn btn-success" %>
-      <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
-    <% end %>
-
-    <p>------------------------------</p>
-  <% end %>
-<% end %>
+         <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>
+         <%= f.hidden_field :id,:value => "#{item.id}" %>
+         <%= f.submit "　カートに戻す　", class: "btn btn-success" %>
+         <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+      <% end %>
+       <p class="make_border"></p>
+     <% end %>
+   <% end %>
+</div>
 

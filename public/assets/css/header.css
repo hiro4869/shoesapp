@@ -11,11 +11,17 @@
  }
 
  .btn-default  {
-   font-family: 'Cinzel', serif;  
+   font-family: 'Cinzel', serif; 
+  
+
  }
  .Logged_in_as {
    font-family: 'Cinzel', serif;
 }
+.navbar-default{
+   margin: 0!important;
+}
+
  
    
 

@@ -27,8 +27,8 @@
  }
  /*リンクの色*/
  .contents_link {
-  color: #8B4513 !important;
-}
+   color: #8B4513 !important;
+ }
 
  /*product_show----------*/
 
@@ -52,36 +52,33 @@
    left: 2%;
 
  
- }
- .product_render {
-    position: absolute;/*絶対配置*/
-    top: 80%;
-    left: 2%;
- }
-/*リンクの色*/
- .contents_link {
-    color: #8B4513 !important;
 }
- .product_show_name {
-     font-size: 20px;
- }
- .product_show_contents {
-   
- }
- /*product_show色とサイズの場所*/
+.product_render {
+ position: absolute;/*絶対配置*/
+ top: 80%;
+ left: 2%;
+}
+/*リンクの色*/
+.contents_link {
+ color: #8B4513 !important;
+}
+.product_show_name {
+ font-size: 20px;
+}
 
- .product_varieties_list_images{
-  margin: 5px;
-  padding: 5px;
+/*product_show色とサイズの場所*/
 
- }
- .product_varieties_scname {
-  text-align: center;
+.product_varieties_list_images{
+ margin: 5px;
+ padding: 5px;
+}
 
- }
+.product_varieties_scname {
+ text-align: center;
+}
 
- 
- /*pc-----------------------------------------------------------*/
+
+/*pc-----------------------------------------------------------*/
 @media all and (min-width: 768px) {
  .shopname {
    font-family: 'Playball', cursive;
@@ -117,17 +114,22 @@
  }
 
  .product-box {
-    width: 300px;
-    height: 350px;
-    border: #f1f1f1 solid 3px;
-    float: left;
-    padding: 15px 5px 15px 5px;
-    margin: 15px 5px 15px 5px;
-    text-align: center;
+   width: 300px;
+   height: 350px;
+   border: #f1f1f1 solid 3px;
+   float: left;
+   padding: 15px 5px 15px 5px;
+   margin: 15px 5px 15px 5px;
+   text-align: center;
+ }
+
+ .product {
+   width: 1000px;
+   margin:  auto;
  }
 
  .product_name {
-    line-height:2em;
+   line-height:2em;
  }
  .product_image_contents {
    margin: 5px 5px 5px 5px;
@@ -145,7 +147,7 @@
 
 @media all and (max-width:  767px) {
   /*product一覧-------------------------*/
- .product-box {
+  .product-box {
    width: 200px;
    height: 200px;
    border: #f1f1f1 solid 3px;
@@ -165,7 +167,7 @@
  }
 
 
-/*product一覧-----------------------------------------*/
+ /*product一覧-----------------------------------------*/
  .product-box {
    width: 150px;
    height: 150px;
