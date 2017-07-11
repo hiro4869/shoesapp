@@ -23,11 +23,13 @@ class ProductsController < ApplicationController
     @product.user_id = current_user.id
 
     if @product.save
-      params[:product][:image].each do |image|
-        @product_images = ProductImage.new
-        @product_images.product_id = @product.id
-        @product_images.image = image
-        @product_images.save
+      if params[:product][:image].present?
+        params[:product][:image].each do |image|
+          @product_images = ProductImage.new
+          @product_images.product_id = @product.id
+          @product_images.image = image
+          @product_images.save
+        end
       end
       redirect_to root_path
     else
@@ -51,11 +53,13 @@ class ProductsController < ApplicationController
 
   def update
     # 画像を保存
-    params[:product][:image].each do |image|
-      @product_images = ProductImage.new
-      @product_images.product_id = params[:id]
-      @product_images.image = image
-      @product_images.save
+    if params[:product][:image].present?
+      params[:product][:image].each do |image|
+        @product_images = ProductImage.new
+        @product_images.product_id = params[:id]
+        @product_images.image = image
+        @product_images.save
+      end
     end
 
     if @product.update(product_params)
