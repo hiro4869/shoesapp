@@ -22,3 +22,6 @@
 
 #環境変数ファイルを無視
 /config/settings.yml
+
+#メーラーの情報を無視
+/config/environments/development.rb
