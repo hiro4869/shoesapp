@@ -31,6 +31,8 @@ gem 'kaminari'
 gem 'seed-fu', '~> 2.3'
 gem 'hirb'
 
+gem 'pry-rails'
+
 gem "breadcrumbs_on_rails"
 
 # Use jquery as the JavaScript library

@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.where(user_id: current_user.id)
+    if user_signed_in?
+      @orders = Order.where(user_id: current_user.id).order("created_at DESC")
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -43,16 +47,13 @@ class OrdersController < ApplicationController
     @Order.phone_number = @user.phone_number
     @Order.save
 
-
     #管理ユーザーにメールを送信
     adminuser = "fukunagakaihatu48@gmail.com"
-    OrderMailer.order_email(adminuser, @Order, @cart).deliver_later
+    OrderMailer.order_email(adminuser, @Order).deliver_later
 
     #購入者にメールを送る
     user_email = @Order.email
-    OrderMailer.order_email(user_email, @Order, @cart).deliver_later
-
-
+    OrderMailer.order_email(user_email, @Order).deliver_later
 
     # ショップカートの中身を全て削除
     @cart.destroy_all
