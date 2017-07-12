@@ -13,7 +13,10 @@ class CartsController < ApplicationController
     if @cart.save
       redirect_to cart_added_confirm_user_carts_path(current_user.id)
     else
-      redirect_to root_path
+      # ProductVarietyの親のproduct_idを取得
+      product_id = ProductVariety.find_by(id: "#{params[:cart][:product_variety_id]}").product.id
+      # ProductVarietyのshowページへリダイレクト
+      redirect_to product_product_variety_path(product_id, params[:cart][:product_variety_id])
     end
   end
 
