@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:admin_index, :new, :edit]
 
   # ログインユーザーのみ閲覧可能
   # before_action :authenticate_user!
@@ -12,6 +13,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.page(params[:page]).per(50)
+  end
+
+  def admin_index
+    @products = Product.all.page(params[:page]).per(50)
   end
 
   def new
@@ -72,7 +77,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to root_path
+    redirect_to admin_index_products_path
   end
 
   private
@@ -83,6 +88,17 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  # 管理ユーザー以外はトップページへリダイレクト
+  def admin_user
+    if user_signed_in?
+      if current_user.role != 1
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   # def correct_user

@@ -23,18 +23,5 @@
     </div>
   </div>
 
-
-  <div class="admin_products_edit">
-    <% @products.each do |product| %>
-      <p>商品名：<%= product.p_name %></p>
-      <p>価格：<%= product.price %></p>
-      <p>商品詳細：<%= product.description %></p>
-      <td><button type="button" class="btn btn-default"><%= link_to "編集ページ", edit_product_path(product) %></button>
-      </td>
-    <% end %>
-  </div>
-</div>
-
-
-
+<p><%= link_to "出品中の商品一覧", admin_index_products_path %></p>
 

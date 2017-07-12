@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :inquiries, only: [:new, :create, :index]
 
   resources :products do
+    collection do
+      get :admin_index
+    end
     resources :product_images, only: [:destroy]
     resources :product_varieties, except: [:index] do
       resources :product_variety_images, only: [:destroy]
