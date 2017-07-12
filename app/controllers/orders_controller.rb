@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :admin_user, only: [:admin_index]
 
   def index
     if user_signed_in?
@@ -6,6 +7,10 @@ class OrdersController < ApplicationController
     else
       redirect_to new_user_session_path
     end
+  end
+
+  def admin_index
+    @orders = Order.all.order("created_at DESC").page(params[:page]).per(20)
   end
 
   def create
@@ -69,6 +74,17 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:method_of_payment_id)
+  end
+
+  # 管理ユーザー以外はトップページへリダイレクト
+  def admin_user
+    if user_signed_in?
+      if current_user.role != 1
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
 end
