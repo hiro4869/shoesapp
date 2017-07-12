@@ -54,14 +54,20 @@
    </form>
    <!-- devise等のログイン機能 -->
    <ul class="nav navbar-nav navbar-right">
-     <% if user_signed_in? %>
-     <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
-     <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
-     <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
-     <% else %>
-     <li><%= link_to "新規登録", new_user_registration_path %></li> 
-     <li><%= link_to "ログイン", new_user_session_path %></li>
-     <% end %>
+    <% if user_signed_in? %>
+      <!-- 管理者でログインしている時のみ管理ページへのリンクを表示させる -->
+      <% if current_user.role == 1 %>
+        <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
+        <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
+        <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
+        <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+      <% end %>
+    <% else %>
+       <li><%= link_to "新規登録", new_user_registration_path %></li> 
+       <li><%= link_to "ログイン", new_user_session_path %></li>
+    <% end %>
    </ul><!--/.navbar-right-->
  </div><!-- /.navbar-collapse -->
  <!-- ログイン証明 -->
