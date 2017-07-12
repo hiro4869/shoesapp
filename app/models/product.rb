@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   has_many :product_images
-  has_many :product_varieties
+  has_many :product_varieties, dependent: :destroy
   has_many :carts
   has_many :purchases
   # mount_uploader :image, ImageUploader
