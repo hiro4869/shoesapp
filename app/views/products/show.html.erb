@@ -23,12 +23,12 @@
       <p>商品サブタイトル：<%= @product.sub_name %></p>
     <% end %>
 
-    <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
+    <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %></p>
 
 
     <!-- ブランドが設定されている場合に表示 -->
     <% if @product.brand.present? %>
-      <p>ブランド：<%= @product.brand.brand_name %></p>
+      <p>ブランド：<%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
     <% end %>
 
     <!-- 甲革が設定されている場合に表示 -->
