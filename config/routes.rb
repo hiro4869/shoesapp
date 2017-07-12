@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 }
 
   root 'root#index'
+  get "root/company" => "root#company"
   resources :inquiries, only: [:new, :create, :index]
 
   resources :products do
