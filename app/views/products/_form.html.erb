@@ -26,6 +26,12 @@
 
 <!-- ここから新しく追加した要素です -->
 
+<p><%= f.radio_button 'sale', 'true' %> セール対象</p>
+<p><%= f.radio_button 'sale', 'false' %> セール対象外</p>
+<p>セール時の割引率<%= f.text_field :discount_rate, class: "product_textbox" %></p>
+
+
+
 <p>商品サブタイトル<%= f.text_field :sub_name, class: "product_textbox" %></p>
 <p>甲革：<%= f.text_field :upper_leather, class: "product_textbox" %></p>
 <p>表底：<%= f.text_field :outsole, class: "product_textbox" %></p>
