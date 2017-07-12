@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #自分の出品した商品のみ一覧を確認可能
   before_action :correct_user, only: [:show]
-  before_action :admin_user, only: [:adminpage, :new]
+  before_action :admin_user, only: [:adminpage, :new, :edit]
 
   #ぱんくずリストを表示
   add_breadcrumb "home", :root_path
@@ -68,7 +68,11 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-    if current_user.role != 1
+    if user_signed_in?
+      if current_user.role != 1
+        redirect_to root_path
+      end
+    else
       redirect_to root_path
     end
   end

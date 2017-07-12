@@ -1,0 +1,30 @@
+<h1>購入された商品一覧<h1>
+<br>
+<% @orders.each do |order| %>
+
+  <h2>注文番号:<%= order.id %></h2>
+  <p>購入者id：<%= order.user_id %></p>
+  <p>氏名：<%= order.name %></p>
+  <p>住所：<%= order.address %></p>
+  <p>Eメール：<%= order.email %></p>
+  <p>電話番号：<%= order.phone_number %></p>
+
+  <% total = 0 %>
+  <h3>購入商品</h3>
+  <% order.purchases.each do |item| %>
+    <p><%= link_to item.p_name,product_product_variety_path(item.product_variety.product.id, item.product_variety_id) %></p>
+    <p>価格：<%= item.price %>円</p>
+    <p>数量：<%= item.quantity %></p>
+    <p>小計：<%= item.price * item.quantity %>円</p>
+    <p>------------------------</p>
+    <% total += item.price * item.quantity %>
+  <% end %>
+  <p>支払い方法：<%= order.method_of_payment.payment %></p>
+  <h3>合計：<%= total %>円</h3>
+  <h3>送料:<%= order.postage %>円</h3>
+  <h2>ご請求金額<%= total + order.postage %>円</h2>
+  <hr>
+
+<% end %>
+
+<%= paginate @orders %>

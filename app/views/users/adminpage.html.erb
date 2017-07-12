@@ -16,27 +16,23 @@
       <% end %>
     </div>
     <div class="admin_Purchase_history_contents">
-      <%= link_to purchases_index_path do %>
+      <%= link_to admin_index_orders_path do %>
         <i class="material-icons admin_Purchase_history">event_note</i>
-        <span>購入履歴一覧</span>
+        <span>購入された商品一覧</span>
       <% end %>
     </div>
   </div>
-    <div class="admin_products_edit">
-      <% @products.each do |product| %>
-        <p>商品名：<%= product.p_name %></p>
-        <p>価格：<%= product.price %></p>
-        <p>商品詳細：<%= product.description %></p>
-        <td><button type="button" class="btn btn-default"><%= link_to "編集ページ", edit_product_path(product) %></button>
-        </td>
-      <% end %>
-    </div>
 
 
-     <p><%= link_to "Home", root_path %></p>
-     <p><%= link_to "新しく出品する", new_product_path %></p>
-     <p><%= link_to "新規ユーザー登録", users_new_path %></p>
-     <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
+  <div class="admin_products_edit">
+    <% @products.each do |product| %>
+      <p>商品名：<%= product.p_name %></p>
+      <p>価格：<%= product.price %></p>
+      <p>商品詳細：<%= product.description %></p>
+      <td><button type="button" class="btn btn-default"><%= link_to "編集ページ", edit_product_path(product) %></button>
+      </td>
+    <% end %>
+  </div>
 </div>
 
 
