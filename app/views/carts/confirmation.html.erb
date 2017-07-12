@@ -1,6 +1,5 @@
 <div class="confirmation_contents">
   <h1 class="text-center">注文内容を確認する</h1>
-
   <div class="confirmation_payment_adress">
     <p>お届け先</p>
     <p>氏名：<%= @user.name %></p>
@@ -25,8 +24,6 @@
       <p><%= f.radio_button 'method_of_payment_id', '2' %> 代金引換</p> 
     </div>
 
-    <hr>
-
     <div class="confirmation_products">
       <% if @cart.empty? %>
         <p>現在、カートに入っている商品はありません。</p>
@@ -43,6 +40,7 @@
         <p class="make_border"></p>
       <% end %>
     </div>
+  
     <div class="confirmation_total_fee">
       <h3>合計:<%= total %> 円</h3>
       <!-- 配送料無料の判定 -->

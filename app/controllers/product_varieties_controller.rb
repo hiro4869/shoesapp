@@ -18,11 +18,13 @@ class ProductVarietiesController < ApplicationController
     if @ProductVariety.save
 
       # 複数画像の保存
-      params[:product_variety][:image].each do |image|
-        @product_variety_image = ProductVarietyImage.new
-        @product_variety_image.product_variety_id = @ProductVariety.id
-        @product_variety_image.image = image
-        @product_variety_image.save
+      if params[:product_variety][:image].present?
+        params[:product_variety][:image].each do |image|
+          @product_variety_image = ProductVarietyImage.new
+          @product_variety_image.product_variety_id = @ProductVariety.id
+          @product_variety_image.image = image
+          @product_variety_image.save
+        end
       end
 
       redirect_to edit_product_path(params[:product_id])
@@ -40,11 +42,13 @@ class ProductVarietiesController < ApplicationController
     @ProductVariety = ProductVariety.find(params[:id])
 
     # 画像を保存
-    params[:product_variety][:image].each do |image|
-      @product_variety_image = ProductVarietyImage.new
-      @product_variety_image.product_variety_id = params[:id]
-      @product_variety_image.image = image
-      @product_variety_image.save
+    if params[:product_variety][:image].present?
+      params[:product_variety][:image].each do |image|
+        @product_variety_image = ProductVarietyImage.new
+        @product_variety_image.product_variety_id = params[:id]
+        @product_variety_image.image = image
+        @product_variety_image.save
+      end
     end
 
     if @ProductVariety.update(product_variety_params)
