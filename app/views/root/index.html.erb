@@ -1,9 +1,15 @@
 <div class="product_contents">
-  <div class="top_js_images">
-    <h1 class="shopname">
-      Shoes Craft
-    </h1>
-  </div>
+
+  <% if params[:p_name].present? %>
+    <h1>検索結果</h1>
+  <% else %>
+    <div class="top_js_images">
+      <h1 class="shopname">
+        Shoes Craft
+      </h1>
+    </div>
+  <% end %>
+
   <div class="root_collection">
     <div class="root_collection_name" >
       <h1 class="text-center">collection</h1>
@@ -40,4 +46,19 @@
     </div>
   </div>
 </div>
+
+<hr>
+<h1>検索機能テスト</h1>
+
+
+<%= form_tag(root_path, method: "get") do %>
+  <%= label_tag :p_name, "商品名" %><%= text_field_tag :p_name, params[:p_name] %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+
+
+
+
+
  
