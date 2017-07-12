@@ -6,7 +6,11 @@
     <div class="product_show_name">
       <h1><%= @product.p_name %></h1>
     </div>
-    <p>ID：<%= @product.id %></p>
+
+    <!-- SNSシェアボタン -->
+    <p><%= link_to "Twitterでシェアする", "http://twitter.com/share?url=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+    <p><%= link_to "Facebookでシェアする", "https://www.facebook.com/sharer/sharer.php?u=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+    <p><%= link_to "LINEでシェアする", "http://line.me/R/msg/text/?http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
 
     <div class="product_image_show_maine">
       <% @product.product_images.each do |picture| %>
