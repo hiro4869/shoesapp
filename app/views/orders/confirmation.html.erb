@@ -1,18 +1,31 @@
-<h1>注文が確定されました</h1>
-<p>注文番号:<%= @order.id %></p>
+<div class="order_confirmation">
+  <h3 class="order_user_name"><%= @order.name %>様</h3>
+  <div class="oder_email_icon_contents">
+    <i class="material-icons order_email_icon">contact_mail</i>
+    <div class="order_email">
+    <p>ご登録された<%= @order.email %>にご注文内容を送信いたしました。</p>
+    </div>
+  </div>
+  <h1 class="order_confirmation_thanks">ご注文ありがとうございます。</h1>
+  
+  <div class="order_confirmation_contents">
+    <span class="label label-danger order_confirmation_number">注文番号:<%= @order.id %></span>
+      <% total = 0 %>
+      <% @order.purchases.each do |item| %>
+        <p>商品名：<%= item.p_name %></p>
+        <p>価格：<%= item.price %>円</p>
+        <p>数量：<%= item.quantity %></p>
+        <p>小計：<%= item.price * item.quantity %>円</p>
+        <% total += item.price * item.quantity %>
+        <p class="make_border"></p>
+      <% end %>
+  </div>
 
-<% total = 0 %>
-<% @order.purchases.each do |item| %>
-  <p>商品名：<%= item.p_name %></p>
-  <p>価格：<%= item.price %>円</p>
-  <p>数量：<%= item.quantity %></p>
-  <p>小計：<%= item.price * item.quantity %>円</p>
-  <% total += item.price * item.quantity %>
-<% end %>
-
-<p>支払い方法：<%= @order.method_of_payment.payment %></p>
-
-<h3>合計：<%= total %>円</h3>
-<h3>送料:<%= @order.postage %>円</h3>
-<h2>ご請求金額:<%= total + @order.postage %>円</h2>
+  <div class="order_confirmation_total">
+    <p>支払い方法：<%= @order.method_of_payment.payment %></p>
+    <h3>合計：<%= total %>円</h3>
+    <h3>送料:<%= @order.postage %>円</h3>
+    <h2>ご請求金額:<%= total + @order.postage %>円</h2>
+  </div>
+</div>
 

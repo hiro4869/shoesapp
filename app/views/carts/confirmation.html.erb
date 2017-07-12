@@ -6,20 +6,24 @@
     <p>住所：<%= @user.address %></p>
     <p>Eメール：<%= @user.email %></p>
     <p>電話番号：<%= @user.phone_number %></p>
-    <!-- お届け先に記入漏れがある場合のアラート -->
-    <% unless @user.name.present? %><p class="alert alert-danger">・氏名を登録してください</p><% end %>
-    <% unless @user.address.present? %><p class="alert alert-danger">・住所を登録してください</p><% end %>
-    <% unless @user.email.present? %><p class="alert alert-danger">・Eメールを登録してください</p><% end %>
-    <% unless @user.phone_number.present? %><p class="alert alert-danger">・電話番号を登録してください</p><% end %>
-    <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+    
+    <div class="confirmation_denger">
+      <!-- お届け先に記入漏れがある場合のアラート -->
+      <% unless @user.name.present? %><p class="alert alert-danger">・氏名を登録してください</p><% end %>
+      <% unless @user.address.present? %><p class="alert alert-danger">・住所を登録してください</p><% end %>
+      <% unless @user.email.present? %><p class="alert alert-danger">・Eメールを登録してください</p><% end %>
+      <% unless @user.phone_number.present? %><p class="alert alert-danger">・電話番号を登録してください</p><% end %>
+      <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+    </div>
   </div>
+
   <%= form_for @order , url: "/orders" ,method: :post do |f| %>
     <div class="confirmation_payment">
       <p>お支払い方法</p>
       <p><%= f.radio_button 'method_of_payment_id', '1' %> 銀行振込</p>
       <p><%= f.radio_button 'method_of_payment_id', '2' %> 代金引換</p> 
     </div>
-    <hr>
+
     <div class="confirmation_products">
       <% if @cart.empty? %>
         <p>現在、カートに入っている商品はありません。</p>
@@ -36,22 +40,28 @@
         <p class="make_border"></p>
       <% end %>
     </div>
-    <h3>合計:<%= total %> 円</h3>
-    <!-- 配送料無料の判定 -->
-    <% if total >= 50000 %>
-      <% postage = 0 %>
-    <% else %>
-      <% postage = 1000 %>
+  
+    <div class="confirmation_total_fee">
+      <h3>合計:<%= total %> 円</h3>
+      <!-- 配送料無料の判定 -->
+      <% if total >= 50000 %>
+        <% postage = 0 %>
+      <% else %>
+        <% postage = 1000 %>
+      <% end %>
+
+      <h3>配送料:<%= postage %>円</h3>
+      <h3>ご請求金額:<%= total + postage %>円</h3>
     <% end %>
-    <h3>配送料:<%= postage %>円</h3>
-    <h3>ご請求金額:<%= total + postage %>円</h3>
-    <% end %>
-        <!-- お届け先に記入漏れがないかのチェック -->
-    <% if @user.name.present? && @user.address.present? && @user.email.present? && @user.phone_number.present? %>
-      <p class="btn-center"><%= f.submit "　注文を確定する　", class: "btn btn-primary btn-lg" %></p>
-    <% else %>
-      <p class="alert alert-danger">ご注文を確定させるためにお届け先情報のご登録をお願いします。</p>
-      <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
-    <% end %>
+    </div>
+    <div class="confirmation_adress_fix">
+    <!-- お届け先に記入漏れがないかのチェック -->
+      <% if @user.name.present? && @user.address.present? && @user.email.present? && @user.phone_number.present? %>
+        <p class="btn-center"><%= f.submit "　注文を確定する　", class: "btn btn-primary btn-lg" %></p>
+      <% else %>
+        <p class="alert alert-danger">ご注文を確定させるためにお届け先情報のご登録をお願いします。</p>
+        <p><%= link_to "お届け先情報を登録する", "/user/#{current_user.id}/edit", class: "btn btn-success btn-lg" %></p>
+      <% end %>
+    </div>
   <% end %>
 </div>

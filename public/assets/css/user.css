@@ -90,7 +90,7 @@ a:hover {
 
 span {
  text-align: center;
- color: lightblue;
+ /*color: lightblue;*/
 }
 
 
@@ -123,9 +123,17 @@ span {
 
 /*confirmation.html/注文内容を確認*/
 
-.confirmation_payment {
+.confirmation_payment_adress {
   text-align: center;
+  width: 100%;
+  margin: 10px;
 }
+/*絶対入力してほしい情報の警告後で消すのか悩むところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*.confirmation_denger {
+  width: 300px; 
+  text-align: center;
+  margin: 0 auto;
+}*/
 .confirmation_products {
   text-align: center;
   margin: 0 auto;
@@ -141,6 +149,86 @@ span {
   text-align: center;
   margin: 20px;
 }
+
+.confirmation_payment {
+  text-align: center;
+}
+.confirmation_total_fee {
+
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+.confirmation_adress_fix {
+  text-align: center;
+
+}
+
+/*order_confirmation.html*/
+
+.order_confirmation{
+  width: 100%;
+  height: auto;
+
+
+
+}
+.order_confirmation_thanks {
+  text-align: center;
+  margin: 30px 5px;
+  padding: 5px;
+  color: #DC143C;
+}
+
+.order_confirmation_contents {
+  text-align: center;
+  margin: 5px; 
+  padding: 5px;
+  height: auto;
+  line-height:49px;
+  margin: 0 auto;
+  width: 600px;
+
+}
+.order_confirmation_number {
+  margin: 10px 5px 10px;
+  
+}
+.order_confirmation_total {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin: 10px;
+
+}
+.order_user_name {
+  margin: 20px 20px 20px 50px;
+}
+.order_email {
+  display: inline-block;
+  line-height: 100px;
+  text-align: center;
+
+
+}
+.oder_email_icon{
+  display: inline-block;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.oder_email_icon_contents {
+  text-align: center;
+  width: 100%
+
+}
+
+
+
+
+
 
 
 

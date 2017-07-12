@@ -7,38 +7,37 @@
   <div class="root_collection">
     <div class="root_collection_name" >
       <h1 class="text-center">collection</h1>
-    </div>
-   <div class="root_product_pageinate_top">
-     <%= paginate @products %>
-   </div>
-   <div class="root_p-line">
-   </div>
-   <% @products.each do |product| %>
-   <div class="product clearfix">
-    <div class="root_p-box">
-      <p class="text-center">画像<%= product.image %></p>
-       <div>
-        <% if product.product_images.present? %>
-          <div>
-            <!-- 登録されている画像の一番最初の画像を表示 -->
-            <%= image_tag product.product_images.first.image %>
+      </div>
+      <div class="root_product_pageinate_top">
+        <%= paginate @products %>
+      </div>
+      <div class="root_p-line">
+      </div>
+      <% @products.each do |product| %>
+        <div class="product clearfix">
+          <div class="root_p-box">
+            <p class="text-center">画像<%= product.image %></p>
+            <div>
+              <% if product.product_images.present? %>
+                <div>
+                  <!-- 登録されている画像の一番最初の画像を表示 -->
+                  <%= image_tag product.product_images.first.image %>
+                </div>
+              <% else %>
+                <div><%= image_tag 'noimage.gif' %></div>
+              <% end %>
+            </div>
+            <p class="product_name">商品名:<%= link_to product.p_name , product_path(product.id) %></p>
+            <p>価格:<%= product.price %></p>
+            <p>商品詳細:<%= product.description %></p>
+            <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}" %></p>
           </div>
-        <% else %>
-          <div><%= image_tag 'noimage.gif' %></div>
-        <% end %>
-       </div>
-        <p class="product_name">商品名:<%= link_to product.p_name , product_path(product.id) %></p>
-         <p>価格:<%= product.price %></p>
-
-          <p>商品詳細:<%= product.description %></p>
-           <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}" %></p>
-     </div>
-          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="product_pageinate_down">
+      <%= paginate @products %>
     </div>
   </div>
-  <div class="product_pageinate_down">
-    <%= paginate @products %>
-  </div>
 </div>
-</div>
-
+ 
