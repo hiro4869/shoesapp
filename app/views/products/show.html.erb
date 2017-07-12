@@ -57,11 +57,9 @@
             <th scope="row"><%= @product.id  %></th>
             <td>
               <div>
-                <% if @product.image? %>
+                <% if item.product_variety_images.present? %>
                   <div class="product_varieties_list_images">
-                    <% @product.product_images.each do |picture| %>
-                      <%= image_tag picture.image %>
-                    <% end %>
+                    <%= image_tag item.product_variety_images.first.image %>
                   </div>
                 <% else %>
                   <div><%= image_tag 'noimage.gif' %></div>

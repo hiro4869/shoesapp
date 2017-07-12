@@ -6,10 +6,11 @@
   <h2>注文番号:<%= order.id %></h2>
   <% total = 0 %>
   <% order.purchases.each do |item| %>
-    <p>商品名：<%= item.p_name %></p>
+    <p><%= link_to item.p_name,product_product_variety_path(item.product_variety.product.id, item.product_variety_id) %></p>
     <p>価格：<%= item.price %>円</p>
     <p>数量：<%= item.quantity %></p>
     <p>小計：<%= item.price * item.quantity %>円</p>
+    <p>------------------------</p>
     <% total += item.price * item.quantity %>
   <% end %>
   <p>支払い方法：<%= order.method_of_payment.payment %></p>
