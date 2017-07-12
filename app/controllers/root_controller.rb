@@ -8,6 +8,9 @@ class RootController < ApplicationController
     end
   end
 
+  def company 
+  end
+
 end
 
 
