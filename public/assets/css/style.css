@@ -119,6 +119,20 @@ padding: 5px;
 }
 */
 
+.sale-normal-price {
+  text-decoration: line-through;
+}
+
+
+.sale-price {
+  text-decoration: underline;
+  color: red;
+  font-weight: bold;
+} 
+
+
+
+
 
 
 /*pc-----------------------------------------------------------*/
