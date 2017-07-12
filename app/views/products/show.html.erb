@@ -56,3 +56,19 @@
     </table>
   </div>
 </div>
+
+<!-- ここから簡易商品 -->
+
+<% @product.product_varieties.each do |item| %>
+  <%= @product.id  %>
+  <% if @product.image? %>
+    <% @product.product_images.each do |picture| %>
+      <%= image_tag picture.image %>
+    <% end %>
+  <% else %>
+    <div><%= image_tag 'noimage.gif' %></div>
+  <% end %>
+  <%= item.color %>
+  <%= item.size %>
+  <button type="button" class="btn btn-default"><%= link_to "詳細を見る", product_product_variety_path(params[:id], item.id) %></button>
+<% end %>

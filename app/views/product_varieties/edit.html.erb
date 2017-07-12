@@ -5,7 +5,6 @@
 <%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties/#{params[:id]}", method: :patch  do |f| %>
 <p>色：<%= f.text_field :color %></p>
 <p>サイズ：<%= f.text_field :size %></p>
-<p>価格：<%= f.text_field :price %></p>
 <p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
 <p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
 <p>画像：<%= f.file_field :image, multiple: true %></p>

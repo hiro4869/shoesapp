@@ -33,10 +33,10 @@
         <% @cart.each do |item| %>
         <p>商品ID:<%= item.product_variety_id %></p>
         <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id), class: "contents_link" %></p>
-        <p>価格:<%= item.product_variety.price %>円</p>
+        <p>価格:<%= item.product_variety.product.price %>円</p>
         <p>購入数:<%= item.quantity %></p>
-        <p>小計：<%= item.product_variety.price * item.quantity %>円</p>
-        <% total += item.product_variety.price * item.quantity %>
+        <p>小計：<%= item.product_variety.product.price * item.quantity %>円</p>
+        <% total += item.product_variety.product.price * item.quantity %>
         <p class="make_border"></p>
       <% end %>
     </div>

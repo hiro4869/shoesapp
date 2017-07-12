@@ -25,10 +25,10 @@ class OrdersController < ApplicationController
       @purchase.order_id = @Order.id
       @purchase.product_variety_id = item.product_variety_id
       @purchase.quantity = item.quantity
-      @purchase.price = item.product_variety.price
+      @purchase.price = item.product_variety.product.price
       @purchase.p_name = item.product_variety.product.p_name
       @purchase.save
-      total += item.product_variety.price * item.quantity
+      total += item.product_variety.product.price * item.quantity
     end
 
     # 送料を判定してOrderに書き込み
