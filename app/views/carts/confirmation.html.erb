@@ -31,29 +31,38 @@
       <% else %>
         <% total = 0 %>
         <% @cart.each do |item| %>
-        <p>商品ID:<%= item.product_variety_id %></p>
-        <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id), class: "contents_link" %></p>
-        <p>価格:<%= item.product_variety.product.price %>円</p>
-        <p>購入数:<%= item.quantity %></p>
-        <p>小計：<%= item.product_variety.product.price * item.quantity %>円</p>
-        <% total += item.product_variety.product.price * item.quantity %>
-        <p class="make_border"></p>
-      <% end %>
-    </div>
-  
-    <div class="confirmation_total_fee">
-      <h3>合計:<%= total %> 円</h3>
-      <!-- 配送料無料の判定 -->
-      <% if total >= 50000 %>
-        <% postage = 0 %>
-      <% else %>
-        <% postage = 1000 %>
-      <% end %>
+          <p>商品ID:<%= item.product_variety_id %></p>
 
-      <h3>配送料:<%= postage %>円</h3>
-      <h3>ご請求金額:<%= total + postage %>円</h3>
-    <% end %>
+          <!-- 画像の表示 -->
+          <% if item.product_variety.product_variety_images.present? %>
+            <div>
+            <%= image_tag item.product_variety.product_variety_images.first.image %>
+            </div>
+          <% end %>
+
+          <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id), class: "contents_link" %></p>
+          <p>価格:<%= item.product_variety.product.price %>円</p>
+          <p>購入数:<%= item.quantity %></p>
+          <p>小計：<%= item.product_variety.product.price * item.quantity %>円</p>
+          <% total += item.product_variety.product.price * item.quantity %>
+          <p class="make_border"></p>
+        <% end %>
+  
+        <div class="confirmation_total_fee">
+          <h3>合計:<%= total %> 円</h3>
+          <!-- 配送料無料の判定 -->
+          <% if total >= 50000 %>
+            <% postage = 0 %>
+          <% else %>
+            <% postage = 1000 %>
+          <% end %>
+
+          <h3>配送料:<%= postage %>円</h3>
+          <h3>ご請求金額:<%= total + postage %>円</h3>
+        </div>
+      <% end %>
     </div>
+
     <div class="confirmation_adress_fix">
     <!-- お届け先に記入漏れがないかのチェック -->
       <% if @user.name.present? && @user.address.present? && @user.email.present? && @user.phone_number.present? %>
