@@ -17,23 +17,72 @@
   <div class="product_detailed_box">
     <p>価格：<%= @product.price %></p>
     <p>商品名：<%= @product.p_name %></p>
-    <p>商品サブタイトル：<%= @product.sub_name %></p>
     
-    <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}" %></p>
-    <p>ブランド：<%= @product.brand.brand_name %></p>
+    <!-- 商品サブタイトルが設定されている場合に表示 -->
+    <% if @product.sub_name.present?%>
+      <p>商品サブタイトル：<%= @product.sub_name %></p>
+    <% end %>
+
+    <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %></p>
+
+
+    <!-- ブランドが設定されている場合に表示 -->
+    <% if @product.brand.present? %>
+      <p>ブランド：<%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
+    <% end %>
+
+    <!-- 甲革が設定されている場合に表示 -->
+    <% if @product.upper_leather.present?%>
+      <p>甲革：<%= @product.upper_leather %></p>
+    <% end %>
     
-    <p>甲革：<%= @product.upper_leather %></p>
-    <p>表底：<%= @product.outsole %></p>
-    <p>踵：<%= @product.heel %></p>
-    <p>製法：<%= @product.process %></p>
-    <p>修理：<%= @product.repair %></p>
-    <p>ウィズ(足囲)：<%= @product.width %></p>
-    <p>原産国：<%= @product.made_in %></p>
-    <p>メーカー説明：<%= @product.maker_description %></p>
-    <p>商品コード：<%= @product.product_code %></p>
+    <!-- 表底が設定されている場合に表示 -->
+    <% if @product.outsole.present?%>
+      <p>表底：<%= @product.outsole %></p>
+    <% end %>
+    
+    <!-- 踵が設定されている場合に表示 -->
+    <% if @product.heel.present?%>
+      <p>踵：<%= @product.heel %></p>
+    <% end %>
+    
+    <!-- 製法：が設定されている場合に表示 -->
+    <% if @product.process.present?%>
+      <p>製法：<%= @product.process %></p>
+    <% end %>
+    
+    <!-- 修理が設定されている場合に表示 -->
+    <% if @product.repair.present?%>
+      <p>修理：<%= @product.repair %></p>
+    <% end %>
+    
+    <!-- ウィズが設定されている場合に表示 -->
+    <% if @product.width.present?%>
+      <p>ウィズ(足囲)：<%= @product.width %></p>
+    <% end %>
+    
+    <!-- 原産国が設定されている場合に表示 -->
+    <% if @product.made_in.present?%>
+      <p>原産国：<%= @product.made_in %></p>
+    <% end %>
+    
+    <!-- メーカー説明が設定されている場合に表示 -->
+    <% if @product.maker_description.present?%>
+      <p>メーカー説明：<%= @product.maker_description %></p>
+    <% end %>
+    
+    <!-- 商品コードが設定されている場合に表示 -->
+    <% if @product.product_code.present?%>
+      <p>商品コード：<%= @product.product_code %></p>
+    <% end %>    
+
+
   </div>
   <div class="product_detailed_description">
-   <p>商品詳細：<%= @product.description %></p>
+    <!-- 商品詳細が設定されている場合に表示 -->
+    <% if @product.description.present?%>
+      <p>商品詳細：<%= @product.description %></p>
+    <% end %>
   </div>
 
 

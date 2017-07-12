@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'product_varieties/new'
   get 'product_varieties/create'
 
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   get "purchases/index" => "purchases#index"
 
   resources :categories, only: [:show]
+  resources :brands, only: [:show]
 
   resources :users , only: [:new, :create] do
     resources :carts , only: [:index, :create, :destroy] do

@@ -1,7 +1,15 @@
+<!-- バリデーションがかかった場合のエラーメッセージを表示させる -->
+<% @product.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <li><%= message %></li>
+  </div>
+<% end %>
+
+
 <%= form_for @product do |f| %>
 <div class="products_item">
 	<span class="col-sm-2 products_new_item">
-		商品名：
+		商品名（必須）：
 	</span>
 	<div class="col-sm-8 ">
 		<%= f.text_field :p_name, class: "product_textbox" %>
@@ -9,12 +17,30 @@
 </div>
 <div class="products_item">
 	<span class="col-sm-2 products_new_item">
-		価格：
+		価格（必須）：
 	</span>
 	<div class="col-sm-8">
 		<%= f.text_field :price, class: "product_textbox" %>
 	</div>
 </div>
+
+<!-- ここから新しく追加した要素です -->
+
+<p>商品サブタイトル<%= f.text_field :sub_name, class: "product_textbox" %></p>
+<p>甲革：<%= f.text_field :upper_leather, class: "product_textbox" %></p>
+<p>表底：<%= f.text_field :outsole, class: "product_textbox" %></p>
+<p>踵：<%= f.text_field :heel, class: "product_textbox" %></p>
+<p>製法：<%= f.text_field :process, class: "product_textbox" %></p>
+<p>修理：<%= f.text_field :repair, class: "product_textbox" %></p>
+<p>ウィズ(足囲)：<%= f.text_field :width, class: "product_textbox" %></p>
+<p>原産国：<%= f.text_field :made_in, class: "product_textbox" %></p>
+<p>メーカー説明：<%= f.text_field :maker_description, class: "product_textbox" %></p>
+<p>商品コード：<%= f.text_field :product_code, class: "product_textbox" %></p>
+<p><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, class: "product_cate" %></p>
+
+
+
+
 <div class="products_item2">
 	<span class="col-sm-2 products_new_item">
 		商品詳細：
