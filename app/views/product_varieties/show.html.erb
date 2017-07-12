@@ -1,48 +1,48 @@
-<h1>色・サイズの詳細</h1>
-
-<h3>商品名：<%= @Product.p_name %></h3>
-<br/>
-
-
-<p>色:<%= @ProductVariety.color %></p>
-<p>サイズ:<%= @ProductVariety.size %></p>
-<p>価格:<%= @ProductVariety.price %></p>
-<% if @ProductVariety.stock %>
-<p>在庫:あり</p>
-<% else %>
-<p>在庫:なし</p>
-<% end %>
-
-<p>画像</p>
-<% if @ProductVariety.product_variety_images.present? %>
-  <div>
-    <% @ProductVariety.product_variety_images.each do |picture| %>
-      <%= image_tag picture.image %>
-      <br>
+<div class="productvarieties_sizecolor">
+  <h1 class="productvarieties_titlename"><%= @Product.p_name %></h1>
+  <!-- 画像 -->
+   <div class="productvarieties_images">
+　　  <% if @ProductVariety.product_variety_images.present? %>
+  
+      <% @ProductVariety.product_variety_images.each do |picture| %>
+        <%= image_tag picture.image %>
+        <br>
+      <% end %>
+    
+    <% else %>
+      <div><%= image_tag 'noimage.gif' %></div>
     <% end %>
-  </div>
-<% else %>
-  <div><%= image_tag 'noimage.gif' %></div>
-<% end %>
+    </div>
+    <div class="productvarieties_products">
+      <p>色:<%= @ProductVariety.color %></p>
+      <p>サイズ:<%= @ProductVariety.size %></p>
+      <p>価格:<%= @ProductVariety.price %></p>
+      <% if @ProductVariety.stock %>
+        <p>在庫:あり</p>
+      <% else %>
+        <p>在庫:なし</p>
+      <% end %>
+  
+      <% if user_signed_in? %>
+      <% if @ProductVariety.stock %>
+      <%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
+        <p>購入数</p>
+        <p><%= f.text_field :quantity %></p>
+        <%= f.hidden_field :product_variety_id, :value => @ProductVariety.id  %>
+      <br/>
+    
 
-<br/>
+      <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+      <% end %>
+      <% else %>
+        <p><%= link_to "お取り寄せする", new_inquiry_path, class: "btn btn-primary" %></p>
+      <% end %>
+      <% else %>
+        <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+</div>
 
-
-<% if user_signed_in? %>
-<% if @ProductVariety.stock %>
-<%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
-<p>購入数</p>
-<p><%= f.text_field :quantity %></p>
-<%= f.hidden_field :product_variety_id, :value => @ProductVariety.id  %>
-<br/>
-<p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
-<% end %>
-<% else %>
-<p><%= link_to "お取り寄せする", new_inquiry_path, class: "btn btn-primary" %></p>
-<% end %>
-<% else %>
-<p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
-<% end %>
 
 
 

@@ -68,9 +68,56 @@
 .product_varieties_list_images{
   margin: 5px;
   padding: 5px;
+  
 
 }
 
+/*product_varaietiesのshow*/
+.productvarieties_sizecolor {
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+
+}
+.productvarieties_titlename {
+  font-family: 'Cinzel', serif;
+  margin: 10px 10px 10px 30px;
+  padding: 10px;
+}
+
+.productvarieties_products {
+
+text-align: center;
+width: 50%;
+height: auto;
+/*float: left;*/
+margin: 20px 10px 10px 10px;
+padding: 5px;
+
+}
+
+.productvarieties_images {
+  margin: 10px 10px 10px 70px;
+  padding: 5px;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  float: left;
+
+}
+
+/*カートボタン行き詰まり迷っている*/
+/*.productvarieties_cartin {
+  
+  margin: 20px 10px 10px 10px;
+  padding: 10px 5px 5px 5px;
+ width: 150px;
+ height: 100px;
+ clear: left; 
+
+}
+*/
 
 
 

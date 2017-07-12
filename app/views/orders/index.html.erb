@@ -1,21 +1,23 @@
-<h1>購入履歴一覧</h1>
-<br/>
+<div class="oders_index">
+  <h1 class="Purchase_history_title">購入履歴一覧</h1>
 
-<% @orders.each do |order| %>
-
-  <h2>注文番号:<%= order.id %></h2>
-  <% total = 0 %>
-  <% order.purchases.each do |item| %>
-    <p>商品名：<%= item.p_name %></p>
-    <p>価格：<%= item.price %>円</p>
-    <p>数量：<%= item.quantity %></p>
-    <p>小計：<%= item.price * item.quantity %>円</p>
-    <% total += item.price * item.quantity %>
-  <% end %>
+  <div class="oders_history_contents">
+    <% @orders.each do |order| %>
+      <span class="label label-info order_confirmation_number">注文番号:<%= order.id %></span>
+      <% total = 0 %>
+    <% order.purchases.each do |item| %>
+      <p>商品名：<%= item.p_name %></p>
+      <p>価格：<%= item.price %>円</p>
+      <p>数量：<%= item.quantity %></p>
+      <p>小計：<%= item.price * item.quantity %>円</p>
+      <p class="oders_make_border"></p>
+      <% total += item.price * item.quantity %>
+    <% end %>
   <p>支払い方法：<%= order.method_of_payment.payment %></p>
   <h3>合計：<%= total %>円</h3>
   <h3>送料:<%= order.postage %>円</h3>
   <h2>ご請求金額<%= total + order.postage %>円</h2>
   <hr>
-
 <% end %>
+</div>
+</div>
