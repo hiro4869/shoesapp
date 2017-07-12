@@ -1,27 +1,44 @@
+<div class= admin_adminpage >
+  <h1 class="admin_title">管理者ページ</h1>
+  <%= render_breadcrumbs separator: ' > ' %>
+  <hr>
+  <div class="admin_icons">
+    <div class="admin_newsell_contents">
+      <%= link_to new_product_path do %>
+        <i class="material-icons admin_newsell">fiber_new</i>
+        <span>新規出品</span>
+      <% end %>
+    </div>
+    <div class="admin_newuser_contents">
+      <%= link_to users_new_path do %>
+        <i class="material-icons admin_newuser">group_add</i>
+        <span>新規管理者登録</span>
+      <% end %>
+    </div>
+    <div class="admin_Purchase_history_contents">
+      <%= link_to purchases_index_path do %>
+        <i class="material-icons admin_Purchase_history">event_note</i>
+        <span>購入履歴一覧</span>
+      <% end %>
+    </div>
+  </div>
+    <div class="admin_products_edit">
+      <% @products.each do |product| %>
+        <p>商品名：<%= product.p_name %></p>
+        <p>価格：<%= product.price %></p>
+        <p>商品詳細：<%= product.description %></p>
+        <td><button type="button" class="btn btn-default"><%= link_to "編集ページ", edit_product_path(product) %></button>
+        </td>
+      <% end %>
+    </div>
 
-<div class= admin >
- <h1>管理者ページ</h1>
- <%= render_breadcrumbs separator: ' > ' %>
- <p><%= link_to "新しく出品する", new_product_path %></p>
- <p><%= link_to "新規ユーザー登録", users_new_path %></p>
- <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
- <hr>
- <% @products.each do |product| %>
- 
-   <p>商品名：<%= product.p_name %></p>
-   <p>価格：<%= product.price %></p>
-   <p>商品詳細：<%= product.description %></p>
-   <div>
 
-   </div>
-   <p><%= link_to '編集ページ', edit_product_path(product) %></p>
-   <a>-------------------------------</a>
-   <% end %>
-
-<p><%= link_to "Home", root_path %></p>
-
+     <p><%= link_to "Home", root_path %></p>
+     <p><%= link_to "新しく出品する", new_product_path %></p>
+     <p><%= link_to "新規ユーザー登録", users_new_path %></p>
+     <p><%= link_to "購入履歴一覧", purchases_index_path %></p>
 </div>
 
-</body>
-</html>
+
+
 
