@@ -22,7 +22,8 @@ class OrdersController < ApplicationController
     @Order.user_id = current_user.id
     @Order.save
 
-    # total = 0
+    # 送料判定のための購入代金合計(total)を初期化
+    total = 0
 
     #注文された商品を１レコードずつ保存
     @cart.each do |item|
@@ -40,11 +41,11 @@ class OrdersController < ApplicationController
       end
 
       @purchase.save
-      # total += item.product_variety.product.price * item.quantity
+      total += @purchase.price * item.quantity
     end
 
     # 送料を判定してOrderに書き込み
-    if total(@cart) >= 50000
+    if total >= 50000
       postage = 0
     else
       postage = 1000

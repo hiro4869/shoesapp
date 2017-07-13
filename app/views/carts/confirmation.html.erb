@@ -66,7 +66,7 @@
         <div class="confirmation_total_fee">
           <h3>合計:<%= total(@cart) %> 円</h3>
           <!-- 配送料無料の判定 -->
-          <% if total >= 50000 %>
+          <% if total(@cart) >= 50000 %>
             <% postage = 0 %>
           <% else %>
             <% postage = 1000 %>
