@@ -4,26 +4,23 @@
  clear: both;
 }
 
-/*ごみみたいなaタグが付いてたからそこを削除のためのhover*/
 a:hover {
   text-decoration: none !important;
   transition: all .5s;
 }
 
-  
 /*user_show*/
- .user_mypage_heading {
-   font-family: 'Cinzel', serif
- }
- .user_icons{
-   color: lightblue;
-   text-align: center;
-   
- }
- .user_profile {
-   font-size: 200px;
-   padding: 5px 40px 5px 5px;
- }
+.user_mypage_heading {
+ font-family: 'Cinzel', serif
+}
+.user_icons{
+ color: lightblue;
+ text-align: center;
+}
+.user_profile {
+ font-size: 200px;
+ padding: 5px 40px 5px 5px;
+}
 
 
 /*signup*/
@@ -33,6 +30,7 @@ a:hover {
  width: 100%;
  height: 900px;
  padding-top: 50px;
+
 }
 /*user_show*/
 .user_mypage_heading {
@@ -66,7 +64,7 @@ a:hover {
 }
 .user_profile_contents {
  text-align: center;
- width: 300px; 
+ width: 300px;
  height:300px;
  display: inline-block;
 }
@@ -76,7 +74,6 @@ a:hover {
  height:300px;
  display: inline-block;
 }
-
 .user_bought_contents {
  text-align: center;
  width: 300px; 
@@ -103,7 +100,7 @@ span {
 .user_cart_after {
  text-align: center;
 }
-/*後で買う*/
+/*後で買うページ*/
 .cart_contents_link {
   color: #8B4513 !important;
   /*text-align: center;*/
@@ -118,122 +115,107 @@ span {
 }
 
 /*confirmation.html/注文内容を確認*/
-
 .confirmation_payment_adress {
   text-align: center;
   width: 100%;
   margin: 10px;
 }
-/*絶対入力してほしい情報の警告後で消すのか悩むところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*警告後!!!*/
 /*.confirmation_denger {
   width: 300px; 
   text-align: center;
   margin: 0 auto;
-}*/
-.confirmation_products {
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
-  width: 600px;
-  height: auto;
-  line-height:49px;
-}
-/*ボーダーライン*/
-.make_border {
-  border:3px dashed #D3D3D3;
-  width: 600px;
-  text-align: center;
-  margin: 20px;
-}
+  }*/
+  .confirmation_products {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 600px;
+    height: auto;
+    line-height:49px;
+  }
+  /*ボーダーライン*/
+  .make_border {
+    border:3px dashed #D3D3D3;
+    width: 600px;
+    text-align: center;
+    margin: 20px;
+  }
 
-.confirmation_payment {
-  text-align: center;
-}
-.confirmation_total_fee {
+  .confirmation_payment {
+    text-align: center;
+  }
+  .confirmation_total_fee {
 
-  text-align: center;
-  margin: 5px;
-  padding: 5px;
-}
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+  }
 
-.confirmation_adress_fix {
-  text-align: center;
+  .confirmation_adress_fix {
+    text-align: center;
+  }
 
-}
+  /*order_confirmation.html*/
 
-/*order_confirmation.html*/
+  .order_confirmation{
+    width: 100%;
+    height: auto;
+  }
+  .order_confirmation_thanks {
+    text-align: center;
+    margin: 30px 5px;
+    padding: 5px;
+    color: #DC143C;
+  }
 
-.order_confirmation{
-  width: 100%;
-  height: auto;
+  .order_confirmation_contents {
+    text-align: center;
+    margin: 5px; 
+    padding: 5px;
+    height: auto;
+    line-height:49px;
+    margin: 0 auto;
+    width: 600px;
 
+  }
+  .order_confirmation_number {
+    margin: 10px 5px 10px;
 
+  }
+  .order_confirmation_total {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin: 10px;
 
-}
-.order_confirmation_thanks {
-  text-align: center;
-  margin: 30px 5px;
-  padding: 5px;
-  color: #DC143C;
-}
-
-.order_confirmation_contents {
-  text-align: center;
-  margin: 5px; 
-  padding: 5px;
-  height: auto;
-  line-height:49px;
-  margin: 0 auto;
-  width: 600px;
-
-}
-.order_confirmation_number {
-  margin: 10px 5px 10px;
-  
-}
-.order_confirmation_total {
-  text-align: center;
-  width: 100%;
-  height: auto;
-  margin: 10px;
-
-}
-.order_user_name {
-  margin: 20px 20px 20px 50px;
-}
-.order_email {
-  display: inline-block;
-  line-height: 100px;
-  text-align: center;
-
-
-}
-.oder_email_icon{
-  display: inline-block;
-  margin: 0 8px 0 0;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.oder_email_icon_contents {
-  text-align: center;
-  width: 100%
-
-}
-
-.oders_index {
- 
- width: 100%;
- height: auto;
- padding-top: 10px;
-
-
-}
-.Purchase_history_title{
+  }
+  .order_user_name {
+    margin: 20px 20px 20px 50px;
+  }
+  .order_email {
+    display: inline-block;
+    line-height: 100px;
+    text-align: center;
+  }
+  .oder_email_icon{
+    display: inline-block;
+    margin: 0 8px 0 0;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .oder_email_icon_contents {
+    text-align: center;
+    width: 100%
+  }
+  .oders_index {
+   width: 100%;
+   height: auto;
+   padding-top: 10px;
+ }
+ .Purchase_history_title{
   font-family: 'Cinzel', serif;
   text-align: center;
-
-
 }
 .oders_history_contents {
   text-align: center;
@@ -242,61 +224,60 @@ span {
   width: 600px;
   height: auto;
   line-height:49px;
-
 }
 .oders_make_border {
-  border:1px dashed #D3D3D3;
-  width: 200px;
-  margin: 20px;
-  display: inline-block;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*pc-----------------------------------------------------------*/
-@media all and (min-width: 768px) {
-
-  /*cartsのindexページ*/
-
-  .user_cart_product {
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-    width: 600px;
-    height: auto;
-    line-height:49px;
+    border:1px dashed #D3D3D3;
+    width: 200px;
+    margin: 20px;
+    display: inline-block;
   }
 
-  .user_cart_name {
-   margin-left: 50px;
- }
 
- /*cart_added_confirm_index*/
 
- .cart_add {
-  text-align: center;
-  margin: 20px;
-  padding: 30px;
-}
-.cart_add_text {
-  margin: 30px;
-  padding: 20px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*pc-----------------------------------------------------------*/
+  @media all and (min-width: 768px) {
+
+    /*cartsのindexページ*/
+
+    .user_cart_product {
+      text-align: center;
+      margin: 0 auto;
+      padding: 10px;
+      width: 600px;
+      height: auto;
+      line-height:49px;
+    }
+
+    .user_cart_name {
+     margin-left: 50px;
+   }
+
+   /*cart_added_confirm_index*/
+
+   .cart_add {
+    text-align: center;
+    margin: 20px;
+    padding: 30px;
+  }
+  .cart_add_text {
+    margin: 30px;
+    padding: 20px;
+  }
 
 
 
