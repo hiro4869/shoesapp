@@ -18,5 +18,9 @@ class Product < ApplicationRecord
     where("p_name like ?", "%#{p_name}%")
   }
 
+  # セール価格を算出
+  def sale_price
+    self.price * (100 - self.discount_rate)/100
+  end
 
 end

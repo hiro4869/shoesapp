@@ -113,6 +113,39 @@
   margin-top: 0;
   position: relative;
 }
+
+
+
+.sale-normal-price {
+  text-decoration: line-through;
+}
+
+
+.sale-price {
+  text-decoration: underline;
+  color: red;
+  font-weight: bold;
+} 
+
+
+
+
+
+
+/*pc-----------------------------------------------------------*/
+@media all and (min-width: 768px) {
+  .shopname {
+   font-family: 'Playball', cursive;
+   font-size: 80px;
+   color: white;
+   text-align: center;
+   padding-top: 300px;
+}
+
+.top_js_images {
+   height: 900px;
+
+  
 .brand_show_head h1 {
   font-family: 'Cinzel', serif;
   position: absolute;

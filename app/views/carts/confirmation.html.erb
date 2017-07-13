@@ -41,24 +41,39 @@
           <% end %>
 
           <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id), class: "contents_link" %></p>
-          <p>価格:<%= item.product_variety.product.price %>円</p>
+
+
+          <!-- セールと通常時の価格の切り替え -->
+          <% if item.product_variety.product.sale %>
+            <!-- セール時の価格 -->
+            <p>
+              <span class="sale-normal-price">通常価格:<%= item.product_variety.product.price %>円</span><br/>
+              <span class="sale-price">セール価格：<%= item.product_variety.product.sale_price %>円 (<%= item.product_variety.product.discount_rate %>％ OFF)</span>
+            </p>
+          <% else %>
+            <!-- 通常時の価格 -->
+            <p>価格：<%= item.product_variety.product.price %></p>
+          <% end %>
+
+
           <p>購入数:<%= item.quantity %></p>
-          <p>小計：<%= item.product_variety.product.price * item.quantity %>円</p>
+          <p>小計：<%= item.sub_total %>円</p>
+
           <% total += item.product_variety.product.price * item.quantity %>
           <p class="make_border"></p>
         <% end %>
   
         <div class="confirmation_total_fee">
-          <h3>合計:<%= total %> 円</h3>
+          <h3>合計:<%= total(@cart) %> 円</h3>
           <!-- 配送料無料の判定 -->
-          <% if total >= 50000 %>
+          <% if total(@cart) >= 50000 %>
             <% postage = 0 %>
           <% else %>
             <% postage = 1000 %>
           <% end %>
 
           <h3>配送料:<%= postage %>円</h3>
-          <h3>ご請求金額:<%= total + postage %>円</h3>
+          <h3>ご請求金額:<%= total(@cart) + postage %>円</h3>
         </div>
       <% end %>
     </div>
