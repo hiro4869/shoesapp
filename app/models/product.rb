@@ -11,4 +11,12 @@ class Product < ApplicationRecord
   validates :p_name, presence: true, uniqueness: true
   validates :price, presence: true
   # validates :description, presence: true
+
+
+  # 商品名による絞り込み
+  scope :get_by_p_name, ->(p_name) {
+    where("p_name like ?", "%#{p_name}%")
+  }
+
+
 end

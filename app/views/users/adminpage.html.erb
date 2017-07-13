@@ -17,11 +17,18 @@
     </div>
     <div class="admin_Purchase_history_contents">
       <%= link_to admin_index_orders_path do %>
-        <i class="material-icons admin_Purchase_history">event_note</i>
+        <i class="material-icons admin_Purchase_history">card_giftcard</i>
         <span>購入された商品一覧</span>
       <% end %>
     </div>
+    <div class="admin_Product_exhibition_contents">
+      <%= link_to admin_index_products_path do %> 
+        <i class="material-icons admin_Product_exhibition">event_note</i>
+        <span>出品中の商品一覧</span>
+    　<% end %>
+    </div>
   </div>
+</div>
 
-<p><%= link_to "出品中の商品一覧", admin_index_products_path %></p>
+
 

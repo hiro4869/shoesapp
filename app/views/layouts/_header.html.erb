@@ -18,63 +18,65 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BRANDS <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">REGAL </a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">SCOTCHGRAIN</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Crockett&Jones</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">HARUTA</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">JALAN SRIWIJAYA</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">COLEHAAN</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">EDWARDGREEN</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Church’s</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">CARMINA</a></li>
-          </ul>
+            <ul class="dropdown-menu">
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "REGAL", brand_path(1) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Crockett&Jones", brand_path(2) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "SCOTCHGRAIN", brand_path(3) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "HARUTA", brand_path(4) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "JALAN SRIWIJAYA", brand_path(5) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "COLEHAAN", brand_path(6) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "EDWARDGREEN", brand_path(7) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Church’s", brand_path(8) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Lloyd Footwear", brand_path(9) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "CARMINA", brand_path(10) %></li>
+            </ul>
         </li>
-        <!-- <li class="active"><a href="#">BRANDS<span class="sr-only">(current)</span></a></li> 
-      -->
-      <!-- メインメニュー -->
-      <li><%= link_to "collection", products_path %></li>
-      <li><a href="#">ACCESSORIES</a></li>
-      <li><a href="#">CONTACT</a></li>
-    </ul><!-- /.navbar-nav -->
-    <!-- 検索機能 -->
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-       <input type="text" class="form-control" placeholder="Search">
-     </div>
-     <button type="submit" class="btn btn-default">検索</button>
-   </form>
-   <!-- devise等のログイン機能 -->
-   <ul class="nav navbar-nav navbar-right">
-    <% if user_signed_in? %>
-      <!-- 管理者でログインしている時のみ管理ページへのリンクを表示させる -->
-      <% if current_user.role == 1 %>
-        <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
-        <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
-        <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
-        <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+        
+        <!-- メインメニュー -->
+        <li><%= link_to "collection", products_path %></li>
+        <li><a href="#">ACCESSORIES</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul><!-- /.navbar-nav -->
+      <!-- 検索機能 -->
+      <div class="search">
+        <%= form_tag(root_path, method: "get") do %>
+          <%= text_field_tag :p_name, params[:p_name] %>
+          <%= submit_tag "検索" %>
+        <% end %>
+      </div>
+
+       <!-- devise等のログイン機能 -->
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <!-- 管理者でログインしている時のみ管理ページへのリンクを表示させる -->
+        <% if current_user.role == 1 %>
+          <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
+          <li><%= link_to "管理者ページ", "/users/adminpage" %></li> 
+          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "マイページ", "/user/#{current_user.id}" %></li> 
+          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+        <% end %>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li><li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+       </ul><!--/.navbar-right-->
+     </div><!-- /.navbar-collapse -->
+     <!-- ログイン証明 -->
+     <div class="Logged_in_as">
+      <% if user_signed_in? %>
+       <%= current_user.email %> さん
       <% end %>
-    <% else %>
-       <li><%= link_to "新規登録", new_user_registration_path %></li> 
-       <li><%= link_to "ログイン", new_user_session_path %></li>
-    <% end %>
-   </ul><!--/.navbar-right-->
- </div><!-- /.navbar-collapse -->
- <!-- ログイン証明 -->
- <div class="Logged_in_as">
-  <% if user_signed_in? %>
-  <%= current_user.email %> さん
-  <% end %>
-</div>
-</div><!-- /.container-fluid -->
+     </div>
+  </div><!-- /.container-fluid -->
 </nav>
