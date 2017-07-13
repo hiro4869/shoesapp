@@ -126,10 +126,21 @@
 }
 
 
-
-/*.brand_contents_box{
- 
- width: 300px;
+.product {
+   width: 1000px;
+   margin:  auto;
+   min-height: 450px;
+}
+.p-box {
+   float: left;
+   width: 300px;
+   height: 300px;
+   border: #f1f1f1 solid 3px;
+   padding: 5px;
+   margin: 5px;
+}
+.product-box {
+   width: 300px;
    height: 350px;
    border: #f1f1f1 solid 3px;
    float: left;
