@@ -19,8 +19,23 @@
   　</div>
   </div>
   <div class="product_detailed_box">
-    <p>価格：<%= @product.price %></p>
-    <p>商品名：<%= @product.p_name %></p>
+    <!-- セール対象の表示 -->
+    <% if @product.sale %>
+      <h3>セール対象品</h3>
+    <% end %>
+
+    <!-- セールと通常時の価格の切り替え -->
+    <% if @product.sale %>
+      <!-- セール時の価格 -->
+      <p>
+        <span class="sale-normal-price">通常価格:<%= @product.price %>円</span><br/>
+        <span class="sale-price">セール価格：<%= @product.sale_price %>円 (<%= @product.discount_rate %>％ OFF)</span>
+      </p>
+    <% else %>
+      <!-- 通常時の価格 -->
+      <p>価格：<%= @product.price %></p>
+    <% end %>
+
     
     <!-- 商品サブタイトルが設定されている場合に表示 -->
     <% if @product.sub_name.present?%>

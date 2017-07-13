@@ -150,14 +150,22 @@
 
 }
 .brand_show_products{
-  
-width: 1000px;
-   margin:  auto;
- 
-   }
+  width: 1000px;
+  margin:  auto;
+ }
 
 
+/*セール時の価格表示のスタイル*/
+.sale-normal-price {
+  text-decoration: line-through;
+}
 
+
+.sale-price {
+  text-decoration: underline;
+  color: red;
+  font-weight: bold;
+} 
 
 
 
@@ -295,4 +303,5 @@ width: 1000px;
  }
 
 }
+
 

@@ -25,6 +25,11 @@
 </div>
 
 <!-- ここから新しく追加した要素です -->
+<p><%= f.radio_button 'sale', 'true' %> セール対象</p>
+<p><%= f.radio_button 'sale', 'false' %> セール対象外</p>
+<p>セール時の割引率<%= f.text_field :discount_rate, class: "product_textbox" %></p>
+
+
 <div class="product-detail-box">
 	<div>
 		<span class="col-sm-2 products_new_item">
@@ -78,7 +83,6 @@
 	</div>
 	<div><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, class: "product_cate" %></div>
 </div>
-
 
 
 <div class="products_item2">
