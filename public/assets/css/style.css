@@ -44,7 +44,7 @@
 /*product_show----------*/
 .product_show {
 
- background-image: url(../images/product/paper_00119.jpg);
+ /*background-image: url(../images/product/paper_00119.jpg);*/
 
 }
 .product_show_name h1 {
@@ -154,7 +154,7 @@
 width: 1000px;
    margin:  auto;
  
-   }*/
+   }
 
 
 
@@ -214,7 +214,7 @@ width: 1000px;
 
 
  /*product_show*/
- .product_detailed_box {
+  .product_detailed_box {
    width: 400px;           /* 横幅を固定して */
    display: inline-block;  /* インラインブロック化 */
    vertical-align: bottom; /* 下端を揃える */
@@ -222,11 +222,12 @@ width: 1000px;
    padding: 10px;
    border: #000000 solid 1px;
    text-align: center;
-
+   -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+  
 
  }
  .product_detailed_description {
-    width: 400px;
+    width: 600px;
     height: 300px;        /* 横幅を固定して */
     display: inline-block;  /* インラインブロック化 */
     vertical-align: bottom; /* 下端を揃える */
@@ -234,6 +235,8 @@ width: 1000px;
     padding: 20px;
     border: #000000 solid 1px;
     text-align: center;
+    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 10px;   /* Firefox
  }
 
 /*サイズ・カラーのページ*/

@@ -9,11 +9,11 @@
         <span>新規出品</span>
       <% end %>
     </div>
-    <div class="admin_newuser_contents">
-      <%= link_to users_new_path do %>
-        <i class="material-icons admin_newuser">group_add</i>
-        <span>新規管理者登録</span>
-      <% end %>
+    <div class="admin_Product_exhibition_contents">
+      <%= link_to admin_index_products_path do %> 
+        <i class="material-icons admin_Product_exhibition">event_note</i>
+        <span>出品中の商品一覧</span>
+    　<% end %>
     </div>
     <div class="admin_Purchase_history_contents">
       <%= link_to admin_index_orders_path do %>
@@ -21,14 +21,13 @@
         <span>購入された商品一覧</span>
       <% end %>
     </div>
-    <div class="admin_Product_exhibition_contents">
-      <%= link_to admin_index_products_path do %> 
-        <i class="material-icons admin_Product_exhibition">event_note</i>
-        <span>出品中の商品一覧</span>
-    　<% end %>
+    <div class="admin_newuser_contents">
+      <%= link_to users_new_path do %>
+        <i class="material-icons admin_newuser">group_add</i>
+        <span>新規管理者登録</span>
+      <% end %>
     </div>
   </div>
 </div>
-
 
 
