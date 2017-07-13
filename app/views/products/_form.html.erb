@@ -25,26 +25,64 @@
 </div>
 
 <!-- ここから新しく追加した要素です -->
-
 <p><%= f.radio_button 'sale', 'true' %> セール対象</p>
 <p><%= f.radio_button 'sale', 'false' %> セール対象外</p>
 <p>セール時の割引率<%= f.text_field :discount_rate, class: "product_textbox" %></p>
 
 
-
-<p>商品サブタイトル<%= f.text_field :sub_name, class: "product_textbox" %></p>
-<p>甲革：<%= f.text_field :upper_leather, class: "product_textbox" %></p>
-<p>表底：<%= f.text_field :outsole, class: "product_textbox" %></p>
-<p>踵：<%= f.text_field :heel, class: "product_textbox" %></p>
-<p>製法：<%= f.text_field :process, class: "product_textbox" %></p>
-<p>修理：<%= f.text_field :repair, class: "product_textbox" %></p>
-<p>ウィズ(足囲)：<%= f.text_field :width, class: "product_textbox" %></p>
-<p>原産国：<%= f.text_field :made_in, class: "product_textbox" %></p>
-<p>メーカー説明：<%= f.text_field :maker_description, class: "product_textbox" %></p>
-<p>商品コード：<%= f.text_field :product_code, class: "product_textbox" %></p>
-<p><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, class: "product_cate" %></p>
-
-
+<div class="product-detail-box">
+	<div>
+		<span class="col-sm-2 products_new_item">
+			商品サブタイトル：
+		</span><%= f.text_field :sub_name, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			甲革：
+		</span><%= f.text_field :upper_leather, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			表底：
+		</span><%= f.text_field :outsole, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			踵：
+		</span><%= f.text_field :heel, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			製法：
+		</span><%= f.text_field :process, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			修理：
+		</span><%= f.text_field :repair, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			ウィズ(足囲)：
+		</span><%= f.text_field :width, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			原産国：
+		</span><%= f.text_field :made_in, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			メーカー説明：
+		</span><%= f.text_field :maker_description, class: "product_textbox" %>
+	</div>
+	<div>
+		<span class="col-sm-2 products_new_item">
+			商品コード：
+		</span><%= f.text_field :product_code, class: "product_textbox" %>
+	</div>
+	<div><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, class: "product_cate" %></div>
+</div>
 
 
 <div class="products_item2">
@@ -55,15 +93,17 @@
 		<%= f.text_area :description, :size => "50x5", class: "product_textbox2" %>
 	</div>
 </div>
-<div>
+<div class="products_item">
 	<span class="col-sm-2 products_new_item">
-		カテゴリー：
+		タイプ：
 	</span><%= f.collection_select :category_id, Category.all, :id, :category_name, class: "product_cate" %>
 </div>
-<div>
-	<span>
+<div class="products_item">
+	<span class="col-sm-2 products_new_item">
 		画像：
 	</span><%= f.file_field :image, multiple: true %>
 </div>
-<%= f.submit "更新" %>
-<% end %>
+<div class="products_item products_new_submit">
+	<%= f.submit "出品する" %>
+	<% end %>
+</div>

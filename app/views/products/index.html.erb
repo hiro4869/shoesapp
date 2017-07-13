@@ -8,10 +8,10 @@
 
       <%= paginate @products %>
      </div>
-    <% @products.each do |product| %>
-     <div class="product clearfix">
+    <div class="product clearfix">
+      <% @products.each do |product| %>
       <div class="product-box">
-       <div class="product_image_contents">
+        <div class="product_image_contents">
         <% if product.product_images.present? %>
           <div>
             <!-- 登録されている画像の一番最初の画像を表示 -->

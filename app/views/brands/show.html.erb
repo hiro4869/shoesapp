@@ -1,13 +1,19 @@
-<h1>ブランドページ</h1>
+<div class="brand_show_contents">
+  <div class="brand_show_head">
+    <%= image_tag '/assets/images/product/aabbcc.jpg' %>
+    <h1><%= @brand.brand_name %></h1>
+  </div>
+  <div class="brand_show_products clearfix">
+    <% @products.each do |product| %>
+      <div class="brand_contents_box">
+        <p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
+        <p>商品名：<%= product.p_name %></p>
+        <p>価格：<%= product.price %></p>
+        <p>商品詳細：<%= product.description %></p>
+        <p>カテゴリー：<%= product.category.category_name %></p>
+        <p>ブランド：<%= product.brand.brand_name %></p>
+    <% end %>
+     </div>
+  </div>
+</div>
 
-<h2><%= @brand.brand_name %></h2>
-
-<% @products.each do |product| %>
-<p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
-<p>商品名：<%= product.p_name %></p>
-<p>価格：<%= product.price %></p>
-<p>商品詳細：<%= product.description %></p>
-<p>カテゴリー：<%= product.category.category_name %></p>
-<p>ブランド：<%= product.brand.brand_name %></p>
-<a>-----------------------</a>
-<% end %>
