@@ -1,36 +1,49 @@
 <div class="shopping_user" >
- <div class="clearfix user_cart_name">
-  <ul><i class="material-icons shop_cart_icon">add_shopping_cart</i>
-  <h2>ショッピングカート</h2></ul>
- </div>
+  <div class="clearfix user_cart_name">
+    <ul><i class="material-icons shop_cart_icon">add_shopping_cart</i>
+    <h2>ショッピングカート</h2></ul>
+  </div>
   <div class="user_cart_product">
-   <% if @cart.empty? %>
-    <p>現在、カートに入っている商品はありません。</p>
+    <% if @cart.empty? %>
+      <p>現在、カートに入っている商品はありません。</p>
     <% else %>
-     <% total = 0 %>
+
       <% @cart.each do |item| %>
-       <!-- 画像の表示 -->
-       <% if item.product_variety.product_variety_images.present? %>
-         <div>
-          <%= image_tag item.product_variety.product_variety_images.first.image %>
-         </div>
-       <% end %>
-       <p>商品ID:<%= item.product_variety_id %></p>
-       <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) ,class: "cart_contents_link" %></p>
-       <p>価格:<%= item.product_variety.product.price %>円</p>
-       <p>購入数:<%= item.quantity %></p>
-       <p>小計：<%= item.product_variety.product.price * item.quantity %>円</p>
-       <% total += item.product_variety.product.price * item.quantity %>
-       <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
-       <%= f.hidden_field :id,:value => "#{item.id}" %>
-       <%= f.submit "　後で買う　", class: "btn btn-success" %>
-       <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+        <!-- 画像の表示 -->
+        <% if item.product_variety.product_variety_images.present? %>
+          <div>
+           <%= image_tag item.product_variety.product_variety_images.first.image %>
+          </div>
+        <% end %>
+        <p>商品ID:<%= item.product_variety_id %></p>
+        <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id) ,class: "cart_contents_link" %></p>
+
+        <!-- セールと通常時の価格の切り替え -->
+        <% if item.product_variety.product.sale %>
+          <!-- セール時の価格 -->
+          <p>
+            <span class="sale-normal-price">通常価格:<%= item.product_variety.product.price %>円</span><br/>
+            <span class="sale-price">セール価格：<%= item.product_variety.product.sale_price %>円 (<%= item.product_variety.product.discount_rate %>％ OFF)</span>
+          </p>
+        <% else %>
+          <!-- 通常時の価格 -->
+          <p>価格：<%= item.product_variety.product.price %></p>
+        <% end %>
+
+        <p>購入数:<%= item.quantity %></p>
+        <p>小計：<%= item.sub_total %>円</p>
+
+
+        <%= form_for item ,url: "/users/#{params[:user_id]}/carts/raise_flag" ,method: :patch do |f| %>
+          <%= f.hidden_field :id,:value => "#{item.id}" %>
+          <%= f.submit "　後で買う　", class: "btn btn-success" %>
+          <%= link_to "　　削除　　", "/users/#{item.user_id}/carts/#{item.id}" ,method: :delete, class: "btn btn-danger" %>
+        <% end %>
+        <p class="make_border"></p>
       <% end %>
-    <p class="make_border"></p>
+      <h3>商品の合計：<%= total(@cart) %> 円</h3>
     <% end %>
-    <h3>商品の合計：<%= total %> 円</h3>
-   <% end %>
-</div>
+  </div>
  <p class="btn-center cart_fixed"><%= link_to "　レジに進む　", confirmation_user_carts_path(current_user.id), class: "btn btn-primary btn-lg" %></p>
  <hr>
 
@@ -48,8 +61,22 @@
        <% end %>
        <p>商品ID:<%= item.product_variety_id %></p>
        <p>商品名:<%= link_to item.product_variety.product.p_name, product_product_variety_path(item.product_variety.product.id,item.product_variety.id),class: "cart_contents_link" %></p>
-       <p>価格:<%= item.product_variety.product.price %>円</p>
-       <p>購入数:<%= item.quantity %></p>
+
+        <!-- セールと通常時の価格の切り替え -->
+        <% if item.product_variety.product.sale %>
+          <!-- セール時の価格 -->
+          <p>
+            <span class="sale-normal-price">通常価格:<%= item.product_variety.product.price %>円</span><br/>
+            <span class="sale-price">セール価格：<%= item.product_variety.product.sale_price %>円 (<%= item.product_variety.product.discount_rate %>％ OFF)</span>
+          </p>
+        <% else %>
+          <!-- 通常時の価格 -->
+          <p>価格：<%= item.product_variety.product.price %></p>
+        <% end %>
+
+        <p>購入数:<%= item.quantity %></p>
+        <p>小計：<%= item.sub_total %>円</p>
+
 
          <%= form_for item ,url: "/users/#{params[:user_id]}/carts/down_flag" ,method: :patch do |f| %>
          <%= f.hidden_field :id,:value => "#{item.id}" %>

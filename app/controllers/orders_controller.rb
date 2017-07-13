@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
     @Order.user_id = current_user.id
     @Order.save
 
-    total = 0
+    # total = 0
 
     #注文された商品を１レコードずつ保存
     @cart.each do |item|
@@ -30,14 +30,21 @@ class OrdersController < ApplicationController
       @purchase.order_id = @Order.id
       @purchase.product_variety_id = item.product_variety_id
       @purchase.quantity = item.quantity
-      @purchase.price = item.product_variety.product.price
       @purchase.p_name = item.product_variety.product.p_name
+
+      # セールの時はセール価格を保存
+      if item.product_variety.product.sale
+        @purchase.price = item.product_variety.product.sale_price
+      else
+        @purchase.price = item.product_variety.product.price
+      end
+
       @purchase.save
-      total += item.product_variety.product.price * item.quantity
+      # total += item.product_variety.product.price * item.quantity
     end
 
     # 送料を判定してOrderに書き込み
-    if total >= 50000
+    if total(@cart) >= 50000
       postage = 0
     else
       postage = 1000
