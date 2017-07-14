@@ -242,11 +242,24 @@ span {
   }
 
 
+/*プライバシーポリシー*/
+.privacypolicy {
+  padding: 50px;
+}
 
+li {
+  font-size: 12px;
+}
 
+ul {
+  list-style: none;
+  padding-left: 30px;
+}
 
-
-
+.privacy-7jou {
+  font-size: 12px;
+  padding-left: 30px;
+}
 
 
 
