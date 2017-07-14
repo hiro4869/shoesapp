@@ -2,8 +2,6 @@
 <div class="category_show_page">
   <%= render_breadcrumbs separator: ' > ' %>
 </div>
-  <h1 class="category_show_accessories_title">ACCESSORIES</h1>
-  
 
 <div class="category_product clearfix">
 <% @products.each do |product| %>
@@ -18,7 +16,7 @@
   <div><%= image_tag 'noimage.gif' %></div>
 <% end %>
 
-<p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
+<p>商品名：<%= link_to product.p_name, "/products/#{product.id}",class: "contents_link" %></p>
 
 <!-- セールと通常時の価格の切り替え -->
 <% if product.sale %>
@@ -32,8 +30,7 @@
   <p>¥<%= product.price %></p>
 <% end %>
 
-<p>商品詳細：<%= product.description %></p>
-<p>カテゴリー：<%= product.category.category_name %></p>
+<p><%= product.category.category_name %></p>
 
 </div>
 <% end %>
