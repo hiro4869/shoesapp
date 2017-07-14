@@ -146,6 +146,19 @@
   padding: 5px;
 }
 
+/*購入済み商品一覧*/
+.oder_admin_Purchased {
+text-align: center;
+
+
+}
+
+.oder_Purchased_title {
+ font-family: 'Cinzel', serif;
+ margin: 20px;
+
+}
+
 /*---会社情報----*/
 .company-profile-box {
    text-align: center;
