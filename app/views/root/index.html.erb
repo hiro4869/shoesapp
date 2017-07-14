@@ -16,7 +16,7 @@
     <div class="root_collection_name" >
       <!-- 検索された場合はcollectionの文字を非表示にする -->
       <% unless params[:p_name].present? %>
-        <h1 class="text-center">collection</h1>
+        <h1 class="text-center root_collection_title">collection</h1>
       <% end %>
 
       </div>
@@ -25,10 +25,11 @@
       </div>
       <div class="root_p-line">
       </div>
+      <div class="root_product clearfix">
       <% @products.each do |product| %>
-        <div class="product clearfix">
+        
           <div class="root_p-box">
-            <p class="text-center">画像<%= product.image %></p>
+            <p class="text-center"><%= product.image %></p>
             <div>
               <% if product.product_images.present? %>
                 <div>
@@ -39,13 +40,34 @@
                 <div><%= image_tag 'noimage.gif' %></div>
               <% end %>
             </div>
-            <p class="product_name">商品名:<%= link_to product.p_name , product_path(product.id) %></p>
-            <p>価格:<%= product.price %></p>
-            <p>商品詳細:<%= product.description %></p>
-            <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}" %></p>
+            <p class="product_name"><%= link_to product.p_name , product_path(product.id),class: "contents_link" %></p>
+            <p>価格:<%= product.price %>円</p>
+            <!-- セールと通常時の価格の切り替え -->
+            <% if product.sale %>
+              <!-- セール時の価格 -->
+              <p>
+                <span class="sale-normal-price">通常価格:<%= product.price %>円</span><br/>
+                <span class="sale-price">セール価格：<%= product.sale_price %>円 (<%= product.discount_rate %>％ OFF)</span>
+              </p>
+            <% else %>
+              <!-- 通常時の価格 -->
+              <p>¥<%= product.price %></p>
+            <% end %>
+
+
+
+
+
+
+
+
+            
+            <!-- <p>商品詳細:<%= product.description %></p> -->
+            <p><%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
           </div>
-        </div>
+       
       <% end %>
+      </div>
     </div>
     <div class="product_pageinate_down">
       <%= paginate @products %>

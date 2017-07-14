@@ -149,15 +149,48 @@
 /*購入済み商品一覧*/
 .oder_admin_Purchased {
 text-align: center;
+min-height: 450px;
 
 
 }
+
 
 .oder_Purchased_title {
  font-family: 'Cinzel', serif;
  margin: 20px;
 
 }
+
+/*出品中の商品一覧*/
+.admin_index {
+  width: 100%
+  height:auto;
+  margin: 10px;
+  text-align: center;
+
+}
+.admin_index_title {
+  font-family: 'Cinzel', serif;
+  margin: 20px;
+  text-align: center;
+}
+.admin_index_product{
+text-align: center;
+margin: 10px 10px 10px 40px;
+
+}
+.admin_index_prodct_box{
+  width: 300px;
+     height: 350px;
+     border: #f1f1f1 solid 1px;
+     float: left;
+     padding: 15px 5px 15px 5px;
+     margin: 15px 5px 15px 5px;
+     text-align: center;
+
+}
+
+
 
 /*---会社情報----*/
 .company-profile-box {
@@ -167,6 +200,10 @@ text-align: center;
     width: 50%;
     height: 50%;
     margin: 10% auto;
+}
+
+.admin_index_prodct_box{
+
 }
 
 td {

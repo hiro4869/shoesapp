@@ -37,6 +37,7 @@
           <% end %>
 
 
+
           <p>ブランド名:<%= link_to product.brand.brand_name, brand_path(product.brand.id), class: "contents_link" %></p>
           <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
         </p>

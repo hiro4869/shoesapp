@@ -1,6 +1,6 @@
 class RootController < ApplicationController
   def index
-    @products = Product.page(params[:page]).per(50)
+    @products = Product.page(params[:page]).per(9)
 
     # 検索用
     if params[:p_name].present? 
