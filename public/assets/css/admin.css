@@ -1,20 +1,13 @@
-/*.admin {
-
-  background-color: white;
-}*/
-
 
 .btn-center {
   text-align: center;
 }
-
 /*ログイン画面ページ*/
 .login {
   background-image: url(http://localhost:3000/assets/images/userdevise/myf2.jpg);
   height: 100%;
   padding-top: 1px;
 }
-
 .login_box {
   text-align: center;
   border: 1px solid #aaa;
@@ -28,51 +21,39 @@
   text-align: center;
   margin-bottom: 50px;
 }
-
 .new_product {
   height: 1800px;
 }
-
 .products_item {
   margin-bottom: 30px;
   height: 40px;
   font-color: black;
 }
-
 .products_item2 {
   height: 200px;
   margin-bottom:  30px;
-/*  border-radius: 4px;
-*/}
-
+}
 .products_new_item {
   text-align: center;
   font-color: black;
 }
-
 .products-sale-box {
   height: 80px;
   border-bottom: 50px;
 }
-
 .product-radio-btn-box {
   margin-bottom: 10px;
 }
-
 .product_textbox {
   width: 100%;
   height: 40px;
   border: solid 1px black;
-/*  border-radius: 4px;
-*/
 }
-
 .product_textbox2 {
   width: 100%;
   height: 200px;
   border-radius: 4px;
 }
-
 .product-detail-box-top {
   padding: 5px;
   min-height: 220px;
@@ -83,30 +64,22 @@
 .product-detail-box-under {
   padding: 5px;
 }
-
 .products_new_submit {
   text-align: center;
 }
-
 .product-cate-box {
   margin: 30px;
 }
-
 .home {
   margin: 10px;
 }
 
 
-/*.product_cate {
-  height: 15px;
-  width:  25px;
-}
-*/
-
 /*user/adminpage.html管理者ページ*/
 .admin_adminpage {
   width: 100%;
-
+  height: auto;
+  min-height: 450px;
 }
 /*アイコン*/
 .admin_icons {
@@ -120,10 +93,10 @@
   transition: all .5s;
 }
 .admin_newsell {
- font-size: 200px;
- padding: 5px;
- color: lightblue;
- display: block;
+  font-size: 200px;
+  padding: 5px;
+  color: lightblue;
+  display: block;
 }
 .admin_newuser{
   font-size: 200px;
@@ -132,10 +105,10 @@
   display: block;
 }
 .admin_Purchase_history{
- font-size: 200px;
- padding: 5px;
- color: lightblue;
- display: block !important;
+  font-size: 200px;
+  padding: 5px;
+  color: lightblue;
+  display: block !important;
 }
 .admin_Product_exhibition{
   font-size: 200px;
@@ -144,32 +117,30 @@
   display: block;
 }
 .admin_newsell_contents {
- text-align: center;
- width: 250px; 
- height: 250px;
- display: inline-block;
+  text-align: center;
+  width: 250px; 
+  height: 250px;
+  display: inline-block;
 }
-
 .admin_newuser_contents {
   text-align: center;
- width: 250px; 
- height: 250px;
- display: inline-block;
-
+  width: 250px; 
+  height: 250px;
+  display: inline-block;
 }
 .admin_Purchase_history_contents {
   text-align: center;
- width: 250px; 
- height: 250px;
- display: inline-block;
+  width: 250px; 
+  height: 250px;
+  display: inline-block;
 }
 .admin_Product_exhibition_contents{
   text-align: center;
- width: 250px; 
- height: 250px;
- display: inline-block;
-
+  width: 250px; 
+  height: 250px;
+  display: inline-block;
 }
+
 /*product編集ページ*/
 .admin_products_edit {
   width: 300px;
@@ -177,18 +148,13 @@
 }
 
 /*購入済み商品一覧*/
-.oder_admin_Purchased {
-text-align: center;
-min-height: 450px;
-
-
+.oder_admin_purchased {
+  text-align: center;
+  min-height: 450px;
 }
-
-
-.oder_Purchased_title {
- font-family: 'Cinzel', serif;
- margin: 20px;
-
+.oder_purchased_title {
+  font-family: 'Cinzel', serif;
+  margin: 20px;
 }
 
 /*出品中の商品一覧*/
@@ -197,7 +163,6 @@ min-height: 450px;
   height:auto;
   margin: 10px;
   text-align: center;
-
 }
 .admin_index_title {
   font-family: 'Cinzel', serif;
@@ -205,37 +170,34 @@ min-height: 450px;
   text-align: center;
 }
 .admin_index_product{
-text-align: center;
-margin: 10px 10px 10px 40px;
-
+  text-align: center;
+  margin: 10px 10px 10px 40px;
 }
 .admin_index_prodct_box{
   width: 300px;
-     height: 350px;
-     border: #f1f1f1 solid 1px;
-     float: left;
-     padding: 15px 5px 15px 5px;
-     margin: 15px 5px 15px 5px;
-     text-align: center;
-
+  height: 350px;
+  border: #f1f1f1 solid 1px;
+  float: left;
+  padding: 15px 5px 15px 5px;
+  margin: 15px 5px 15px 5px;
+  text-align: center;
 }
-
-
+.bt_edit a{
+  color: #FFFFFF !important;
+}
+.bt_red a{
+  color: #FFFFFF !important;
+}
 
 /*---会社情報----*/
 .company-profile-box {
-   text-align: center;
-    border: 1px solid #aaa;
-    padding: 10%;
-    width: 50%;
-    height: 50%;
-    margin: 10% auto;
+  text-align: center;
+  border: 1px solid #aaa;
+  padding: 10%;
+  width: 50%;
+  height: 50%;
+  margin: 10% auto;
 }
-
-.admin_index_prodct_box{
-
-}
-
 td {
   height: 30px;
 }
@@ -243,11 +205,10 @@ td {
 /*お問い合わせフォーム*/
 
 .inquiry {
-   height: 100%;
+  height: 100%;
   padding-top: 1px;
+  background-image: url(http://localhost:3000/assets/images/cart/pink.jpg);
 }
-
-
 .inquiry-box {
   text-align: center;
   border: 1px solid #aaa;
@@ -255,30 +216,56 @@ td {
   width: 50%;
   height: 50%;
   margin: 10% auto;
-}
 
+}
 .inquiry-title {
   margin-bottom: 30px;
   text-align: center;
 }
-
 .inquiry-item {
   margin-bottom: 15px;
 }
-
-
 .inquiry-table {
   text-align: center;
 }
-
- .inquiry-inner-box {
+.inquiry-inner-box {
   height: 30px;
- }
-
- .inquiry-inner-box-under {
+}
+.inquiry-inner-box-under {
   height: 60px;
- }
-
- .inquiry-textbox {
+}
+.inquiry-textbox {
   border: solid 1px black;
- }
+}
+
+/*管理者会員登録*/
+.user_admin_signup {
+ text-align: center;
+ min-height: 450px;
+ margin: 10px;
+ width: 100%
+ height: auto;
+}
+.registration {
+  margin: 20px;
+
+}
+.user_admin_title {
+  margin: 20px;
+
+}
+.user_admin_signup_contents {
+  margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

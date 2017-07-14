@@ -1,15 +1,23 @@
-<h1>色・サイズ等の新規追加</h1>
-<h3>商品名：<%= @Product.p_name %></h3>
-<br/>
+<div class="product_varieties_new">
+  <h1 class="product_varieties_new_title">色・サイズ等の新規追加</h1>
+    <h3 class="product_varieties_new_productname">商品名：<%= @Product.p_name %></h3>
+    <br/>
+    <div class="product_varieties_new_contents">
+      <%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties", method: :post  do |f| %>
+        <p>色：<%= f.text_field :color %></p>
+        <p>サイズ：<%= f.text_field :size %></p>
+        <p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
+        <p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
+        <p>↓画像</p>
+        <div class="product_varieties_new_image">
+          <%= f.file_field :image, multiple: true %>
+        </div>
+        <%= f.submit "作成" %>
+      <% end %>
+    </div>
+</div>
 
-<%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties", method: :post  do |f| %>
-<p>色：<%= f.text_field :color %></p>
-<p>サイズ：<%= f.text_field :size %></p>
-<p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
-<p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
-<p>画像：<%= f.file_field :image, multiple: true %></p>
-<%= f.submit "作成" %>
-<% end %>
+
 
 
 

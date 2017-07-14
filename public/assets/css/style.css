@@ -6,7 +6,7 @@
  content: "";
  display: block;
  clear: both;
-} 
+}
 .shopname {
  font-family: 'Playball', cursive;
  font-size: 80px;
@@ -25,40 +25,28 @@
 }
 
 /*root/index---------*/
-
 .root_collection_title {
-
   font-family: 'Cinzel', serif;
   color:#D3D3D3
 }
-
 .product_contents{
   background-color: #000000;
-  /*font-color:#FFFFFF;*/
 }
-
-
-
 
 /*product/index--------*/
 .collection_name {
  font-family: 'Cinzel', serif
 }
-
 .product_pageinate_top {
  text-align: center;
 }
+
 /*リンクの色*/
 .contents_link {
  color: #8B4513 !important;
 }
 
 /*product_show----------*/
-.product_show {
-
- /*background-image: url(../images/product/paper_00119.jpg);*/
-
-}
 .product_show_name h1 {
  top: 0;
  left: 5%;
@@ -73,9 +61,8 @@
   /*position: absolute;*//*絶対配置*/
   top: 80%;
   left: 2%;
+  margin: 5px;
 }
-
-/*productのshow*/
 
 /*リンクの色*/
 .contents_link {
@@ -103,10 +90,9 @@
 .productvarieties_sizecolor {
   margin: 10px;
   padding: 10px;
-  width: 1000px;
-  height: auto;
   text-align: center;
-}
+  min-height: 450px;
+ }
 .productvarieties_titlename {
   font-family: 'Cinzel', serif;
   margin: 10px 10px 10px 30px;
@@ -114,20 +100,18 @@
 }
 .productvarieties_products {
   text-align: center;
-
   height: auto;
   margin: 20px 10px 10px 10px;
   padding: 5px;
 }
 .productvarieties_images {
-  /*width: 100%;
- text-align: center;
- margin: 10px;*/
+  text-align: center;
+  margin: 10px;
 }
 
 /*ブランドshow*/
 .brand_show_head  {
-  width: 1000px;
+  width: 100%;
   height: 200px;
   margin-top: 0;
   position: relative;
@@ -135,248 +119,279 @@
 .brand_show_head h1 {
   font-family: 'Cinzel', serif;
   position: absolute;
-  top: 100px;/*画像の左上に配置*/
-  left: 560px;
+  top: 100px;
+  left: 580px;
   margin: 0; /*余計な隙間を除く*/
   color: white;/*文字を白に*/
+  text-align: center;
 }
 .brand_show_contents{
   margin-top: 0;
+  min-height: 450px;
+  width: 100%;
+  height: auto;
 }
+
 
 /*productindex*/
 .product {
-   width: 1000px;
-   margin:  auto;
-   min-height: 450px;
-}
-
-.p-box {
-   float: left;
-   width: 300px;
-   height: 300px;
-   border: #f1f1f1 solid 3px;
-   padding: 5px;
-   margin: 5px;
-}
-.product-box {
-   width: 300px;
-   height: 350px;
-   border: #f1f1f1 solid 3px;
-   float: left;
-   padding: 15px 5px 15px 5px;
-   margin: 15px 5px 15px 5px;
-   text-align: center;
-
-}
-.brand_show_products{
   width: 1000px;
   margin:  auto;
+  min-height: 450px;
+}
+.p-box {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border: #f1f1f1 solid 3px;
+  padding: 5px;
+  margin: 5px;
+}
+.product-box {
+  width: 300px;
+  height: 350px;
+  border: #f1f1f1 solid 3px;
+  float: left;
+  padding: 15px 5px 15px 5px;
+  margin: 15px 5px 15px 5px;
+  text-align: center;
+}
+.brand_show_products {
+  width: 100%;
+  margin:  auto;
  }
-
 
 /*セール時の価格表示のスタイル*/
 .sale-normal-price {
   text-decoration: line-through;
 }
-
-
 .sale-price {
   text-decoration: underline;
   color: red;
   font-weight: bold;
-} 
-
-
-
-
-
-
-
-   /*pc-----------------------------------------------------------*/
-   @media all and (min-width: 768px) {
-    .shopname {
-     font-family: 'Playball', cursive;
-     font-size: 80px;
-     color: white;
-     text-align: center;
-     padding-top: 300px;
-   }
-
-
-   /*product一覧indx--------*/
-   .collection_name{
-     padding: 5px 5px 5px 5px;
-     margin-bottom: 20px;
-   }
-
-
-
-   .product {
-     width: 1000px;
-     margin:  auto;
-   }
-   .p-box {
-     float: left;
-     width: 300px;
-     height: 300px;
-     border: #f1f1f1 solid 3px;
-     padding: 5px;
-     margin: 5px;
-   }
-   .product-box {
-     width: 300px;
-     height: 350px;
-     border: #f1f1f1 solid 1px;
-     float: left;
-     padding: 15px 5px 15px 5px;
-     margin: 15px 5px 15px 5px;
-     text-align: center;
-   }
-   .product_name {
-     line-height:2em;
-  }
-  .product_image_contents {
-   margin: 5px 5px 5px 5px;
- }
-
- /*Rootindexコレクション*/
-
-.root_collection {
-
-    width: 1000px;
-     margin:  auto;
-
 }
 
-.root_collection_title {
+/*プロダクト編集*/
+.products_edit {
+  margin: 10px;
+}
+.products_edit_title {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+.products_edit_render {
+  padding: 10px;
+}
+.products_edit_select_title{
+  text-align: center;
+  margin: 30px;
+}
+.products_edit_select_contents {
+  text-align: center;
+  margin: 10px;
+}
+.products_edit_images{
+  margin: 0px 10px 20px 150px;
+}
 
+
+/*プロダクトバラエティedit*/
+.product_varieties_edit {
+  width: 100%
+  height: auto;
+  margin: 10px;
+}
+.product_varieties_edit_title {
+  text-align: center;
+  margin: 10px;
+}
+.product_varieties_edit_productname {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+/*product_varieties_new色とサイズ新規登録*/
+.product_varieties_new {
+  width: 100%; 
+  height: auto;
+  margin: 10px;
+}
+.product_varieties_new_title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+}
+.product_varieties_new_productname {
+  text-align: center;
+}
+.product_varieties_new_contents {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}
+.product_varieties_new_image {
+  margin: 3px 3px 3px 550px;
+}
+
+
+
+
+
+
+
+
+
+
+/*pc-----------------------------------------------------------*/
+@media all and (min-width: 768px) {
+.shopname {
+  font-family: 'Playball', cursive;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  padding-top: 300px;
+}
+/*product一覧indx--------*/
+.collection_name {
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 20px;
+}
+.product {
+  width: 1000px;
+  margin:  auto;
+}
+.p-box {
+  float: left;
+  width: 300px;
+  height: 300px;
+  border: #f1f1f1 solid 3px;
+  padding: 5px;
+  margin: 5px;
+}
+.product-box {
+  width: 300px;
+  height: 350px;
+  border: #f1f1f1 solid 1px;
+  float: left;
+  padding: 15px 5px 15px 5px;
+  margin: 15px 5px 15px 5px;
+  text-align: center;
+}
+.product_name {
+ line-height:2em;
+}
+.product_image_contents {
+  margin: 5px 5px 5px 5px;
+}
+
+
+/*Rootindexコレクション*/
+.root_collection {
+  width: 1000px;
+  margin:  auto;
+}
+.root_collection_title {
   margin-top: 40px;
   margin-bottom: 10px;
-
 }
-
 .root_p-box{
-
-    width: 300px;
-     height: 350px;
-     border: #696969 solid 1px;
-     float: left;
-     padding: 15px 5px 15px 5px;
-     margin: 15px 5px 15px 5px;
-     text-align: center;
-     
-
+  width: 300px;
+  height: 350px;
+  border: #696969 solid 1px;
+  float: left;
+  padding: 15px 5px 15px 5px;
+  margin: 15px 5px 15px 5px;
+  text-align: center;
 }
-
 .root_p-box p {
   color: white;
 }
 
-
-
- /*product_show*/
- .product_show {
-
- }
- .product_detailed_price p {
+/*product_show*/
+.product_detailed_price p {
   font-size: 20px;
- }
- /*商品説明box*/
-  .product_detailed_box {
-   
-   float:left; 
-   margin: 10px 20px 30px 230px;
-   width: 410px;
-   height: 280px;
-
- }
- .product_detailed_box p {
+}
+/*商品説明box*/
+.product_detailed_box {
+  float:left; 
+  margin: 10px 20px 30px 230px;
+  width: 410px;
+  height: 280px;
+}
+.product_detailed_box p {
   margin: 1px;
   padding: 1px;
-
- }
- /*商品説明内容箱２*/
- .product_detailed_box_right {
+}
+/*商品説明内容箱２*/
+.product_detailed_box_right {
   float: left; 
-   padding: 10px;
-   width: 410px;
-
-   height: 280px;
-   margin: 10px 20px 30px 30px;
-
- }
-
- .product_detailed_description {
-    width: 600px;
-    height: 10%;        /* 横幅を固定して */
-   
-    margin: 10px 20px 30px 400px;
-    padding: 20px;
-    border: #000000 solid 1px;
-    text-align: center;
-    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 10px;
-    clear:left; 
- }
-
-
-
-
-
+  padding: 10px;
+  width: 410px;
+  height: 280px;
+  margin: 10px 20px 30px 30px;
+}
+.product_detailed_description {
+  width: 600px;
+  height: 10%;       
+  margin: 10px 20px 30px 400px;
+  padding: 20px;
+  border: #000000 solid 1px;
+  text-align: center;
+  -webkit-border-radius: 10px;  
+  -moz-border-radius: 10px;
+  clear:left; 
+}
 
 
 /*サイズ・カラーのページ*/
- .product_varieties_scname {
-   width: 500px;
-   margin: 20px 5px;
-   clear: left;
- }
+.product_varieties_scname {
+  width: 500px;
+  margin: 20px 5px;
+  clear: left;
+}
 .product_varieties_select {
-   width: 100%;
-   height:auto;
+  width: 100%;
+  height:auto;
 }
 
 /*categryshowアクセサリーページ*/
-
-.category_show_accessories {
-
-
-
-}
-
 .category_show_page {
   margin: 5px;
-
 }
 .category_product {
   width: 1000px;
-     margin:  auto;
-
+  margin:  auto;
 }
 .category_product_box {
   width: 300px;
-     height: 350px;
-     border: #f1f1f1 solid 1px;
-     float: left;
-     padding: 15px 5px 15px 5px;
-     margin: 15px 5px 15px 5px;
-     text-align: center;
-
+  height: 350px;
+  border: #696969 solid 1px;
+  float: left;
+  padding: 15px 5px 15px 5px;
+  margin: 15px 5px 15px 5px;
+  text-align: center;
 }
- .category_product_image {
- margin: 5px 5px 5px 5px;
-
- }
-
-
-
-
-
-
-
-
+.category_product_image {
+  margin: 5px 5px 5px 5px;
 }
+
+/*brand/show*/
+.brand_contents_box{
+  text-align: center;
+}
+.brand_show_products_contents {
+  width: 100%;
+  height: auto;
+}
+
+/*プロダクトバラエティedit*/
+.product_varieties_edie_contents{
+  margin: 10px 10px 20px 600px;
+}
+}
+
+
 
 
 /*タブレット-------------------------------*/
@@ -390,8 +405,9 @@
    padding: 5px;
    margin: 5px;
  }
-
-
+.product_varieties_edie_contents {
+   margin: 10px 10px 20px 400px;
+}
 
 
 }

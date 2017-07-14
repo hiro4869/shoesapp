@@ -3,9 +3,8 @@
   <div class="admin_index_product clearfix">
     <% @products.each do |product| %>
       <div class="admin_index_prodct_box">
-      
         <% if product.product_images.present? %>
-          <div>
+          <div class="admin_index_product_image">
             <!-- 登録されている画像の一番最初の画像を表示 -->
             <%= image_tag product.product_images.first.image %>
           </div>
@@ -16,8 +15,8 @@
         <p>商品名：<%= product.p_name %></p>
         <p>価格：<%= product.price %></p>
         
-        <button type="button" class="btn btn-default"><%= link_to "編集ページ", edit_product_path(product) %></button>
-        <button type="button" class="btn btn-default"><%= link_to "この商品を削除する", "/products/#{product.id}",method: :delete, data: { confirm: '削除しますか？' } %></button>
+        <button type="button" class="btn btn-success bt_edit"><%= link_to "編集ページ", edit_product_path(product) %></button>
+        <button type="button" class= "btn btn-danger bt_red"><%= link_to "この商品を削除する", "/products/#{product.id}",method: :delete, data: { confirm: '削除しますか？' } %></button>
       </div>
     <% end %>
   </div>
