@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   post "/users/admin/" => "users#create"
   get "users/adminpage" => "users#adminpage"
   get "root/company" => "root#company"
+  get "users/privacy_policy" => "users#privacy_policy"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

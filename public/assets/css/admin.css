@@ -96,6 +96,13 @@
   margin: 10px;
 }
 
+
+/*.product_cate {
+  height: 15px;
+  width:  25px;
+}
+*/
+
 /*user/adminpage.html管理者ページ*/
 .admin_adminpage {
   width: 100%;
@@ -240,6 +247,7 @@ td {
   padding-top: 1px;
 }
 
+
 .inquiry-box {
   text-align: center;
   border: 1px solid #aaa;
@@ -258,6 +266,7 @@ td {
   margin-bottom: 15px;
 }
 
+
 .inquiry-table {
   text-align: center;
 }
@@ -273,5 +282,3 @@ td {
  .inquiry-textbox {
   border: solid 1px black;
  }
-
-

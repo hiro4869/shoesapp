@@ -24,10 +24,10 @@
 		<div class="footer-box-small col-sm-3">
 			<ul class="footer-ul">
 				<li><a href="#" class="footer-p">　</a></li>
-				<li><a href="#" class="footer-p">プライバシーポリシー</a></li>
+				<li><%= link_to "プライバシーポリシー", users_privacy_policy_path, class: "footer-p" %></li>
 				<li><a href="#" class="footer-p">利用規約</a></li>
 				<li><a href="#" class="footer-p">特定商取引法の記載</a></li>
-				<li><a href="#" class="footer-p">運営会社</a></li>
+				<li><%= link_to "運営会社", root_company_path, class: "footer-p" %></li>
 			</ul>		
 		</div>
 	</div>
