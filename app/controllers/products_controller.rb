@@ -12,11 +12,11 @@ class ProductsController < ApplicationController
   add_breadcrumb "top", :root_path
 
   def index
-    @products = Product.page(params[:page]).per(50)
+    @products = Product.page(params[:page]).per(50).order("updated_at desc")
   end
 
   def admin_index
-    @products = Product.all.page(params[:page]).per(50)
+    @products = Product.all.page(params[:page]).per(50).order("updated_at desc")
   end
 
   def new
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
           @product_images.save
         end
       end
-      redirect_to root_path
+      redirect_to admin_index_products_path
     else
       render 'new'
     end
