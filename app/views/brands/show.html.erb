@@ -6,8 +6,17 @@
   <div class="brand_show_products clearfix">
     <% @products.each do |product| %>
       <div class="brand_contents_box">
+      
+        <% if product.product_images.present? %>
+          <div>
+            <!-- 登録されている画像の一番最初の画像を表示 -->
+            <%= image_tag product.product_images.first.image %>
+          </div>
+        <% else %>
+          <div><%= image_tag 'noimage.gif' %></div>
+        <% end %>
+
         <p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
-        <p>商品名：<%= product.p_name %></p>
         <p>価格：<%= product.price %></p>
         <p>商品詳細：<%= product.description %></p>
         <p>カテゴリー：<%= product.category.category_name %></p>

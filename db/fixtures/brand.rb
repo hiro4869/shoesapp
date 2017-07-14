@@ -48,3 +48,7 @@ Brand.seed do |s|
   s.brand_name = "カルミナ"
 end
 
+Brand.seed do |s|
+  s.id = 11
+  s.brand_name = "その他"
+end
