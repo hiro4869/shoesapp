@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
 
   def show
-    @products = Product.where("category_id = #{params[:id]}")
+    @products = Product.where("category_id = #{params[:id]}").order("updated_at desc")
 
     #ページング
     # @categories = @products.page(params[:page])

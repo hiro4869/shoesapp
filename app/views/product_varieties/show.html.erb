@@ -1,18 +1,8 @@
 <div class="productvarieties_sizecolor">
   <h1 class="productvarieties_titlename"><%= @product.p_name %></h1>
-  <!-- 画像 -->
-   <div class="productvarieties_images">
-　　  <% if @ProductVariety.product_variety_images.present? %>
-  
-      <% @ProductVariety.product_variety_images.each do |picture| %>
-        <%= image_tag picture.image %>
-        <br>
-      <% end %>
-    
-    <% else %>
-      <div><%= image_tag 'noimage.gif' %></div>
-    <% end %>
-    </div>
+
+
+
     <div class="productvarieties_products">
       <p>色:<%= @ProductVariety.color %></p>
       <p>サイズ:<%= @ProductVariety.size %></p>
@@ -51,4 +41,31 @@
         <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
       <% end %>
     </div>
+
+
+
+
+<div class="productvarieties_slider">
+  <% if @ProductVariety.product_variety_images.present? %>
+    <% @ProductVariety.product_variety_images.each do |picture| %>
+      <ul class="thumb-item clearfix">
+        <li style="display: inline-block;
+        "><%= image_tag picture.image %></li>
+      </ul>
+
+
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+   
+
 </div>
