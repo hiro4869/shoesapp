@@ -6,24 +6,12 @@
     <div class="product_show_name">
       <h1><%= @product.p_name %></h1>
     </div>
-
-    <!-- SNSシェアボタン -->
-    <p><%= link_to "Twitterでシェアする", "http://twitter.com/share?url=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-    <p><%= link_to "Facebookでシェアする", "https://www.facebook.com/sharer/sharer.php?u=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-    <p><%= link_to "LINEでシェアする", "http://line.me/R/msg/text/?http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-
-    <div class="product_image_show_maine">
-      <% @product.product_images.each do |picture| %>
-       <%= image_tag picture.image %>
-      <% end %>
-  　</div>
-  </div>
-  <div class="product_detailed_box">
+    <!-- 金額表示 -->
+  <div class="product_detailed_price">
     <!-- セール対象の表示 -->
     <% if @product.sale %>
       <h3>セール対象品</h3>
     <% end %>
-
     <!-- セールと通常時の価格の切り替え -->
     <% if @product.sale %>
       <!-- セール時の価格 -->
@@ -33,77 +21,108 @@
       </p>
     <% else %>
       <!-- 通常時の価格 -->
-      <p>価格：<%= @product.price %></p>
+      <p>価格：<%= @product.price %>円</p>
     <% end %>
-
-    
-    <!-- 商品サブタイトルが設定されている場合に表示 -->
-    <% if @product.sub_name.present?%>
-      <p>商品サブタイトル：<%= @product.sub_name %></p>
-    <% end %>
-
-    <p>カテゴリー:<%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %></p>
-
-
-    <!-- ブランドが設定されている場合に表示 -->
-    <% if @product.brand.present? %>
-      <p>ブランド：<%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
-    <% end %>
-
-    <!-- 甲革が設定されている場合に表示 -->
-    <% if @product.upper_leather.present?%>
-      <p>甲革：<%= @product.upper_leather %></p>
-    <% end %>
-    
-    <!-- 表底が設定されている場合に表示 -->
-    <% if @product.outsole.present?%>
-      <p>表底：<%= @product.outsole %></p>
-    <% end %>
-    
-    <!-- 踵が設定されている場合に表示 -->
-    <% if @product.heel.present?%>
-      <p>踵：<%= @product.heel %></p>
-    <% end %>
-    
-    <!-- 製法：が設定されている場合に表示 -->
-    <% if @product.process.present?%>
-      <p>製法：<%= @product.process %></p>
-    <% end %>
-    
-    <!-- 修理が設定されている場合に表示 -->
-    <% if @product.repair.present?%>
-      <p>修理：<%= @product.repair %></p>
-    <% end %>
-    
-    <!-- ウィズが設定されている場合に表示 -->
-    <% if @product.width.present?%>
-      <p>ウィズ(足囲)：<%= @product.width %></p>
-    <% end %>
-    
-    <!-- 原産国が設定されている場合に表示 -->
-    <% if @product.made_in.present?%>
-      <p>原産国：<%= @product.made_in %></p>
-    <% end %>
-    
-    <!-- メーカー説明が設定されている場合に表示 -->
-    <% if @product.maker_description.present?%>
-      <p>メーカー説明：<%= @product.maker_description %></p>
-    <% end %>
-    
-    <!-- 商品コードが設定されている場合に表示 -->
-    <% if @product.product_code.present?%>
-      <p>商品コード：<%= @product.product_code %></p>
-    <% end %>    
-
-
   </div>
+
+    <!-- SNSシェアボタン -->
+    <div class="product_sns">
+    <p><%= link_to "Twitterでシェアする", "http://twitter.com/share?url=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+    <p><%= link_to "Facebookでシェアする", "https://www.facebook.com/sharer/sharer.php?u=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+    <p><%= link_to "LINEでシェアする", "http://line.me/R/msg/text/?http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+    </div>
+
+    <!--  写真-->
+    <div class="product_image_show_maine">
+      <% @product.product_images.each do |picture| %>
+       <%= image_tag picture.image %>
+      <% end %>
+    </div>
+  </div>
+  
+  <!-- 商品説明内容box -->
+  <table class="product_detailed_box" border=1>
+    <tr><td>商品コード</td>
+    <td><% if @product.product_code.present?%>
+        <p><%= @product.product_code %></p>
+    <% end %>
+    </tr></td>
+
+    <tr><td>カテゴリー</td>
+    <td><p><%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %>
+      </p>
+    </tr></td>
+
+    <tr><td>ブランド</td>
+    <% if @product.brand.present? %>
+        <td><p><%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
+    <% end %>
+    </tr></td>
+
+    <tr><td>メーカー説明</td>
+    <% if @product.maker_description.present?%>
+        <td><p><%= @product.maker_description %></p>
+    <% end %>
+    </tr></td>
+
+    <tr><td>原産国</td>
+    <% if @product.made_in.present?%>
+        <td><p>原産国：<%= @product.made_in %></p>
+    <% end %>
+    </tr></td>
+
+    <tr><td>商品サブタイトル</td>
+    <% if @product.sub_name.present?%>
+        <td><p>商品サブタイトル：<%= @product.sub_name %></p>
+    <% end %>
+    </tr></td>
+  </table>
+
+  <!-- 商品説明内容箱２ -->
+  <table class="product_detailed_box_right" border=1>
+    <tr><td>甲革</td>
+    <% if @product.upper_leather.present?%>
+        <td><p><%= @product.upper_leather %></p>
+    <% end %>
+    </tr></td>
+
+     <tr><td>表底</td>
+     <% if @product.outsole.present?%>
+          <td><p><%= @product.outsole %></p>
+        <% end %>
+      </tr></td>
+       
+     <tr><td>踵</td>
+      <% if @product.heel.present?%>
+          <td><p><%= @product.heel %></p>
+      <% end %>
+     </tr></td>
+
+     <tr><td>ウィズ(足囲)</td>
+      <% if @product.width.present?%>
+          <td><p><%= @product.width %></p>
+      <% end %>
+      </tr></td>
+
+     <tr><td>製法</td>
+      <% if @product.process.present?%>
+          <td><p><%= @product.process %></p>
+      <% end %>
+      </tr></td>
+
+     <tr><td>修理</td>
+      <% if @product.repair.present?%>
+          <td><p><%= @product.repair %></p>
+      <% end %>
+      </tr></td>
+    </table>
+
   <div class="product_detailed_description">
     <!-- 商品詳細が設定されている場合に表示 -->
     <% if @product.description.present?%>
       <p>商品詳細：<%= @product.description %></p>
     <% end %>
   </div>
-
 
 <!-- ここからsize・colorを選択のページになります -->
 <div class="container product_varieties_select">
@@ -143,4 +162,10 @@
     </table>
   </div>
 </div>
-        
+</div>
+
+
+
+    
+
+
