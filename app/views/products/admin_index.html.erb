@@ -3,6 +3,16 @@
   <div class="admin_index_product clearfix">
     <% @products.each do |product| %>
       <div class="admin_index_prodct_box">
+      
+        <% if product.product_images.present? %>
+          <div>
+            <!-- 登録されている画像の一番最初の画像を表示 -->
+            <%= image_tag product.product_images.first.image %>
+          </div>
+        <% else %>
+          <div><%= image_tag 'noimage.gif' %></div>
+        <% end %>
+
         <p>商品名：<%= product.p_name %></p>
         <p>価格：<%= product.price %></p>
         
