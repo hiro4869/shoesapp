@@ -25,7 +25,19 @@
 }
 
 /*root/index---------*/
-/*productのindexのバックグラウンドproductのindex*/
+
+.root_collection_title {
+
+  font-family: 'Cinzel', serif;
+  color:#D3D3D3
+}
+
+.product_contents{
+  background-color: #000000;
+  /*font-color:#FFFFFF;*/
+}
+
+
 
 
 /*product/index--------*/
@@ -91,8 +103,9 @@
 .productvarieties_sizecolor {
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  width: 1000px;
   height: auto;
+  text-align: center;
 }
 .productvarieties_titlename {
   font-family: 'Cinzel', serif;
@@ -100,12 +113,11 @@
   padding: 10px;
 }
 .productvarieties_products {
-  /*text-align: center;
-  width: 300px;
+  text-align: center;
+
   height: auto;
-  float: left;
   margin: 20px 10px 10px 10px;
-  padding: 5px;*/
+  padding: 5px;
 }
 .productvarieties_images {
   /*width: 100%;
@@ -132,12 +144,13 @@
   margin-top: 0;
 }
 
-
+/*productindex*/
 .product {
    width: 1000px;
    margin:  auto;
    min-height: 450px;
 }
+
 .p-box {
    float: left;
    width: 300px;
@@ -229,6 +242,38 @@
 
  /*Rootindexコレクション*/
 
+.root_collection {
+
+    width: 1000px;
+     margin:  auto;
+
+}
+
+.root_collection_title {
+
+  margin-top: 40px;
+  margin-bottom: 10px;
+
+}
+
+.root_p-box{
+
+    width: 300px;
+     height: 350px;
+     border: #696969 solid 1px;
+     float: left;
+     padding: 15px 5px 15px 5px;
+     margin: 15px 5px 15px 5px;
+     text-align: center;
+     
+
+}
+
+.root_p-box p {
+  color: white;
+}
+
+
 
  /*product_show*/
  .product_show {
@@ -296,14 +341,10 @@
 
 .category_show_accessories {
 
-}
-.category_show_accessories_title {
 
-  font-family: 'Cinzel', serif;
-  text-align: center;
-  margin: 10px;
 
 }
+
 .category_show_page {
   margin: 5px;
 
