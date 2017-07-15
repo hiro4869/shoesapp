@@ -17,38 +17,34 @@
             <!-- 登録されている画像の一番最初の画像を表示 -->
             <%= image_tag product.product_images.first.image %>
           </div>
-        <% else %>
+          <% else %>
           <div><%= image_tag 'noimage.gif' %></div>
-        <% end %>
-      </div>
-       
-        <p class="product_name"><%= link_to product.p_name, product_path(product.id),class: "contents_link" %>
-
-          <!-- セールと通常時の価格の切り替え -->
+          <% end %>
+          </div>
+          <p class="product_name"><%= link_to product.p_name, product_path(product.id),class: "contents_link" %>
+           <!-- セールと通常時の価格の切り替え -->
           <% if product.sale %>
             <!-- セール時の価格 -->
-            <p>
-              <span class="sale-normal-price">通常価格:<%= product.price %>円</span><br/>
-              <span class="sale-price">セール価格：<%= product.sale_price %>円 (<%= product.discount_rate %>％ OFF)</span>
+          <p>
+            <span class="sale-normal-price">通常価格:<%= product.price %>円</span><br/>
+            <span class="sale-price">セール価格：<%= product.sale_price %>円 (<%= product.discount_rate %>％ OFF)</span>
             </p>
-          <% else %>
-            <!-- 通常時の価格 -->
-            <p>¥<%= product.price %></p>
-          <% end %>
-
-
-
-          <p>ブランド名:<%= link_to product.brand.brand_name, brand_path(product.brand.id), class: "contents_link" %></p>
-          <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
-        </p>
-        </div>
-    <% end %>
-
-     </div>
-      <div class="product_pageinate_down">
-       <%= paginate @products %>
-      </div>
+             <% else %>
+              <!-- 通常時の価格 -->
+              <p>¥<%= product.price %></p>
+            <% end %>
+              <p>ブランド名:<%= link_to product.brand.brand_name, brand_path(product.brand.id), class: "contents_link" %></p>
+              <p>カテゴリー:<%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
+          </div>
+      <% end %>
+   </div>
+   <div class="product_pageinate_down">
+    <%= paginate @products %>
+ </div>
 </div>
+
+
+
 
 
 

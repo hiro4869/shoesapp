@@ -16,107 +16,138 @@
     <% if @product.sale %>
       <!-- セール時の価格 -->
       <p>
-        <span class="sale-normal-price">通常価格:<%= @product.price %>円</span><br/>
-        <span class="sale-price">セール価格：<%= @product.sale_price %>円 (<%= @product.discount_rate %>％ OFF)</span>
+        <span class="sale-normal-price">通常価格:¥<%= @product.price %></span><br/>
+        <span class="sale-price">セール価格：¥<%= @product.sale_price %>円 (<%= @product.discount_rate %>％ OFF)</span>
       </p>
     <% else %>
       <!-- 通常時の価格 -->
-      <p>価格：<%= @product.price %>円</p>
+      <p>価格：¥<%= @product.price %></p>
     <% end %>
   </div>
 
-    <!-- SNSシェアボタン -->
-    <div class="product_sns">
-    <p><%= link_to "Twitterでシェアする", "http://twitter.com/share?url=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-    <p><%= link_to "Facebookでシェアする", "https://www.facebook.com/sharer/sharer.php?u=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-    <p><%= link_to "LINEでシェアする", "http://line.me/R/msg/text/?http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
-    </div>
-
-    <!--  写真-->
-    <div class="product_image_show_maine">
-      <% @product.product_images.each do |picture| %>
-       <%= image_tag picture.image %>
-      <% end %>
-    </div>
+  <!-- SNSシェアボタン -->
+  <div class="product_sns">
+  <p><%= link_to "Twitterでシェアする", "http://twitter.com/share?url=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+  <p><%= link_to "Facebookでシェアする", "https://www.facebook.com/sharer/sharer.php?u=http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
+  <p><%= link_to "LINEでシェアする", "http://line.me/R/msg/text/?http://shoescraft.com/products/#{@product.id}", :target=>["_blank"] %></p>
   </div>
+
+  <!--  写真-->
+  <div class="product_image_show_maine">
+    <% @product.product_images.each do |picture| %>
+     <%= image_tag picture.image %>
+    <% end %>
+  </div>
+  </div>
+
   
   <!-- 商品説明内容box -->
   <table class="product_detailed_box" border=1>
-    <tr><td>商品コード</td>
-    <td><% if @product.product_code.present?%>
-        <p><%= @product.product_code %></p>
-    <% end %>
-    </tr></td>
+    <tr>
+      <td>商品コード</td>
+      <td>
+        <% if @product.product_code.present?%>
+          <p><%= @product.product_code %></p>
+        <% end %>
+      </td>
+    </tr>
 
-    <tr><td>カテゴリー</td>
-    <td><p><%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %>
+    <tr>
+      <td>カテゴリー</td>
+      <td>
+      <p><%= link_to @product.category.category_name, "/categories/#{@product.category_id}", class: "contents_link" %>
       </p>
-    </tr></td>
-
-    <tr><td>ブランド</td>
-    <% if @product.brand.present? %>
-        <td><p><%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
-    <% end %>
-    </tr></td>
-
-    <tr><td>メーカー説明</td>
-    <% if @product.maker_description.present?%>
-        <td><p><%= @product.maker_description %></p>
-    <% end %>
-    </tr></td>
-
-    <tr><td>原産国</td>
-    <% if @product.made_in.present?%>
-        <td><p>原産国：<%= @product.made_in %></p>
-    <% end %>
-    </tr></td>
-
-    <tr><td>商品サブタイトル</td>
-    <% if @product.sub_name.present?%>
-        <td><p>商品サブタイトル：<%= @product.sub_name %></p>
-    <% end %>
-    </tr></td>
+      </td>
+    </tr>
+    <tr>
+      <td>ブランド</td>
+      <td>
+        <% if @product.brand.present? %>
+        <p><%= link_to @product.brand.brand_name, brand_path(@product.brand.id), class: "contents_link" %></p>
+        <% end %>
+      </td>
+     </tr>
+    <tr>
+      <td>メーカー説明</td>
+      <td>
+        <% if @product.maker_description.present?%>
+            <p><%= @product.maker_description %></p>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>原産国</td>
+       <td>
+        <% if @product.made_in.present?%>
+          <p>原産国：<%= @product.made_in %></p>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>商品サブタイトル</td>
+        <td>
+          <% if @product.sub_name.present?%>
+            <p>商品サブタイトル：<%= @product.sub_name %></p>
+          <% end %>
+        </td>
+    </tr>
   </table>
-
   <!-- 商品説明内容箱２ -->
   <table class="product_detailed_box_right" border=1>
-    <tr><td>甲革</td>
-    <% if @product.upper_leather.present?%>
-        <td><p><%= @product.upper_leather %></p>
-    <% end %>
-    </tr></td>
+    <tr>
+      <td>甲革</td>
+        <td>
+          <% if @product.upper_leather.present?%>
+            <p><%= @product.upper_leather %></p>
+          <% end %>
+        </td>
+    </tr>
 
-     <tr><td>表底</td>
-     <% if @product.outsole.present?%>
-          <td><p><%= @product.outsole %></p>
-        <% end %>
-      </tr></td>
+    <tr>
+      <td>表底</td>
+        <td>
+          <% if @product.outsole.present?%>
+            <p><%= @product.outsole %></p>
+          <% end %>
+        </td>
+    </tr>
        
-     <tr><td>踵</td>
-      <% if @product.heel.present?%>
-          <td><p><%= @product.heel %></p>
-      <% end %>
-     </tr></td>
+    <tr>
+      <td>踵</td>
+        <td>
+          <% if @product.heel.present?%>
+            <p><%= @product.heel %></p>
+          <% end %>
+        </td>
+    </tr>
 
-     <tr><td>ウィズ(足囲)</td>
-      <% if @product.width.present?%>
-          <td><p><%= @product.width %></p>
-      <% end %>
-      </tr></td>
+    <tr>
+      <td>ウィズ(足囲)</td>
+        <td>
+          <% if @product.width.present?%>
+            <p><%= @product.width %></p>
+          <% end %>
+        </td>
+    </tr>
 
-     <tr><td>製法</td>
-      <% if @product.process.present?%>
-          <td><p><%= @product.process %></p>
-      <% end %>
-      </tr></td>
+    <tr>
+      <td>製法</td>
+        <td>
+          <% if @product.process.present?%>
+            <p><%= @product.process %></p>
+          <% end %>
+        </td>
+     </tr>
 
-     <tr><td>修理</td>
-      <% if @product.repair.present?%>
-          <td><p><%= @product.repair %></p>
-      <% end %>
-      </tr></td>
-    </table>
-
+     <tr>
+      <td>修理</td>
+        <td>
+          <% if @product.repair.present?%>
+            <p><%= @product.repair %></p>
+          <% end %>
+        </td>
+    </tr>
+  </table>
   <div class="product_detailed_description">
     <!-- 商品詳細が設定されている場合に表示 -->
     <% if @product.description.present?%>
@@ -163,9 +194,3 @@
   </div>
 </div>
 </div>
-
-
-
-    
-
-

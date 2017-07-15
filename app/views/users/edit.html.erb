@@ -1,10 +1,15 @@
-<h1>プロフィール編集画面</h1>
-
-
-<%= form_for @user, url: "/user/#{params[:id]}", method: :patch  do |f| %>
-  <p>氏名：<%= f.text_field :name %></p>
-  <p>Eメール：<%= f.text_field :email %></p>
-  <p>住所<%= f.text_field :address %></p>
-  <p>電話番号：<%= f.text_field :phone_number %></p>
-  <%= f.submit "更新" %>
-<% end %>
+<div class="user_edit_profiles_contents">
+<br>
+<br>
+<p class="profil_title">プロフィール編集画面</p>
+  <div class="user_editcontents">
+    <%= form_for @user, url: "/user/#{params[:id]}", method: :patch  do |f| %>
+      <p>氏名：<%= f.text_field :name %></p>
+      <p>Eメール：<%= f.text_field :email %></p>
+      <p>住所<%= f.text_field :address %></p>
+      <p>電話番号：<%= f.text_field :phone_number %></p>
+      <button type="button" class="btn btn-default btn-lg" disabled="disabled"><%= f.submit "更新" %></button>
+    <% end %>
+  </div>
+</div>
+      

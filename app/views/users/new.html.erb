@@ -1,15 +1,19 @@
-<h1>ユーザー登録</h1>
+<div class="user_admin_signup">
+  <h1 class="registration">ユーザー登録</h1>
+    <h2 class="user_admin_title">Sign up</h2>
+     <div class="user_admin_signup_contents">
+      <%= form_for @user, url: users_admin_path do |f| %>
+        <p>email：<%= f.text_field :email %></p>
+        <p>pass：<%= f.password_field :password %></p>
+        <p>pass(再)<%= f.password_field :password_confirmation %></p>
+        <p>
+        <%= f.radio_button :role, 0 %>0：一般ユーザー
+        <%= f.radio_button :role, 1 %>1：管理ユーザー
+      </p>
+      <p><%= f.submit "登録" %></p>
+      <% end %>
+     </div>
+</div>
 
-<h2>Sign up</h2>
-<%= form_for @user, url: users_admin_path do |f| %>
-<p>email：<%= f.text_field :email %></p>
-<p>pass：<%= f.password_field :password %></p>
-<p>pass(再)<%= f.password_field :password_confirmation %></p>
-<p>
-  <%= f.radio_button :role, 0 %>0：一般ユーザー
-  <%= f.radio_button :role, 1 %>1：管理ユーザー
-</p>
-<p><%= f.submit "登録" %></p>
-<% end %>
 
 

@@ -1,71 +1,53 @@
-<div class="productvarieties_sizecolor">
+<div class="productvarieties_sizecolor ">
   <h1 class="productvarieties_titlename"><%= @product.p_name %></h1>
-
-
-
     <div class="productvarieties_products">
       <p>色:<%= @ProductVariety.color %></p>
       <p>サイズ:<%= @ProductVariety.size %></p>
-
-      <!-- セールと通常時の価格の切り替え -->
-      <% if @product.sale %>
-        <!-- セール時の価格 -->
-        <p>
-          <span class="sale-normal-price">通常価格:<%= @product.price %>円</span><br/>
-          <span class="sale-price">セール価格：<%= @product.sale_price %>円 (<%= @product.discount_rate %>％ OFF)</span>
-        </p>
-      <% else %>
-        <!-- 通常時の価格 -->
-        <p>価格：<%= @product.price %></p>
-      <% end %>
-
-
-      <% if @ProductVariety.stock %>
-        <p>在庫:あり</p>
-      <% else %>
-        <p>在庫:なし</p>
-      <% end %>
-  
-      <% if user_signed_in? %>
+        <!-- セールと通常時の価格の切り替え -->
+        <% if @product.sale %>
+          <!-- セール時の価格 -->
+          <p>
+            <span class="sale-normal-price">通常価格:<%= @product.price %>円</span><br/>
+            <span class="sale-price">セール価格：<%= @product.sale_price %>円 (<%= @product.discount_rate %>％ OFF)</span>
+          </p>
+        <% else %>
+          <!-- 通常時の価格 -->
+          <p>価格：<%= @product.price %></p>
+        <% end %>
         <% if @ProductVariety.stock %>
-          <%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
-            <p>購入数：<%= f.number_field :quantity, min: 1, max: 9, step: 1 %></p>
-            <%= f.hidden_field :product_variety_id, :value => @ProductVariety.id  %>
-            <br/>
-            <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+          <p>在庫:あり</p>
+        <% else %>
+          <p>在庫:なし</p>
+        <% end %>
+        <% if user_signed_in? %>
+          <% if @ProductVariety.stock %>
+            <%= form_for @cart ,url: "/users/#{current_user.id}/carts" ,method: :post do |f| %>
+              <p>購入数：<%= f.number_field :quantity, min: 1, max: 9, step: 1 %></p>
+              <%= f.hidden_field :product_variety_id, :value => @ProductVariety.id  %>
+              <br/>
+              <p><%= f.submit "カートに入れる", class: "btn btn-primary" %></p>
+            <% end %>
+          <% else %>
+            <p><%= link_to "お取り寄せする", new_inquiry_path, class: "btn btn-primary" %></p>
           <% end %>
         <% else %>
-          <p><%= link_to "お取り寄せする", new_inquiry_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
         <% end %>
-      <% else %>
-        <p><%= link_to "ログインしてカートに入れる", new_user_session_path, class: "btn btn-primary" %></p>
-      <% end %>
-    </div>
-
-
-
-
-<div class="productvarieties_slider">
-  <% if @ProductVariety.product_variety_images.present? %>
-    <% @ProductVariety.product_variety_images.each do |picture| %>
-      <ul class="thumb-item clearfix">
-        <li style="display: inline-block;
-        "><%= image_tag picture.image %></li>
-      </ul>
-
-
-    <% end %>
-  <% end %>
+      </div>
+      <div class="productvarieties_images">
+         <% if @ProductVariety.product_variety_images.present? %>
+         <% @ProductVariety.product_variety_images.each do |picture| %>
+            <%= image_tag picture.image %>
+          <% end %>
+          <% else %>
+            <div><%= image_tag 'noimage.gif' %></div>
+          <% end %>
+      </div>
 </div>
 
 
+  
 
 
 
 
-
-
-
-   
-
-</div>

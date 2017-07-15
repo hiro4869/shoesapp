@@ -3,61 +3,55 @@
  display: block;
  clear: both;
 }
-
 a:hover {
   text-decoration: none !important;
   transition: all .5s;
 }
-
-/*user_show*/
-.user_mypage_heading {
- font-family: 'Cinzel', serif
-}
-.user_icons{
- color: lightblue;
- text-align: center;
-}
-.user_profile {
- font-size: 200px;
- padding: 5px 40px 5px 5px;
-}
-
-
 /*signup*/
 .sign_up {
- background-image: url(../images/userdevise/myf2.jpg);
- width: 100%;
- height: 100%;
- padding-top: 1px;
+  background-image: url(../images/userdevise/myf2.jpg);
+  width: 100%;
+  height: 100%;
+  padding-top: 1px;
 }
-
-
-
 .sign-up-box{
   text-align: center;
-    border: 1px solid #aaa;
-    padding: 10%;
-    width: 35%;
-    height: 50%;
-    margin: 10% auto;
+  border: 1px solid #aaa;
+  padding: 10%;
+  width: 35%;
+  height: 50%;
+  margin: 10% auto;
 }
 /*user_show*/
+.user_mypage{
+  min-height: 450px;
+  width: 100%;
+  height: auto;
+}
+.user_icons{
+  color: lightblue;
+  text-align: center;
+}
+.user_profile {
+  font-size: 200px;
+  padding: 5px 40px 5px 5px;
+}
 .user_mypage_heading {
- font-family: 'Cinzel', serif
+  font-family: 'Cinzel', serif
 }
 .user_mypage :hover{
   color: #DCDCDC;
   transition: all .5s;
 }
 .user_icons {
- text-align: center;
- margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 .user_profile {
- font-size: 200px;
- padding: 5px;
- color: lightblue;
- display: block;
+  font-size: 200px;
+  padding: 5px;
+  color: lightblue;
+  display: block;
 }
 .user_cart{
   font-size: 200px;
@@ -66,48 +60,45 @@ a:hover {
   display: block;
 }
 .user_bought{
- font-size: 200px;
- padding: 5px;
- color: lightblue;
- display: block !important;
+  font-size: 200px;
+  padding: 5px;
+  color: lightblue;
+  display: block !important;
 }
 .user_profile_contents {
- text-align: center;
- width: 300px;
- height:300px;
- display: inline-block;
+  text-align: center;
+  width: 300px;
+  height:300px;
+  display: inline-block;
 }
 .user_cart_contents {
- text-align: center;
- width: 300px; 
- height:300px;
- display: inline-block;
+  text-align: center;
+  width: 300px; 
+  height:300px;
+  display: inline-block;
 }
 .user_bought_contents {
- text-align: center;
- width: 300px; 
- height:300px;
- display: inline-block;
+  text-align: center;
+  width: 300px; 
+  height:300px;
+  display: inline-block;
 }
-
 span {
- text-align: center;
- /*color: lightblue;*/
+  text-align: center;
+ 
 }
-
-
 /*cartsのindexページ*/
 
 .shop_cart_icon {
- color: lightblue;
- width: 30px;
- height: 30px;
- margin: 5px;
- float: left;
- font-size: 30px;
+  color: lightblue;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  float: left;
+  font-size: 30px;
 }
 .user_cart_after {
- text-align: center;
+  text-align: center;
 }
 /*後で買うページ*/
 .cart_contents_link {
@@ -122,107 +113,93 @@ span {
   height: auto;
   line-height:49px;
 }
-
 /*confirmation.html/注文内容を確認*/
 .confirmation_payment_adress {
   text-align: center;
   width: 100%;
   margin: 10px;
 }
-/*警告後!!!*/
-/*.confirmation_denger {
-  width: 300px; 
+
+.confirmation_products {
   text-align: center;
   margin: 0 auto;
-  }*/
-  .confirmation_products {
-    text-align: center;
-    margin: 0 auto;
-    padding: 10px;
-    width: 600px;
-    height: auto;
-    line-height:49px;
-  }
-  /*ボーダーライン*/
-  .make_border {
-    border:3px dashed #D3D3D3;
-    width: 600px;
-    text-align: center;
-    margin: 20px;
-  }
+  padding: 10px;
+  width: 600px;
+  height: auto;
+  line-height:49px;
+}
+/*ボーダーライン*/
+.make_border {
+  border:3px dashed #D3D3D3;
+  width: 600px;
+  text-align: center;
+  margin: 20px;
+}
+.confirmation_payment {
+  text-align: center;
+}
+.confirmation_total_fee {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}
+.confirmation_adress_fix {
+  text-align: center;
+}
 
-  .confirmation_payment {
-    text-align: center;
-  }
-  .confirmation_total_fee {
-
-    text-align: center;
-    margin: 5px;
-    padding: 5px;
-  }
-
-  .confirmation_adress_fix {
-    text-align: center;
-  }
-
-  /*order_confirmation.html*/
-
-  .order_confirmation{
-    width: 100%;
-    height: auto;
-  }
-  .order_confirmation_thanks {
-    text-align: center;
-    margin: 30px 5px;
-    padding: 5px;
-    color: #DC143C;
-  }
-
-  .order_confirmation_contents {
-    text-align: center;
-    margin: 5px; 
-    padding: 5px;
-    height: auto;
-    line-height:49px;
-    margin: 0 auto;
-    width: 600px;
-
-  }
-  .order_confirmation_number {
-    margin: 10px 5px 10px;
-
-  }
-  .order_confirmation_total {
-    text-align: center;
-    width: 100%;
-    height: auto;
-    margin: 10px;
-
-  }
-  .order_user_name {
-    margin: 20px 20px 20px 50px;
-  }
-  .order_email {
-    display: inline-block;
-    line-height: 100px;
-    text-align: center;
-  }
-  .oder_email_icon{
-    display: inline-block;
-    margin: 0 8px 0 0;
-    vertical-align: middle;
-    text-align: center;
-  }
-  .oder_email_icon_contents {
-    text-align: center;
-    width: 100%
-  }
-  .oders_index {
-   width: 100%;
-   height: auto;
-   padding-top: 10px;
- }
- .Purchase_history_title{
+/*order_confirmation.html*/
+.order_confirmation{
+  width: 100%;
+  height: auto;
+}
+.order_confirmation_thanks {
+  text-align: center;
+  margin: 30px 5px;
+  padding: 5px;
+  color: #DC143C;
+}
+.order_confirmation_contents {
+  text-align: center;
+  margin: 5px; 
+  padding: 5px;
+  height: auto;
+  line-height:49px;
+  margin: 0 auto;
+  width: 600px;
+}
+.order_confirmation_number {
+ margin: 10px 5px 10px;
+}
+.order_confirmation_total {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin: 10px;
+}
+.order_user_name {
+ margin: 20px 20px 20px 50px;
+}
+.order_email {
+  display: inline-block;
+  line-height: 100px;
+  text-align: center;
+}
+.oder_email_icon{
+  display: inline-block;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  text-align: center;
+}
+.oder_email_icon_contents {
+  text-align: center;
+  width: 100%
+}
+.oders_index {
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+.Purchase_history_title{
   font-family: 'Cinzel', serif;
   text-align: center;
 }
@@ -235,71 +212,76 @@ span {
   line-height:49px;
 }
 .oders_make_border {
-    border:1px dashed #D3D3D3;
-    width: 200px;
-    margin: 20px;
-    display: inline-block;
-  }
-
+  border:1px dashed #D3D3D3;
+  width: 200px;
+  margin: 20px;
+  display: inline-block;
+}
 
 /*プライバシーポリシー*/
 .privacypolicy {
   padding: 50px;
 }
-
 li {
   font-size: 12px;
 }
-
 ul {
   list-style: none;
   padding-left: 30px;
 }
-
 .privacy-7jou {
   font-size: 12px;
   padding-left: 30px;
+}
+/*userプロフィール編集*/
+.profil_title {
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+}
+.user_edit_profiles_contents{
+  text-align: center;
+  min-height: 450px;
+  height: 500px;
+  width: 100%;
+  background-image: url(../images/product/ssss.jpg);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.user_editcontents {
+  margin: 40px;
 }
 
 
 
 
 
+/*pc-----------------------------------------------------------*/
+@media all and (min-width: 768px) {
 
+  /*cartsのindexページ*/
+.user_cart_product {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  width: 600px;
+  height: auto;
+  line-height:49px;
+}
+.user_cart_name {
+  margin-left: 50px;
+}
 
-
-
-
-
-  /*pc-----------------------------------------------------------*/
-  @media all and (min-width: 768px) {
-
-    /*cartsのindexページ*/
-
-    .user_cart_product {
-      text-align: center;
-      margin: 0 auto;
-      padding: 10px;
-      width: 600px;
-      height: auto;
-      line-height:49px;
-    }
-
-    .user_cart_name {
-     margin-left: 50px;
-   }
-
-   /*cart_added_confirm_index*/
-
-   .cart_add {
-    text-align: center;
-    margin: 20px;
-    padding: 30px;
-  }
-  .cart_add_text {
-    margin: 30px;
-    padding: 20px;
-  }
+/*cart_added_confirm_index*/
+.cart_add {
+  text-align: center;
+  margin: 20px;
+  padding: 30px;
+}
+.cart_add_text {
+  margin: 30px;
+  padding: 20px;
+}
 
 
 

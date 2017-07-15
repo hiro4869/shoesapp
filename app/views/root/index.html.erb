@@ -54,13 +54,6 @@
               <p>¥<%= product.price %></p>
             <% end %>
 
-
-
-
-
-
-
-
             
             <!-- <p>商品詳細:<%= product.description %></p> -->
             <p><%= link_to product.category.category_name, "/categories/#{product.category_id}",class: "contents_link" %></p>
@@ -79,3 +72,10 @@
 <% if @products.empty? %>
   <p>検索にヒットする表品はありませんでした。</p>
 <% end %> 
+
+
+
+
+
+
+

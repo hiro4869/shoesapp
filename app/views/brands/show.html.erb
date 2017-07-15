@@ -3,10 +3,9 @@
     <%= image_tag '/assets/images/product/aabbcc.jpg' %>
     <h1><%= @brand.brand_name %></h1>
   </div>
-  <div class="brand_show_products clearfix">
+  <div class="brand_show_products_contents">
     <% @products.each do |product| %>
       <div class="brand_contents_box">
-      
         <% if product.product_images.present? %>
           <div>
             <!-- 登録されている画像の一番最初の画像を表示 -->
@@ -15,15 +14,11 @@
         <% else %>
           <div><%= image_tag 'noimage.gif' %></div>
         <% end %>
-
-        <p>商品名：<%= link_to product.p_name, "/products/#{product.id}" %></p>
-        <p>価格：<%= product.price %></p>
-        <p>商品詳細：<%= product.description %></p>
-        <p>カテゴリー：<%= product.category.category_name %></p>
-        <p>ブランド：<%= product.brand.brand_name %></p>
-        
-    <% end %>
-     </div>
+          <p><%= link_to product.p_name, "/products/#{product.id}" %></p>
+          <p>価格：¥<%= product.price %></p>
+          <p>種類：<%= product.category.category_name %></p>
+          <p>ブランド：<%= product.brand.brand_name %></p>
+        <% end %>
+      </div>
   </div>
 </div>
-

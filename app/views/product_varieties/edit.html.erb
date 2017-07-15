@@ -1,25 +1,27 @@
-<h1>色・サイズの編集</h1>
-<h3>商品名：<%= @Product.p_name %></h3>
-<br/>
-
-<%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties/#{params[:id]}", method: :patch  do |f| %>
-<p>色：<%= f.text_field :color %></p>
-<p>サイズ：<%= f.text_field :size %></p>
-<p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
-<p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
-<p>画像：<%= f.file_field :image, multiple: true %></p>
-<%= f.submit "更新" %>
-<% end %>
-
-<p>画像</p>
-<% if @ProductVariety.product_variety_images.present? %>
-  <div>
-    <% @ProductVariety.product_variety_images.each do |picture| %>
-      <%= image_tag picture.image %>
-      <%= link_to "この画像を削除する", product_product_variety_product_variety_image_path(@Product.id, @ProductVariety.id ,picture.id), method: :delete, data: { confirm: '削除しますか？' } %>
-      <br>
-    <% end %>
-  </div>
-<% else %>
-  <div><%= image_tag 'noimage.gif' %></div>
-<% end %>
+<div class="product_varieties_edit">
+  <h1 class="product_varieties_edit_title">Size.colorの変更</h1>
+    <h3 class="product_varieties_edit_productname">商品名：<%= @Product.p_name %></h3>
+    <br/>
+      <div class="product_varieties_edie_contents">
+        <%= form_for @ProductVariety, url: "/products/#{params[:product_id]}/product_varieties/#{params[:id]}", method: :patch  do |f| %>
+          <p>色：<%= f.text_field :color %></p>
+          <p>サイズ：<%= f.text_field :size %></p>
+          <p><%= f.radio_button 'stock', 'true' %> 在庫あり</p>
+          <p><%= f.radio_button 'stock', 'false' %> 在庫なし</p>
+          <div class="product_varieties_edit_image">
+            <p>画像：<%= f.file_field :image, multiple: true %></p>
+          </div>
+            <%= f.submit "更新" %>
+       <% end %>
+        <p>画像</p>
+          <% if @ProductVariety.product_variety_images.present? %>
+          <% @ProductVariety.product_variety_images.each do |picture| %>
+          <%= image_tag picture.image %>
+          <%= link_to "この画像を削除する", product_product_variety_product_variety_image_path(@Product.id, @ProductVariety.id ,picture.id), method: :delete, data: { confirm: '削除しますか？' } %>
+          <br>
+         <% end %>
+         <% else %>
+          <div><%= image_tag 'noimage.gif' %></div>
+        <% end %>
+      </div>
+</div>
