@@ -1,8 +1,9 @@
 <div class="product_contents">
 
   <!-- 検索された場合はトップ画像を非表示にする -->
+  <br>
   <% if params[:p_name].present? %>
-    <h1>検索結果</h1>
+    <h1 class="search_results">検索結果</h1>
   <% else %>
     <!-- トップ画像 -->
     <div class="top_js_images">
@@ -70,7 +71,7 @@
 
 <!-- 検索にヒットする商品がない場合の表示 -->
 <% if @products.empty? %>
-  <p>検索にヒットする表品はありませんでした。</p>
+  <p class="too_much">検索にヒットする表品はありませんでした。</p>
 <% end %> 
 
 
