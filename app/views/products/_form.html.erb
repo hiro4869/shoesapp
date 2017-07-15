@@ -28,6 +28,9 @@
 		<span class="col-sm-3">
 			セール割引率：
 		</span>
+		<div class="col-sm-2">
+			<%= f.text_field :discount_rate, class: "product_textbox" %>
+		</div>
 		<div class="product-radio-btn-box">
 				<p class="product-radio-btn col-sm-2">
 					<%= f.radio_button 'sale', 'true' %> セール対象
@@ -36,9 +39,7 @@
 					<%= f.radio_button 'sale', 'false' %> セール対象外
 				</p>
 		</div>
-		<div class="col-sm-2">
-			<%= f.text_field :discount_rate, class: "product_textbox" %>
-		</div>
+
 	</div>
 </div>
 

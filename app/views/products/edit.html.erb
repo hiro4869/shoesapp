@@ -29,36 +29,33 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>色</th>
-                <th>サイズ</th>
-                <th>価格</th>
-                <th>在庫</th>
-                <th>選択してください</th>
-                <th>選択してください</th>
+                <th style="text-align: center;">色</th>
+                <th style="text-align: center;">サイズ</th>
+                <th style="text-align: center;">在庫</th>
+                <th style="text-align: center;">選択してください</th>
+                <th style="text-align: center;">選択してください</th>
               </tr>
             </thead>
              <tbody>
               <% @product_varieties.each do |item| %>
                 <tr>
-                  <th scope="row"><%= item.color %></p></th>
-                  <td><%= item.size %>,</td>
-                  <td><%= item.price %></td>
+                  <th scope="row" style="text-align: center;"><%= item.color %></p></th>
+                  <td><%= item.size %></td>
                   <% if item.stock %>
                     <td><p>在庫:あり</p></td>
                   <% else %>
                      <td><p>在庫:なし</p></td>
                   <% end %>
-                  <td><button type="button" class="btn btn-default"><%= link_to "編集",edit_product_product_variety_path(params[:id],item.id)  %></button></td>
-                  <td><button type="button" class="btn btn-default"><%= link_to "削除", "/products/#{params[:id]}/product_varieties/#{item.id}", method: :delete, data: { confirm: '削除しますか？' }  %></button></td>
+                  <td><%= link_to "編集",edit_product_product_variety_path(params[:id],item.id),class: "btn btn-success" %></td>
+                  <td><%= link_to "削除", "/products/#{params[:id]}/product_varieties/#{item.id}", method: :delete, data: { confirm: '削除しますか？' },class: "btn btn-danger" %></td>
                 </tr>
               <% end %>
             </tbody>
           </table>
         </div>
         <div class="edit_link">
-         <%= link_to "Home", root_path %>
+         <%= link_to "出品中の商品一覧に戻る", admin_index_products_path %>
         </div>
     </div>
 </div>
-
 
